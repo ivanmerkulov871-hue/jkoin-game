@@ -15,10 +15,11 @@ jobs:
         with:
           node-version: '18'
 
-      - uses: actions/setup-java@v4
+      - name: Setup Java 17 for SDK
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '11'
+          java-version: '17'
 
       - name: Install Android SDK
         run: |
@@ -35,6 +36,12 @@ jobs:
         run: |
           yes | sdkmanager --licenses || true
           sdkmanager "platform-tools" "platforms;android-33" "build-tools;33.0.2"
+
+      - name: Setup Java 11 for Gradle
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '11'
 
       - name: Prepare www
         run: |
@@ -59,7 +66,6 @@ jobs:
         run: |
           sed -i 's|compileSdkVersion .*|compileSdkVersion 33|' variables.gradle || true
           sed -i 's|targetSdkVersion .*|targetSdkVersion 33|' variables.gradle || true
-          sed -i 's|minSdkVersion .*|minSdkVersion 22|' variables.gradle || true
 
       - name: Build APK
         working-directory: android

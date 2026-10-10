@@ -30,12 +30,11 @@ jobs:
           echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
           echo "ANDROID_SDK_ROOT=$HOME/android-sdk" >> $GITHUB_ENV
           echo "$HOME/android-sdk/cmdline-tools/latest/bin" >> $GITHUB_PATH
-          echo "$HOME/android-sdk/platform-tools" >> $GITHUB_PATH
 
       - name: Install SDK packages
         run: |
           yes | sdkmanager --licenses || true
-          sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+          sdkmanager "platform-tools" "platforms;android-33" "build-tools;33.0.2"
 
       - name: Prepare www
         run: |
@@ -44,10 +43,10 @@ jobs:
           cp background.png www/
           cp chest.png www/
 
-      - name: Install Capacitor
+      - name: Install Capacitor 5
         run: |
-          npm install -g @capacitor/cli
-          npm install @capacitor/core @capacitor/cli @capacitor/android
+          npm install -g @capacitor/cli@5
+          npm install @capacitor/core@5 @capacitor/cli@5 @capacitor/android@5
 
       - name: Init Capacitor
         run: |
@@ -55,11 +54,13 @@ jobs:
           npx cap add android
           npx cap sync
 
-      - name: Fix Gradle version
+      - name: Fix Gradle
         working-directory: android
         run: |
-          # Заменяем версию Gradle на стабильную 8.2 (без бага с bcprov)
-          sed -i 's|gradle-.*-all.zip|gradle-8.2-all.zip|' gradle/wrapper/gradle-wrapper.properties
+          sed -i 's|gradle-8.2.1-all.zip|gradle-8.0-all.zip|' gradle/wrapper/gradle-wrapper.properties || true
+          sed -i 's|com.android.tools.build:gradle:.*|com.android.tools.build:gradle:8.0.0|' build.gradle || true
+          sed -i 's|compileSdkVersion .*|compileSdkVersion 33|' variables.gradle || true
+          sed -i 's|targetSdkVersion .*|targetSdkVersion 33|' variables.gradle || true
 
       - name: Build APK
         working-directory: android

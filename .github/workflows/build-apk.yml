@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/cirruslabs/android-sdk:34
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -17,20 +19,6 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Install Capacitor
-        run: |
-          npm install -g @capacitor/cli
-          npm install @capacitor/core @capacitor/cli @capacitor/android
-
       - name: Prepare www folder
         run: |
           mkdir -p www
@@ -38,9 +26,14 @@ jobs:
           cp background.png www/
           cp chest.png www/
 
+      - name: Install Capacitor
+        run: |
+          npm install -g @capacitor/cli
+          npm install @capacitor/core @capacitor/cli @capacitor/android
+
       - name: Init Capacitor
         run: |
-          npx cap init "JKOIN Ящики" "com.jkartie.game" --web-dir=www
+          npx cap init "JKOIN" "com.jkartie.game" --web-dir=www
           npx cap add android
           npx cap sync
 

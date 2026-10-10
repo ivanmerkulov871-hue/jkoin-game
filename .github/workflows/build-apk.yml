@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17'
+          java-version: '11'
 
       - name: Install Android SDK
         run: |
@@ -54,19 +54,18 @@ jobs:
           npx cap add android
           npx cap sync
 
-      - name: Fix Gradle
+      - name: Fix Android versions
         working-directory: android
         run: |
-          sed -i 's|gradle-8.2.1-all.zip|gradle-8.0-all.zip|' gradle/wrapper/gradle-wrapper.properties || true
-          sed -i 's|com.android.tools.build:gradle:.*|com.android.tools.build:gradle:8.0.0|' build.gradle || true
           sed -i 's|compileSdkVersion .*|compileSdkVersion 33|' variables.gradle || true
           sed -i 's|targetSdkVersion .*|targetSdkVersion 33|' variables.gradle || true
+          sed -i 's|minSdkVersion .*|minSdkVersion 22|' variables.gradle || true
 
       - name: Build APK
         working-directory: android
         run: |
           chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon
+          ./gradlew assembleDebug
 
       - uses: actions/upload-artifact@v4
         with:

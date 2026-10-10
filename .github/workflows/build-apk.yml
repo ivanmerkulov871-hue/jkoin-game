@@ -61,11 +61,19 @@ jobs:
           npx cap add android
           npx cap sync
 
-      - name: Fix Android versions
+      - name: Fix Android SDK syntax
         working-directory: android
         run: |
-          sed -i 's|compileSdkVersion .*|compileSdkVersion 33|' variables.gradle || true
-          sed -i 's|targetSdkVersion .*|targetSdkVersion 33|' variables.gradle || true
+          cat > variables.gradle << 'EOF'
+          ext {
+              minSdkVersion = 22
+              compileSdkVersion = 33
+              targetSdkVersion = 33
+              androidXCore = "1.8.0"
+              androidXAppCompat = "1.6.1"
+              androidXMaterial = "1.9.0"
+          }
+          EOF
 
       - name: Build APK
         working-directory: android

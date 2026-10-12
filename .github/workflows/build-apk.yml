@@ -32,7 +32,6 @@ jobs:
           ln -sf /tmp/node-v22.11.0-linux-x64/bin/npx /usr/local/bin/npx
           hash -r
           node --version
-          npm --version
 
       - name: Install Capacitor
         run: |
@@ -45,11 +44,33 @@ jobs:
           npx cap add android
           npx cap sync
 
+      - name: Fix Android gradle versions
+        working-directory: android
+        run: |
+          cat > variables.gradle << 'EOF'
+          ext {
+              minSdkVersion = 22
+              compileSdkVersion = 34
+              targetSdkVersion = 34
+              androidXCore = "1.10.1"
+              androidXAppCompat = "1.6.1"
+              androidXMaterial = "1.9.0"
+              androidXAppCompatVersion = "1.6.1"
+              androidxActivityVersion = "1.8.0"
+              androidxFragmentVersion = "1.6.2"
+              androidxWebkitVersion = "1.8.0"
+              junitVersion = "4.13.2"
+              androidxJunitVersion = "1.1.5"
+              androidxEspressoCoreVersion = "3.5.1"
+              cordovaAndroidVersion = "10.1.1"
+          }
+          EOF
+
       - name: Build APK
         working-directory: android
         run: |
           chmod +x gradlew
-          ./gradlew assembleDebug
+          ./gradlew assembleDebug --no-daemon
 
       - uses: actions/upload-artifact@v4
         with:

@@ -44,15 +44,6 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .glass {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-top: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  }
-
   .balance {
     padding: 12px; border-radius: 10px;
     text-align: center; margin-bottom: 12px; font-size: 17px;
@@ -64,6 +55,19 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
   .balance span { color: #f9c74f; font-weight: bold; }
+  .vip-badge {
+    display: inline-block;
+    margin-left: 8px;
+    color: #ffd700;
+    font-weight: bold;
+    font-size: 13px;
+    text-shadow: 0 0 8px #ffd700;
+    animation: vipGlow 1.5s ease infinite;
+  }
+  @keyframes vipGlow {
+    0%, 100% { text-shadow: 0 0 8px #ffd700; }
+    50% { text-shadow: 0 0 15px #ffd700, 0 0 25px #ff8c00; }
+  }
 
   .menu-grid {
     display: grid;
@@ -96,6 +100,18 @@
   .menu-btn.fly-right { transform: translateX(120vw) rotate(15deg); opacity: 0; }
   .menu-btn.fly-down { transform: translateY(120vh) rotate(15deg); opacity: 0; }
 
+  .menu-btn-full {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(249, 199, 79, 0.25), rgba(255, 152, 0, 0.25));
+    border: 1px solid rgba(249, 199, 79, 0.6);
+    font-size: 16px;
+    font-weight: bold;
+    min-height: 60px;
+  }
+  .menu-btn-full:hover {
+    background: linear-gradient(135deg, rgba(249, 199, 79, 0.4), rgba(255, 152, 0, 0.4));
+  }
+
   .back-btn {
     display: block; width: 100%;
     color: #fff; border: none;
@@ -124,10 +140,7 @@
     border-top: 1px solid rgba(255, 255, 255, 0.35);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
-  .chest:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-  }
+  .chest:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-2px); }
   .chest:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
   .chest .price { color: #f9c74f; font-weight: bold; }
 
@@ -164,18 +177,14 @@
     width: 100%; height: 100%;
   }
   .chest-img {
-    width: 260px;
-    height: 260px;
+    width: 260px; height: 260px;
     background-image: url('chest.png');
     background-size: cover;
     background-position: center;
     border-radius: 16px;
     filter: drop-shadow(0 0 30px rgba(249, 199, 79, 0.5));
-    transition: transform 0.1s ease;
   }
-  .chest-img.shaking {
-    animation: chestShake 0.5s ease infinite;
-  }
+  .chest-img.shaking { animation: chestShake 0.5s ease infinite; }
   @keyframes chestShake {
     0%, 100% { transform: translate(0, 0) rotate(0deg); }
     20% { transform: translate(-6px, -3px) rotate(-2deg); }
@@ -184,48 +193,36 @@
     80% { transform: translate(5px, -2px) rotate(1.5deg); }
   }
   .chest-flash {
-    position: absolute;
-    top: 50%; left: 50%;
+    position: absolute; top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     width: 20px; height: 20px;
     border-radius: 50%;
     background: radial-gradient(circle, #fff 0%, #f9c74f 40%, transparent 80%);
-    opacity: 0;
-    pointer-events: none;
+    opacity: 0; pointer-events: none;
   }
-  .chest-flash.active {
-    animation: flashBurst 0.7s ease-out forwards;
-  }
+  .chest-flash.active { animation: flashBurst 0.7s ease-out forwards; }
   @keyframes flashBurst {
     0% { width: 20px; height: 20px; opacity: 0; }
     30% { width: 600px; height: 600px; opacity: 1; }
     100% { width: 900px; height: 900px; opacity: 0; }
   }
   .chest-loot-container {
-    position: absolute;
-    top: 50%; left: 50%;
+    position: absolute; top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    display: flex; flex-direction: column;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
+    display: flex; flex-direction: column; align-items: center;
+    opacity: 0; pointer-events: none;
   }
-  .chest-loot-container.show {
-    animation: lootAppear 0.8s ease-out 0.3s forwards;
-  }
+  .chest-loot-container.show { animation: lootAppear 0.8s ease-out 0.3s forwards; }
   @keyframes lootAppear {
     0% { opacity: 0; transform: translate(-50%, -50%) scale(0.3); }
     60% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
     100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
   }
   .chest-loot-text {
-    margin-top: 16px;
-    font-size: 20px;
-    font-weight: bold;
+    margin-top: 16px; font-size: 20px; font-weight: bold;
     color: #f9c74f;
     text-shadow: 0 0 20px #f9c74f, 0 0 40px #ff00ff;
-    padding: 12px 24px;
-    border-radius: 12px;
+    padding: 12px 24px; border-radius: 12px;
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -244,27 +241,19 @@
     animation: coinSpin 1s linear infinite;
     margin-bottom: 10px;
   }
-  @keyframes coinSpin {
-    0% { transform: rotateY(0deg); }
-    100% { transform: rotateY(360deg); }
-  }
+  @keyframes coinSpin { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
 
   .safe {
     width: 100px; height: 90px;
     background: linear-gradient(180deg, #4a4a4a 0%, #2a2a2a 100%);
-    border: 4px solid #6a6a6a;
-    border-radius: 8px;
-    position: relative;
-    margin-bottom: 10px;
+    border: 4px solid #6a6a6a; border-radius: 8px;
+    position: relative; margin-bottom: 10px;
     animation: safeShake 0.5s ease infinite;
   }
   .safe::after {
-    content: '';
-    position: absolute; right: 12px; top: 50%;
-    width: 14px; height: 14px;
-    border-radius: 50%;
-    background: #f9c74f;
-    transform: translateY(-50%);
+    content: ''; position: absolute; right: 12px; top: 50%;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: #f9c74f; transform: translateY(-50%);
     box-shadow: 0 0 8px #f9c74f;
   }
   @keyframes safeShake {
@@ -274,16 +263,14 @@
 
   .truck {
     width: 140px; height: 70px;
-    position: relative;
-    margin-bottom: 10px;
+    position: relative; margin-bottom: 10px;
     animation: truckBounce 0.4s ease infinite;
   }
   .truck-body {
     position: absolute; left: 0; top: 10px;
     width: 90px; height: 45px;
     background: linear-gradient(180deg, #ffcc00, #cc9900);
-    border: 2px solid #8b6508;
-    border-radius: 4px;
+    border: 2px solid #8b6508; border-radius: 4px;
   }
   .truck-cab {
     position: absolute; right: 0; top: 20px;
@@ -301,10 +288,7 @@
   .truck-wheel.w1 { left: 15px; }
   .truck-wheel.w2 { left: 45px; }
   .truck-wheel.w3 { right: 15px; }
-  @keyframes truckBounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
-  }
+  @keyframes truckBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
 
   .card-reveal {
     width: 160px; height: 240px;
@@ -313,8 +297,7 @@
     display: flex; align-items: center; justify-content: center;
     color: #fff; font-size: 13px; text-align: center;
     padding: 10px;
-    position: relative;
-    margin-bottom: 10px;
+    position: relative; margin-bottom: 10px;
     animation: glowPulse 1.5s ease infinite;
   }
   @keyframes glowPulse {
@@ -354,11 +337,7 @@
   .r-elite { background: rgba(33, 150, 243, 0.4); }
   .r-chrom { background: rgba(255, 152, 0, 0.4); }
   .r-legend { background: rgba(244, 67, 54, 0.4); }
-  .rarity-btns button.active {
-    outline: 2px solid #f9c74f;
-    opacity: 1;
-    background: rgba(255, 255, 255, 0.15);
-  }
+  .rarity-btns button.active { outline: 2px solid #f9c74f; opacity: 1; background: rgba(255, 255, 255, 0.15); }
 
   .card-list { max-height: 360px; overflow-y: auto; }
   .card {
@@ -396,6 +375,7 @@
     background: rgba(0,0,0,0.85);
     display: flex; align-items: center; justify-content: center;
     z-index: 1000; animation: fadeIn 0.3s ease;
+    overflow-y: auto;
   }
   .modal.hidden { display: none; }
   .modal-content { text-align: center; padding: 20px; max-width: 400px; width: 100%; }
@@ -450,10 +430,7 @@
     color: #888;
   }
   .wall-slot:hover { border-color: #f9c74f; }
-  .wall-slot.filled {
-    border: 2px solid rgba(249, 199, 79, 0.6);
-    color: #fff;
-  }
+  .wall-slot.filled { border: 2px solid rgba(249, 199, 79, 0.6); color: #fff; }
   .wall-slot.filled.epic { background: linear-gradient(180deg, rgba(74, 27, 110, 0.6), rgba(156, 39, 176, 0.3)); }
   .wall-slot.filled.elite { background: linear-gradient(180deg, rgba(27, 62, 110, 0.6), rgba(33, 150, 243, 0.3)); }
   .wall-slot.filled.chrom { background: linear-gradient(180deg, rgba(110, 59, 27, 0.6), rgba(255, 152, 0, 0.3)); }
@@ -465,8 +442,7 @@
     text-align: center; padding: 10px; margin-bottom: 8px;
     border-radius: 10px; font-size: 13px;
     min-height: 60px;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -490,10 +466,7 @@
     color: #f9c74f;
     transition: 0.2s; user-select: none;
   }
-  .path-arrow:hover:not(.disabled) {
-    background: rgba(255, 255, 255, 0.15);
-    transform: scale(1.05);
-  }
+  .path-arrow:hover:not(.disabled) { background: rgba(255, 255, 255, 0.15); transform: scale(1.05); }
   .path-arrow.disabled { opacity: 0.2; cursor: not-allowed; }
   .path-bar-wrap { flex: 1; }
   .progress-bar-bg {
@@ -755,6 +728,152 @@
     50% { box-shadow: 0 0 60px rgba(249, 199, 79, 1), 0 0 100px rgba(255, 0, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.5); }
   }
   .wheel-win-text { font-size: 18px; color: #4ade80; margin-top: 10px; }
+
+  /* ===== ДОНАТ ===== */
+  .donate-list { display: flex; flex-direction: column; gap: 10px; }
+  .donate-item {
+    padding: 14px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+  .donate-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+  .donate-item .donate-name {
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+  }
+  .donate-item .donate-price {
+    color: #f9c74f;
+    font-weight: bold;
+    font-size: 15px;
+    white-space: nowrap;
+    margin-left: 10px;
+  }
+
+  /* Страница выбора банка */
+  .bank-list { display: flex; flex-direction: column; gap: 8px; max-height: 400px; overflow-y: auto; padding-right: 4px; }
+  .bank-item {
+    display: flex; align-items: center;
+    padding: 12px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  .bank-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(4px);
+  }
+  .bank-icon {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: bold;
+    color: #fff;
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+  .bank-name {
+    color: #fff;
+    font-size: 14px;
+  }
+  .bank-arrow {
+    margin-left: auto;
+    color: #f9c74f;
+    font-size: 18px;
+  }
+
+  /* Страница оплаты */
+  .pay-info {
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    margin-bottom: 12px;
+  }
+  .pay-info .pay-label {
+    color: #aaa;
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+  .pay-info .pay-value {
+    color: #f9c74f;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+  .pay-info .pay-sum {
+    color: #4ade80;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 0 0 15px #4ade80;
+  }
+  .pay-redirect {
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 12px;
+    padding: 12px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .pay-btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #16a34a, #4ade80);
+    box-shadow: 0 4px 20px rgba(74, 222, 128, 0.5);
+    transition: 0.2s;
+    margin-bottom: 10px;
+  }
+  .pay-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(74, 222, 128, 0.7);
+  }
+  .pay-btn-cancel {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: 0.2s;
+  }
+  .pay-btn-cancel:hover { background: rgba(255, 255, 255, 0.15); }
 </style>
 </head>
 <body>
@@ -762,7 +881,7 @@
 
   <div id="menuScreen" class="screen">
     <h1>JKOIN Ящики</h1>
-    <div class="balance">Баланс: <span id="menuBalance">200</span> JKOIN</div>
+    <div class="balance">Баланс: <span id="menuBalance">200</span> JKOIN <span id="vipIndicator"></span></div>
     <div class="balance">Уровень: <span id="menuLevel">1</span> · XP: <span id="menuXP">0</span></div>
     <div class="menu-grid">
       <button class="menu-btn" id="btnChests" onclick="goTo('chestScreen', 'left', 'left')">Открыть ящики</button>
@@ -773,6 +892,7 @@
       <button class="menu-btn" id="btnHistory" onclick="goTo('historyScreen', 'right', 'right')">История лута</button>
       <button class="menu-btn" id="btnMedia" onclick="goToMedia()">Наши медиа</button>
       <button class="menu-btn" id="btnGetAttempts" onclick="tryGetAttempts()">Получить 2 попытки</button>
+      <button class="menu-btn menu-btn-full" id="btnDonate" onclick="goTo('donateScreen', 'down', 'left')">ДОНАТ</button>
     </div>
   </div>
 
@@ -792,432 +912,6 @@
 
   <div id="wheelScreen" class="screen hidden">
     <h2>Колесо фортуны</h2>
-// ===== КОЛЛЕКЦИЯ =====
-let currentRarity = "epic";
-function renderCollection() {
-  const lists = { epic: EPIC, elite: ELITE, chrom: CHROM, legend: LEGEND };
-  const owned = Object.keys(state.collection).length;
-  document.getElementById("collected").textContent = owned;
-  const list = lists[currentRarity];
-  const container = document.getElementById("cardList");
-  container.innerHTML = "";
-  list.forEach((name, i) => {
-    const key = currentRarity + ":" + name;
-    const has = !!state.collection[key];
-    const div = document.createElement("div");
-    div.className = "card " + (has ? "owned" : "missing");
-    div.innerHTML = `<span>${i+1}. ${name}</span><span class="badge">${has ? "x" + state.collection[key] : "—"}</span>`;
-    if (has) div.onclick = () => openCardModal(name, currentRarity);
-    container.appendChild(div);
-  });
-}
-function showRarity(r, ev) {
-  currentRarity = r;
-  document.querySelectorAll(".rarity-btns button").forEach(b => b.classList.remove("active"));
-  if (ev) ev.target.classList.add("active");
-  renderCollection();
-}
-function openCardModal(name, rarity) {
-  const modal = document.getElementById("cardModal");
-  const card = document.getElementById("modalCard");
-  card.className = "card-reveal " + rarity;
-  document.getElementById("modalCardText").textContent = name;
-  modal.classList.remove("hidden");
-}
-function closeModal() { document.getElementById("cardModal").classList.add("hidden"); }
-
-// ===== СТЕНА =====
-function renderWall() {
-  const grid = document.getElementById("wallGrid");
-  grid.innerHTML = "";
-  for (let i = 0; i < 10; i++) {
-    const slot = document.createElement("div");
-    const card = state.wall[i];
-    if (card) {
-      slot.className = "wall-slot filled " + card.rarity;
-      slot.innerHTML = `<div>${card.name}</div><div class="wall-edit-icon">✎</div>`;
-    } else {
-      slot.className = "wall-slot";
-      slot.innerHTML = `<div>Пусто</div><div class="wall-edit-icon">✎</div>`;
-    }
-    slot.onclick = () => openWallSlot(i);
-    grid.appendChild(slot);
-  }
-}
-let editingWallIndex = null;
-let wallRarity = "epic";
-function openWallSlot(index) {
-  editingWallIndex = index;
-  wallRarity = "epic";
-  document.getElementById("wallModalTitle").textContent = "Слот " + (index + 1) + " — выбери карту";
-  renderWallCardList();
-  document.getElementById("wallModal").classList.remove("hidden");
-}
-function renderWallCardList() {
-  const lists = { epic: EPIC, elite: ELITE, chrom: CHROM, legend: LEGEND };
-  const list = lists[wallRarity];
-  const container = document.getElementById("wallCardList");
-  container.innerHTML = "";
-  let found = false;
-  list.forEach(name => {
-    const key = wallRarity + ":" + name;
-    if (state.collection[key]) {
-      found = true;
-      const div = document.createElement("div");
-      div.className = "card owned";
-      div.innerHTML = `<span>${name}</span><span class="badge">x${state.collection[key]}</span>`;
-      div.onclick = () => setWallCard(name, wallRarity);
-      container.appendChild(div);
-    }
-  });
-  if (!found) {
-    const div = document.createElement("div");
-    div.className = "card missing";
-    div.textContent = "Нет выбитых карт этой редкости";
-    container.appendChild(div);
-  }
-  const clearBtn = document.createElement("div");
-  clearBtn.className = "card owned";
-  clearBtn.style.background = "rgba(244, 67, 54, 0.4)";
-  clearBtn.textContent = "Очистить слот";
-  clearBtn.onclick = () => { state.wall[editingWallIndex] = null; saveState(); renderWall(); closeWallModal(); };
-  container.appendChild(clearBtn);
-}
-function showWallRarity(r, ev) {
-  wallRarity = r;
-  document.querySelectorAll("#wallModal .rarity-btns button").forEach(b => b.classList.remove("active"));
-  if (ev) ev.target.classList.add("active");
-  renderWallCardList();
-}
-function setWallCard(name, rarity) {
-  state.wall[editingWallIndex] = { name, rarity };
-  saveState();
-  renderWall();
-  closeWallModal();
-}
-function closeWallModal() { document.getElementById("wallModal").classList.add("hidden"); }
-
-// ===== ПУТЬ К СЛАВЕ =====
-let viewingLevel = 1;
-function renderProgress() {
-  checkQuests();
-  viewingLevel = state.level;
-  updatePathView();
-  renderQuests();
-}
-function updatePathView() {
-  const maxLvl = MAX_LEVEL;
-  const lvl = viewingLevel;
-  const reward = getRewardForLevel(lvl);
-  document.getElementById("viewLevelLabel").textContent = lvl;
-  document.getElementById("viewRewardText").textContent = reward.text;
-  let percent = 0;
-  let xpText = "";
-  if (lvl < state.level) { percent = 100; xpText = "Получено"; }
-  else if (lvl === state.level) {
-    const totalAtLevel = totalXPForLevel(lvl);
-    const xpInLevel = state.xp - totalAtLevel;
-    const needForNext = xpForLevel(lvl);
-    percent = Math.min(100, (xpInLevel / needForNext) * 100);
-    xpText = `${xpInLevel} / ${needForNext} XP`;
-  } else { percent = 0; xpText = "Не достигнуто"; }
-  document.getElementById("progressFill").style.width = percent + "%";
-  document.getElementById("progressTextCenter").textContent = xpText;
-  const arrowLeft = document.getElementById("pathArrowLeft");
-  const arrowRight = document.getElementById("pathArrowRight");
-  if (lvl <= 1) arrowLeft.classList.add("disabled"); else arrowLeft.classList.remove("disabled");
-  if (lvl >= maxLvl) arrowRight.classList.add("disabled"); else arrowRight.classList.remove("disabled");
-}
-function prevLevel() { if (viewingLevel > 1) { viewingLevel--; updatePathView(); } }
-function nextLevel() { if (viewingLevel < MAX_LEVEL) { viewingLevel++; updatePathView(); } }
-function renderQuests() {
-  const ql = document.getElementById("questsList");
-  ql.innerHTML = "";
-  if (!state.quests) state.quests = generateQuests();
-  state.quests.forEach(q => {
-    const div = document.createElement("div");
-    div.className = "quest-item" + (q.done ? " done" : "");
-    div.innerHTML = `<div class="q-title">${q.title}</div><div class="q-reward">Награда: ${q.xpReward} XP + ${q.coinReward} JKOIN</div><div class="q-progress">${q.progress} / ${q.target}</div>`;
-    ql.appendChild(div);
-  });
-}
-
-// ===== ИСТОРИЯ =====
-function renderHistory() {
-  const container = document.getElementById("historyList");
-  container.innerHTML = "";
-  if (state.history.length === 0) {
-    container.innerHTML = "<div class='card missing'>История пуста</div>";
-    return;
-  }
-  state.history.forEach(h => {
-    const d = new Date(h.time);
-    const timeStr = `${d.getHours()}:${d.getMinutes().toString().padStart(2,"0")}`;
-    const div = document.createElement("div");
-    div.className = "hist-item";
-    div.innerHTML = `<span>${h.text}</span><span class="time">${timeStr}</span>`;
-    container.appendChild(div);
-  });
-}
-
-// ===== КОЛЕСО ФОРТУНЫ =====
-function renderWheel() {
-  checkWheelReset(state);
-  saveState();
-  renderWheelDisc();
-  renderWheelHistory();
-  updateWheelTimer();
-  document.getElementById("wheelAttempts").textContent = state.wheelAttempts;
-  document.getElementById("wheelBalance").textContent = state.balance;
-  const btn = document.getElementById("wheelSpinBtn");
-  if (state.wheelAttempts <= 0) {
-    btn.disabled = true;
-    btn.textContent = "Попыток нет";
-  } else if (state.balance < WHEEL_PRICE) {
-    btn.disabled = true;
-    btn.textContent = "Не хватает " + (WHEEL_PRICE - state.balance) + " JKOIN";
-  } else {
-    btn.disabled = false;
-    btn.textContent = "Крутить за " + WHEEL_PRICE + " JKOIN";
-  }
-}
-
-function renderWheelDisc() {
-  const disc = document.getElementById("wheelDisc");
-  disc.innerHTML = "";
-  const sectors = state.wheelPrizes;
-  const n = sectors.length;
-  const anglePer = 360 / n;
-  const radius = 50; // в процентах от размера (50%)
-  const centerX = 50;
-  const centerY = 50;
-
-  // Создаём SVG
-  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svg.setAttribute("viewBox", "0 0 100 100");
-  svg.setAttribute("class", "wheel-sector-svg");
-
-  // Сектора
-  sectors.forEach((sector, i) => {
-    const startAngle = i * anglePer - 90;
-    const endAngle = (i + 1) * anglePer - 90;
-    const startRad = startAngle * Math.PI / 180;
-    const endRad = endAngle * Math.PI / 180;
-
-    const x1 = centerX + radius * Math.cos(startRad);
-    const y1 = centerY + radius * Math.sin(startRad);
-    const x2 = centerX + radius * Math.cos(endRad);
-    const y2 = centerY + radius * Math.sin(endRad);
-
-    const largeArc = anglePer > 180 ? 1 : 0;
-
-    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    path.setAttribute("d", `M ${centerX} ${centerY} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArc} 1 ${x2} ${y2} Z`);
-    path.setAttribute("fill", sector.color);
-    path.setAttribute("stroke", "rgba(0,0,0,0.3)");
-    path.setAttribute("stroke-width", "0.3");
-    svg.appendChild(path);
-
-    // Текст
-    const midAngle = (startAngle + endAngle) / 2;
-    const midRad = midAngle * Math.PI / 180;
-    const textRadius = 32;
-    const tx = centerX + textRadius * Math.cos(midRad);
-    const ty = centerY + textRadius * Math.sin(midRad);
-
-    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    text.setAttribute("x", tx);
-    text.setAttribute("y", ty);
-    text.setAttribute("fill", "#fff");
-    text.setAttribute("font-size", "4");
-    text.setAttribute("font-weight", "bold");
-    text.setAttribute("text-anchor", "middle");
-    text.setAttribute("dominant-baseline", "middle");
-    text.setAttribute("transform", `rotate(${midAngle + 90}, ${tx}, ${ty})`);
-    text.textContent = sector.label || sector.amount || '';
-    svg.appendChild(text);
-  });
-
-  disc.appendChild(svg);
-
-  // Лампочки
-  const lampCount = 16;
-  for (let i = 0; i < lampCount; i++) {
-    const lamp = document.createElement("div");
-    lamp.className = "wheel-lamp";
-    const angle = (i / lampCount) * Math.PI * 2;
-    const cx = 50 + Math.cos(angle) * 46;
-    const cy = 50 + Math.sin(angle) * 46;
-    lamp.style.left = cx + "%";
-    lamp.style.top = cy + "%";
-    lamp.style.animationDelay = (i * 0.05) + "s";
-    disc.appendChild(lamp);
-  }
-
-  disc.style.transform = `rotate(${currentWheelRotation}deg)`;
-}
-
-let currentWheelRotation = 0;
-let spinning = false;
-
-function spinWheel() {
-  if (spinning) return;
-  checkWheelReset(state);
-  if (state.wheelAttempts <= 0) { alert("Попыток нет. Подожди восстановления!"); return; }
-  if (state.balance < WHEEL_PRICE) { alert("Не хватает JKOIN!"); return; }
-
-  spinning = true;
-  state.balance -= WHEEL_PRICE;
-  state.wheelAttempts -= 1;
-  saveState();
-  renderWheel();
-
-  const result = rollWheelPrize();
-  const prizeIndex = result.index;
-  const anglePer = 360 / state.wheelPrizes.length;
-  const baseSpins = 5 * 360;
-  const targetAngle = baseSpins + (360 - prizeIndex * anglePer) - (currentWheelRotation % 360);
-  currentWheelRotation += targetAngle;
-
-  const disc = document.getElementById("wheelDisc");
-  disc.style.transition = "transform 5s cubic-bezier(0.15, 0.9, 0.2, 1)";
-  disc.style.transform = `rotate(${currentWheelRotation}deg)`;
-
-  setTimeout(() => {
-    spinning = false;
-    applyWheelPrize(result.prize);
-  }, 5100);
-}
-
-function rollWheelPrize() {
-  const prizes = state.wheelPrizes;
-  const r = Math.random() * 100;
-  let targetIdx;
-  if (r < 90) {
-    const coinIdxs = prizes.map((p, i) => p.type === "coins" ? i : -1).filter(i => i >= 0);
-    targetIdx = coinIdxs[Math.floor(Math.random() * coinIdxs.length)];
-  } else if (r < 95) {
-    targetIdx = prizes.findIndex(p => p.type === "attempts");
-  } else if (r < 98) {
-    targetIdx = prizes.findIndex(p => p.type === "epic");
-  } else if (r < 99.5) {
-    targetIdx = prizes.findIndex(p => p.type === "chrom");
-  } else {
-    targetIdx = prizes.findIndex(p => p.type === "legend");
-  }
-  if (targetIdx < 0) targetIdx = 0;
-  return { index: targetIdx, prize: prizes[targetIdx] };
-}
-
-function applyWheelPrize(prize) {
-  let rewardText = "";
-  let historyText = "";
-
-  if (prize.type === "coins") {
-    state.balance += prize.amount;
-    rewardText = prize.amount + " JKOIN";
-    historyText = "Вы получили: " + prize.amount + " JKOIN";
-  } else if (prize.type === "attempts") {
-    state.wheelAttempts += prize.amount;
-    rewardText = "+" + prize.amount + " попытки колеса";
-    historyText = "Вы получили: +" + prize.amount + " попытки";
-  } else if (prize.type === "epic") {
-    const name = pickRandom(EPIC);
-    const key = "epic:" + name;
-    state.collection[key] = (state.collection[key] || 0) + 1;
-    rewardText = "Эпическая карта: " + name;
-    historyText = "Вы получили: Эпическая карта — " + name;
-    replaceWheelPrize("epic");
-  } else if (prize.type === "chrom") {
-    const name = pickRandom(CHROM);
-    const key = "chrom:" + name;
-    state.collection[key] = (state.collection[key] || 0) + 1;
-    rewardText = "Хроматическая карта: " + name;
-    historyText = "Вы получили: Хроматическая карта — " + name;
-    replaceWheelPrize("chrom");
-  } else if (prize.type === "legend") {
-    const avail = LEGEND.filter(n => n !== SHUT_CARD);
-    const name = pickRandom(avail);
-    const key = "legend:" + name;
-    state.collection[key] = (state.collection[key] || 0) + 1;
-    rewardText = "ЛЕГЕНДАРНАЯ карта: " + name;
-    historyText = "Вы получили: ЛЕГЕНДАРНАЯ карта — " + name;
-    replaceWheelPrize("legend");
-  }
-
-  state.wheelHistory.unshift({ text: historyText, time: Date.now() });
-  if (state.wheelHistory.length > 30) state.wheelHistory.pop();
-
-  saveState();
-  renderWheel();
-  showWheelWin(rewardText);
-}
-
-function replaceWheelPrize(fromType) {
-  const idx = state.wheelPrizes.findIndex(p => p.type === fromType);
-  if (idx < 0) return;
-  const rand = Math.random();
-  let newPrize;
-  if (rand < 0.7) newPrize = { type: "epic", color: "#8e44ad", label: "ЭПИК" };
-  else if (rand < 0.95) newPrize = { type: "chrom", color: "#00bcd4", label: "ХРОМ" };
-  else newPrize = { type: "legend", color: "#ff5722", label: "ЛЕГЕНД" };
-  state.wheelPrizes[idx] = newPrize;
-}
-
-function showWheelWin(rewardText) {
-  const modal = document.getElementById("wheelWinModal");
-  document.getElementById("wheelWinPrize").textContent = rewardText;
-  modal.classList.remove("hidden");
-  spawnFireworks(modal.querySelector(".wheel-win-content"));
-  spawnConfetti(modal.querySelector(".wheel-win-content"));
-}
-
-function closeWheelWin() {
-  document.getElementById("wheelWinModal").classList.add("hidden");
-}
-
-function updateWheelTimer() {
-  checkWheelReset(state);
-  const el = document.getElementById("wheelTimer");
-  if (state.wheelAttempts >= WHEEL_MAX_ATTEMPTS) {
-    el.textContent = "Готово к вращению";
-    return;
-  }
-  const now = Date.now();
-  const diff = state.wheelLastReset + WHEEL_RESET - now;
-  if (diff <= 0) { el.textContent = "Готово к вращению"; return; }
-  const h = Math.floor(diff / 3600000);
-  const m = Math.floor((diff % 3600000) / 60000);
-  const s = Math.floor((diff % 60000) / 1000);
-  el.textContent = "Восстановление через: " + h + ":" + m.toString().padStart(2,"0") + ":" + s.toString().padStart(2,"0");
-}
-
-function renderWheelHistory() {
-  const scroll = document.getElementById("wheelHistoryScroll");
-  const empty = document.getElementById("wheelHistoryEmpty");
-  scroll.innerHTML = "";
-  if (state.wheelHistory.length === 0) {
-    empty.style.display = "block";
-    return;
-  }
-  empty.style.display = "none";
-  const items = state.wheelHistory.slice(0, 15);
-  items.forEach(h => {
-    const div = document.createElement("div");
-    div.className = "wheel-history-line win";
-    div.textContent = h.text;
-    scroll.appendChild(div);
-  });
-  scroll.style.animation = "none";
-  setTimeout(() => { scroll.style.animation = "historyScrollUp 20s linear infinite"; }, 50);
-}
-
-// ===== ЗАПУСК =====
-renderMenu();
-checkPendingLevelUps();
-</script>
-</body>
-</html>
     <div class="wheel-screen-layout">
       <div class="wheel-side-history" id="wheelSideHistory">
         <div class="wheel-history-empty" id="wheelHistoryEmpty">История пуста</div>
@@ -1284,6 +978,39 @@ checkPendingLevelUps();
     <h2>История лута</h2>
     <div class="card-list" id="historyList"></div>
     <button class="back-btn" onclick="showScreen('menuScreen')">В меню</button>
+  </div>
+
+  <div id="donateScreen" class="screen hidden">
+    <h2>Донат-магазин</h2>
+    <div class="donate-list" id="donateList"></div>
+    <button class="back-btn" onclick="showScreen('menuScreen')">В меню</button>
+  </div>
+
+  <div id="bankScreen" class="screen hidden">
+    <h2>Выберите банк</h2>
+    <div class="pay-info">
+      <div class="pay-label">Товар</div>
+      <div class="pay-value" id="bankPayItem">4 крутки</div>
+      <div class="pay-label">К оплате</div>
+      <div class="pay-sum" id="bankPaySum">50 ₽</div>
+    </div>
+    <div class="bank-list" id="bankList"></div>
+    <button class="back-btn" onclick="showScreen('donateScreen')">Назад</button>
+  </div>
+
+  <div id="payScreen" class="screen hidden">
+    <h2>Оплата</h2>
+    <div class="pay-info">
+      <div class="pay-label">Банк</div>
+      <div class="pay-value" id="payBankName">Сбербанк</div>
+      <div class="pay-label">Товар</div>
+      <div class="pay-value" id="payItemName">4 крутки</div>
+      <div class="pay-label">К оплате</div>
+      <div class="pay-sum" id="paySum">50 ₽</div>
+    </div>
+    <div class="pay-redirect" id="payRedirect">Перенаправление в Сбербанк...</div>
+    <button class="pay-btn" onclick="confirmPayment()">Я оплатил</button>
+    <button class="pay-btn-cancel" onclick="showScreen('bankScreen')">Отмена</button>
   </div>
 
 </div>
@@ -1358,8 +1085,11 @@ const CHESTS = {
 };
 
 const MAX_ATTEMPTS = 15;
+const MAX_ATTEMPTS_VIP = 20;
 const ATTEMPTS_RESET = 8 * 60 * 60 * 1000;
+const ATTEMPTS_RESET_VIP = 4 * 60 * 60 * 1000;
 const FREE_CHEST_COOLDOWN = 10 * 60 * 1000;
+const FREE_CHEST_COOLDOWN_VIP = 5 * 60 * 1000;
 const AD_COOLDOWN = 5 * 60 * 1000;
 const MEDIA_URL = "https://t.me/JK_SHOP_r";
 const MAX_LEVEL = 100;
@@ -1383,6 +1113,37 @@ const WHEEL_SECTORS = [
   { type: "legend", color: "#ff5722", label: "ЛЕГЕНД" }
 ];
 
+// ===== ДОНАТ =====
+const DONATE_ITEMS = [
+  { id: "d1", name: "4 крутки", price: 50, type: "wheel", amount: 4 },
+  { id: "d2", name: "15 круток", price: 200, type: "wheel", amount: 15 },
+  { id: "d3", name: "50 круток", price: 1000, type: "wheel", amount: 50 },
+  { id: "d4", name: "100 круток", price: 3000, type: "wheel", amount: 100 },
+  { id: "d5", name: "1 000 000 JKOIN", price: 2000, type: "coins", amount: 1000000 },
+  { id: "d6", name: "5 легендарных карт", price: 5000, type: "legend_cards", amount: 5 },
+  { id: "d7", name: "VIP пропуск на месяц", price: 299, type: "vip", days: 30 },
+  { id: "d8", name: "VIP пропуск на год", price: 1000, type: "vip", days: 365 }
+];
+
+const BANKS = [
+  { name: "Сбербанк", icon: "С", color: "#00A650" },
+  { name: "Т-Банк", icon: "Т", color: "#FFDD2D" },
+  { name: "Альфа-Банк", icon: "А", color: "#EF3124" },
+  { name: "ВТБ", icon: "В", color: "#009FDF" },
+  { name: "Райффайзен", icon: "Р", color: "#FFED00" },
+  { name: "Росбанк", icon: "РБ", color: "#FF0033" },
+  { name: "Открытие", icon: "О", color: "#00A0E3" },
+  { name: "Совкомбанк", icon: "СК", color: "#ED1C24" },
+  { name: "Промсвязьбанк", icon: "ПС", color: "#E62B1E" },
+  { name: "Россельхозбанк", icon: "РС", color: "#228B22" },
+  { name: "МТС Банк", icon: "МТС", color: "#E30611" },
+  { name: "Банк Санкт-Петербург", icon: "БСП", color: "#0087C9" }
+];
+
+let currentDonateItem = null;
+let currentBank = null;
+
+// XP для уровня N
 function xpForLevel(n) { return 1000 + (n - 1) * 250; }
 function totalXPForLevel(n) {
   let sum = 0;
@@ -1413,7 +1174,7 @@ function getRewardForLevel(level) {
 let state = loadState();
 
 function loadState() {
-  const saved = localStorage.getItem("jkoin_state_v6");
+  const saved = localStorage.getItem("jkoin_state_v7");
   if (saved) {
     const s = JSON.parse(saved);
     if (s.attempts === undefined) s.attempts = MAX_ATTEMPTS;
@@ -1432,9 +1193,12 @@ function loadState() {
     if (s.wheelAttempts === undefined) s.wheelAttempts = WHEEL_MAX_ATTEMPTS;
     if (!s.wheelLastReset) s.wheelLastReset = Date.now();
     if (!s.wheelHistory) s.wheelHistory = [];
-    if (!s.wheelPrizes) s.wheelPrizes = WHEEL_SECTORS.map(s => ({...s}));
+    if (!s.wheelPrizes) s.wheelPrizes = WHEEL_SECTORS.map(x => ({...x}));
+    if (!s.vipUntil) s.vipUntil = 0;
+    if (!s.lastVipXP) s.lastVipXP = null;
     checkAttemptsReset(s);
     checkWheelReset(s);
+    checkVipDailyXP(s);
     return s;
   }
   return {
@@ -1444,16 +1208,38 @@ function loadState() {
     quests: null, lastQuestDate: null,
     claimedLevels: {}, pendingLevelUps: [],
     wheelAttempts: WHEEL_MAX_ATTEMPTS, wheelLastReset: Date.now(),
-    wheelHistory: [], wheelPrizes: WHEEL_SECTORS.map(s => ({...s}))
+    wheelHistory: [], wheelPrizes: WHEEL_SECTORS.map(x => ({...x})),
+    vipUntil: 0, lastVipXP: null
   };
 }
 
-function saveState() { localStorage.setItem("jkoin_state_v6", JSON.stringify(state)); }
+function isVip() { return state.vipUntil && Date.now() < state.vipUntil; }
+
+function getMaxAttempts() { return isVip() ? MAX_ATTEMPTS_VIP : MAX_ATTEMPTS; }
+function getAttemptsReset() { return isVip() ? ATTEMPTS_RESET_VIP : ATTEMPTS_RESET; }
+function getFreeCooldown() { return isVip() ? FREE_CHEST_COOLDOWN_VIP : FREE_CHEST_COOLDOWN; }
+
+function checkVipDailyXP(s) {
+  if (!s.vipUntil || Date.now() >= s.vipUntil) return;
+  const today = getTodayKey();
+  if (s.lastVipXP !== today) {
+    s.lastVipXP = today;
+    s.xp += 200;
+    // Проверяем level up
+    while (s.level < MAX_LEVEL && s.xp >= totalXPForLevel(s.level + 1)) {
+      s.level += 1;
+      s.pendingLevelUps.push(s.level);
+    }
+  }
+}
+
+function saveState() { localStorage.setItem("jkoin_state_v7", JSON.stringify(state)); }
 
 function checkAttemptsReset(s) {
   const now = Date.now();
-  if (now - s.lastAttemptsReset >= ATTEMPTS_RESET) {
-    s.attempts = MAX_ATTEMPTS;
+  const resetTime = s.vipUntil && now < s.vipUntil ? ATTEMPTS_RESET_VIP : ATTEMPTS_RESET;
+  if (now - s.lastAttemptsReset >= resetTime) {
+    s.attempts = s.vipUntil && now < s.vipUntil ? MAX_ATTEMPTS_VIP : MAX_ATTEMPTS;
     s.lastAttemptsReset = now;
   }
 }
@@ -1482,6 +1268,7 @@ function checkQuests() {
     state.quests = generateQuests();
     state.lastQuestDate = today;
     addXP(50);
+    checkVipDailyXP(state);
     saveState();
   }
 }
@@ -1580,13 +1367,16 @@ function showScreen(id) {
   if (id === "progressScreen") renderProgress();
   if (id === "historyScreen") renderHistory();
   if (id === "wheelScreen") renderWheel();
+  if (id === "donateScreen") renderDonate();
+  if (id === "bankScreen") renderBanks();
 }
 
 function goTo(targetId, direction, side) {
   const btnMap = {
     chestScreen: "btnChests", wheelScreen: "btnWheel",
     collectionScreen: "btnCollection", wallScreen: "btnWall",
-    progressScreen: "btnProgress", historyScreen: "btnHistory"
+    progressScreen: "btnProgress", historyScreen: "btnHistory",
+    donateScreen: "btnDonate"
   };
   const btn = document.getElementById(btnMap[targetId]);
   if (btn) {
@@ -1613,6 +1403,12 @@ function renderMenu() {
   document.getElementById("menuBalance").textContent = state.balance;
   document.getElementById("menuLevel").textContent = state.level;
   document.getElementById("menuXP").textContent = state.xp;
+  const vipInd = document.getElementById("vipIndicator");
+  if (isVip()) {
+    vipInd.innerHTML = '<span class="vip-badge">👑 VIP</span>';
+  } else {
+    vipInd.innerHTML = '';
+  }
 }
 
 function renderChests() {
@@ -1627,7 +1423,8 @@ function renderChests() {
 
 function updateTimer() {
   const now = Date.now();
-  const diff = state.lastFree + FREE_CHEST_COOLDOWN - now;
+  const cooldown = getFreeCooldown();
+  const diff = state.lastFree + cooldown - now;
   const el = document.getElementById("timerText");
   const btn = document.getElementById("freeChestBtn");
   if (diff <= 0) { el.textContent = "Бесплатный ящик доступен!"; btn.disabled = false; }
@@ -1641,9 +1438,11 @@ function updateTimer() {
 
 function updateAttemptsTimer() {
   const el = document.getElementById("attemptsTimer");
-  if (state.attempts >= MAX_ATTEMPTS) { el.textContent = ""; return; }
+  const maxA = getMaxAttempts();
+  if (state.attempts >= maxA) { el.textContent = ""; return; }
   const now = Date.now();
-  const diff = state.lastAttemptsReset + ATTEMPTS_RESET - now;
+  const resetTime = getAttemptsReset();
+  const diff = state.lastAttemptsReset + resetTime - now;
   if (diff <= 0) { el.textContent = ""; return; }
   const h = Math.floor(diff / 3600000);
   const m = Math.floor((diff % 3600000) / 60000);
@@ -1674,13 +1473,13 @@ function openChest(type) {
   const reward = rollReward(type);
   saveState();
   renderChests();
-  // Запускаем анимацию кейса
   playChestAnimation(reward);
 }
 
 function openFreeChest() {
   const now = Date.now();
-  if (now - state.lastFree < FREE_CHEST_COOLDOWN) { showResult("Бесплатный ящик ещё не готов", "lose"); return; }
+  const cooldown = getFreeCooldown();
+  if (now - state.lastFree < cooldown) { showResult("Бесплатный ящик ещё не готов", "lose"); return; }
   state.lastFree = now;
   addXP(10);
   updateQuestProgress("open5", 1);
@@ -1767,38 +1566,27 @@ function applyReward(reward) {
   return text;
 }
 
-// ===== АНИМАЦИЯ ОТКРЫТИЯ КЕЙСА =====
 function playChestAnimation(reward) {
   const overlay = document.getElementById("chestAnimOverlay");
   const chest = document.getElementById("chestImg");
   const flash = document.getElementById("chestFlash");
   const lootContainer = document.getElementById("chestLootContainer");
-
-  // Очищаем
   lootContainer.innerHTML = "";
   lootContainer.classList.remove("show");
   flash.classList.remove("active");
   chest.classList.add("shaking");
   overlay.classList.remove("hidden");
-
-  // 1. Тряска 0.8 сек
   setTimeout(() => {
     chest.classList.remove("shaking");
-    // 2. Вспышка
     flash.classList.add("active");
   }, 800);
-
-  // 3. Через 0.7 сек после вспышки — показываем лут
   setTimeout(() => {
     const lootHTML = getLootHTML(reward);
     lootContainer.innerHTML = lootHTML;
     lootContainer.classList.add("show");
   }, 1500);
-
-  // 4. Через 3.5 секунды — закрываем анимацию, показываем результат
   setTimeout(() => {
     overlay.classList.add("hidden");
-    // Показываем текст в result-box
     const text = applyReward(reward);
     animateRewardInBox(reward, text);
     renderChests();
@@ -2018,7 +1806,6 @@ function renderHistory() {
     container.appendChild(div);
   });
 }
-
 // ===== КОЛЕСО ФОРТУНЫ =====
 function renderWheel() {
   checkWheelReset(state);
@@ -2263,6 +2050,83 @@ function renderWheelHistory() {
   });
   scroll.style.animation = "none";
   setTimeout(() => { scroll.style.animation = "historyScrollUp 20s linear infinite"; }, 50);
+}
+
+// ===== ДОНАТ =====
+function renderDonate() {
+  const container = document.getElementById("donateList");
+  container.innerHTML = "";
+  DONATE_ITEMS.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "donate-item";
+    div.innerHTML = `<span class="donate-name">${item.name}</span><span class="donate-price">${item.price} ₽</span>`;
+    div.onclick = () => selectDonateItem(item);
+    container.appendChild(div);
+  });
+}
+
+function selectDonateItem(item) {
+  currentDonateItem = item;
+  document.getElementById("bankPayItem").textContent = item.name;
+  document.getElementById("bankPaySum").textContent = item.price + " ₽";
+  showScreen("bankScreen");
+}
+
+function renderBanks() {
+  const container = document.getElementById("bankList");
+  container.innerHTML = "";
+  BANKS.forEach(bank => {
+    const div = document.createElement("div");
+    div.className = "bank-item";
+    div.innerHTML = `
+      <div class="bank-icon" style="background:${bank.color};color:${bank.color === '#FFDD2D' ? '#000' : '#fff'};">${bank.icon}</div>
+      <div class="bank-name">${bank.name}</div>
+      <div class="bank-arrow">›</div>
+    `;
+    div.onclick = () => selectBank(bank);
+    container.appendChild(div);
+  });
+}
+
+function selectBank(bank) {
+  currentBank = bank;
+  document.getElementById("payBankName").textContent = bank.name;
+  document.getElementById("payItemName").textContent = currentDonateItem.name;
+  document.getElementById("paySum").textContent = currentDonateItem.price + " ₽";
+  document.getElementById("payRedirect").textContent = "Перенаправление в " + bank.name + "...";
+  showScreen("payScreen");
+}
+
+function confirmPayment() {
+  if (!currentDonateItem) return;
+  const item = currentDonateItem;
+
+  if (item.type === "wheel") {
+    state.wheelAttempts += item.amount;
+    alert("Оплата получена! +" + item.amount + " попыток колеса");
+  } else if (item.type === "coins") {
+    state.balance += item.amount;
+    alert("Оплата получена! +" + item.amount.toLocaleString("ru-RU") + " JKOIN");
+  } else if (item.type === "legend_cards") {
+    const avail = LEGEND.filter(n => n !== SHUT_CARD);
+    for (let i = 0; i < item.amount; i++) {
+      const name = pickRandom(avail);
+      const key = "legend:" + name;
+      state.collection[key] = (state.collection[key] || 0) + 1;
+      state.history.unshift({ text: "ДОНАТ: ЛЕГЕНДАРНАЯ карта — " + name, rarity: "legend", time: Date.now() });
+    }
+    alert("Оплата получена! +" + item.amount + " легендарных карт");
+  } else if (item.type === "vip") {
+    const now = Date.now();
+    const baseTime = Math.max(now, state.vipUntil || 0);
+    state.vipUntil = baseTime + item.days * 24 * 60 * 60 * 1000;
+    alert("Оплата получена! VIP на " + item.days + " дней");
+  }
+
+  saveState();
+  currentDonateItem = null;
+  currentBank = null;
+  showScreen("menuScreen");
 }
 
 // ===== ЗАПУСК =====

@@ -44,34 +44,6 @@ jobs:
           npx cap add android
           npx cap sync
 
-      - name: Fix Android build.gradle
-        working-directory: android
-        run: |
-          # Смотрим что там на строке 35 в app/build.gradle
-          echo "=== app/build.gradle line 30-40 ==="
-          sed -n '30,40p' app/build.gradle
-          # Заменяем все упоминания androidxAppCompatVersion на правильные переменные
-          sed -i 's/\$androidxAppCompatVersion/$androidXAppCompatVersion/g' app/build.gradle
-          # Выводим переменные
-          cat > variables.gradle << 'EOF'
-          ext {
-              minSdkVersion = 22
-              compileSdkVersion = 34
-              targetSdkVersion = 34
-              androidXCore = "1.10.1"
-              androidXAppCompat = "1.6.1"
-              androidXMaterial = "1.9.0"
-              androidXAppCompatVersion = "1.6.1"
-              androidxActivityVersion = "1.8.0"
-              androidxFragmentVersion = "1.6.2"
-              androidxWebkitVersion = "1.8.0"
-              junitVersion = "4.13.2"
-              androidxJunitVersion = "1.1.5"
-              androidxEspressoCoreVersion = "3.5.1"
-              cordovaAndroidVersion = "10.1.1"
-          }
-          EOF
-
       - name: Build APK
         working-directory: android
         run: |

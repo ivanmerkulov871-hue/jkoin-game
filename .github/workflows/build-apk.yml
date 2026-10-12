@@ -21,10 +21,13 @@ jobs:
           cp background.png www/
           cp chest.png www/
 
-      - name: Install Node 22
+      - name: Use Node 22 from nvm
         run: |
-          curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
-          apt-get install -y nodejs
+          source /usr/local/share/nvm/nvm.sh
+          nvm install 22
+          nvm use 22
+          nvm alias default 22
+          echo "$(dirname $(nvm which 22))" >> $GITHUB_PATH
           node --version
 
       - name: Install Capacitor

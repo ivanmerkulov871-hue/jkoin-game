@@ -14,19 +14,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Verify environment
-        run: |
-          node --version
-          java -version
-          echo "ANDROID_HOME=$ANDROID_HOME"
-          whoami
-
       - name: Prepare www
         run: |
           mkdir -p www
           cp game.html www/index.html
           cp background.png www/
           cp chest.png www/
+
+      - name: Install Node 22
+        run: |
+          curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
+          apt-get install -y nodejs
+          node --version
 
       - name: Install Capacitor
         run: |

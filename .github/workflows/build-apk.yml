@@ -21,14 +21,18 @@ jobs:
           cp background.png www/
           cp chest.png www/
 
-      - name: Use Node 22 from nvm
+      - name: Install Node 22
         run: |
-          source /usr/local/share/nvm/nvm.sh
-          nvm install 22
-          nvm use 22
-          nvm alias default 22
-          echo "$(dirname $(nvm which 22))" >> $GITHUB_PATH
+          cd /tmp
+          wget -q https://nodejs.org/dist/v22.11.0/node-v22.11.0-linux-x64.tar.xz
+          tar -xf node-v22.11.0-linux-x64.tar.xz
+          rm -f /usr/local/bin/node /usr/local/bin/npm /usr/local/bin/npx
+          ln -sf /tmp/node-v22.11.0-linux-x64/bin/node /usr/local/bin/node
+          ln -sf /tmp/node-v22.11.0-linux-x64/bin/npm /usr/local/bin/npm
+          ln -sf /tmp/node-v22.11.0-linux-x64/bin/npx /usr/local/bin/npx
+          hash -r
           node --version
+          npm --version
 
       - name: Install Capacitor
         run: |

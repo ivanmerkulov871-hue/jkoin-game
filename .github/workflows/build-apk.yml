@@ -33,6 +33,18 @@ jobs:
           hash -r
           node --version
 
+      - name: Install Java 21
+        run: |
+          cd /tmp
+          wget -q https://download.java.net/java/GA/jdk21.0.2/f2283984656d49d69e91c558476027ac/13/GPL/openjdk-21.0.2_linux-x64_bin.tar.gz
+          tar -xzf openjdk-21.0.2_linux-x64_bin.tar.gz
+          mv jdk-21.0.2 /opt/java21
+          echo "JAVA_HOME=/opt/java21" >> $GITHUB_ENV
+          echo "/opt/java21/bin" >> $GITHUB_PATH
+          export JAVA_HOME=/opt/java21
+          export PATH=/opt/java21/bin:$PATH
+          java -version
+
       - name: Install Capacitor
         run: |
           npm install -g @capacitor/cli
@@ -46,8 +58,12 @@ jobs:
 
       - name: Build APK
         working-directory: android
+        env:
+          JAVA_HOME: /opt/java21
         run: |
           chmod +x gradlew
+          export JAVA_HOME=/opt/java21
+          export PATH=/opt/java21/bin:$PATH
           ./gradlew assembleDebug --no-daemon
 
       - uses: actions/upload-artifact@v4

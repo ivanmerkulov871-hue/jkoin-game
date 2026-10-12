@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: cimg/android:2024.01-node
+      options: --user root
     steps:
       - uses: actions/checkout@v4
 
@@ -18,7 +19,7 @@ jobs:
           node --version
           java -version
           echo "ANDROID_HOME=$ANDROID_HOME"
-          ls $ANDROID_HOME
+          whoami
 
       - name: Prepare www
         run: |

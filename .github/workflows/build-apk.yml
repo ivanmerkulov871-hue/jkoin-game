@@ -57,9 +57,9 @@ jobs:
           npx cap add android
           npx cap sync
 
-      - name: Decode Keystore
+      - name: Copy keystore
         run: |
-          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/jkoin.keystore
+          cp jkoin.keystore android/jkoin.keystore
           ls -la android/jkoin.keystore
 
       - name: Set version code
@@ -92,9 +92,9 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleRelease \
             -Pandroid.injected.signing.store.file=$PWD/jkoin.keystore \
-            -Pandroid.injected.signing.store.password=${{ secrets.KEYSTORE_PASSWORD }} \
-            -Pandroid.injected.signing.key.alias=${{ secrets.KEY_ALIAS }} \
-            -Pandroid.injected.signing.key.password=${{ secrets.KEY_PASSWORD }}
+            -Pandroid.injected.signing.store.password=jkoin12345 \
+            -Pandroid.injected.signing.key.alias=jkoin \
+            -Pandroid.injected.signing.key.password=jkoin12345
 
       - uses: actions/upload-artifact@v4
         with:

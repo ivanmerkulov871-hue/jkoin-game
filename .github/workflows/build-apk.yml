@@ -20,7 +20,6 @@ jobs:
           cp game.html www/index.html
           cp background.png www/
           cp chest.png www/
-          cp icon.png www/
 
       - name: Install Node 22
         run: |
@@ -42,9 +41,6 @@ jobs:
           mv jdk-21.0.2 /opt/java21
           echo "JAVA_HOME=/opt/java21" >> $GITHUB_ENV
           echo "/opt/java21/bin" >> $GITHUB_PATH
-          export JAVA_HOME=/opt/java21
-          export PATH=/opt/java21/bin:$PATH
-          java -version
 
       - name: Install Capacitor
         run: |
@@ -57,6 +53,15 @@ jobs:
           npx cap add android
           npx cap sync
 
+      - name: Generate icons via Capacitor Assets
+        run: |
+          npm install -g @capacitor/assets
+          mkdir -p resources
+          cp icon.png resources/icon.png
+          npx capacitor-assets generate --android --iconBackgroundColor "#1a1a2e" --iconBackgroundColorDark "#1a1a2e" || true
+          echo "=== Проверяем иконки ==="
+          ls -la android/app/src/main/res/mipmap-hdpi/
+
       - name: Copy keystore
         run: |
           cp jkoin.keystore android/jkoin.keystore
@@ -67,20 +72,6 @@ jobs:
         run: |
           sed -i 's/versionCode 1/versionCode 2/' app/build.gradle || true
           sed -i 's/versionName "1.0"/versionName "1.1"/' app/build.gradle || true
-
-      - name: Replace icons
-        working-directory: android
-        run: |
-          ICON_PATH=$(pwd)/../icon.png
-          ICON_BASE=app/src/main/res
-          for d in mdpi hdpi xhdpi xxhdpi xxxhdpi; do
-            if [ -d "$ICON_BASE/mipmap-$d" ]; then
-              cp "$ICON_PATH" "$ICON_BASE/mipmap-$d/ic_launcher.png"
-              cp "$ICON_PATH" "$ICON_BASE/mipmap-$d/ic_launcher_round.png"
-              cp "$ICON_PATH" "$ICON_BASE/mipmap-$d/ic_launcher_foreground.png" 2>/dev/null || true
-            fi
-          done
-          ls -la $ICON_BASE/mipmap-hdpi/
 
       - name: Build APK
         working-directory: android

@@ -33,6 +33,17 @@ jobs:
           hash -r
           node --version
 
+      - name: Install Capacitor
+        run: |
+          npm install -g @capacitor/cli
+          npm install @capacitor/core @capacitor/cli @capacitor/android
+
+      - name: Init Capacitor
+        run: |
+          npx cap init "JKOIN" "com.jkartie.game" --web-dir=www
+          npx cap add android
+          npx cap sync
+
       - name: Install Java 21
         run: |
           cd /tmp
@@ -45,28 +56,44 @@ jobs:
           export PATH=/opt/java21/bin:$PATH
           java -version
 
-      - name: Install Capacitor
+      - name: Generate Keystore
+        working-directory: android
         run: |
-          npm install -g @capacitor/cli
-          npm install @capacitor/core @capacitor/cli @capacitor/android
-
-      - name: Init Capacitor
-        run: |
-          npx cap init "JKOIN" "com.jkartie.game" --web-dir=www
-          npx cap add android
-          npx cap sync
+          export JAVA_HOME=/opt/java21
+          export PATH=/opt/java21/bin:$PATH
+          keytool -genkeypair -v \
+            -keystore jkoin.keystore \
+            -alias jkoin \
+            -keyalg RSA -keysize 2048 -validity 10000 \
+            -storepass jkoin12345 \
+            -keypass jkoin12345 \
+            -dname "CN=JKoin, OU=Game, O=JKARTIE, L=Moscow, S=Moscow, C=RU"
+          ls -la jkoin.keystore
+          base64 jkoin.keystore > jkoin.keystore.txt
+          echo "=========================================="
+          echo "===== СКОПИРУЙ ЭТУ СТРОКУ BASE64 ====="
+          echo "=========================================="
+          cat jkoin.keystore.txt
+          echo ""
+          echo "=========================================="
+          echo "===== КОНЕЦ BASE64 ====="
+          echo "=========================================="
 
       - name: Build APK
         working-directory: android
         env:
           JAVA_HOME: /opt/java21
         run: |
-          chmod +x gradlew
           export JAVA_HOME=/opt/java21
           export PATH=/opt/java21/bin:$PATH
-          ./gradlew assembleDebug --no-daemon
+          chmod +x gradlew
+          ./gradlew assembleRelease \
+            -Pandroid.injected.signing.store.file=$PWD/jkoin.keystore \
+            -Pandroid.injected.signing.store.password=jkoin12345 \
+            -Pandroid.injected.signing.key.alias=jkoin \
+            -Pandroid.injected.signing.key.password=jkoin12345
 
       - uses: actions/upload-artifact@v4
         with:
           name: jkoin-game-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          path: android/app/build/outputs/apk/release/app-release.apk

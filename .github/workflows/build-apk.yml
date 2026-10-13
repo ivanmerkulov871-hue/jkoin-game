@@ -31,10 +31,15 @@ jobs:
             -storepass jkoin12345 \
             -keypass jkoin12345 \
             -dname "CN=JKoin, OU=Game, O=JKARTIE, L=Moscow, S=Moscow, C=RU"
+          base64 -w 0 jkoin.keystore > jkoin_base64.txt
           echo "===== KEYSTORE READY ====="
           ls -la jkoin.keystore
-          echo ""
-          echo "===== BASE64 START ====="
-          base64 -w 0 jkoin.keystore
-          echo ""
-          echo "===== BASE64 END ====="
+          ls -la jkoin_base64.txt
+
+      - name: Upload keystore as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: jkoin-keystore
+          path: |
+            jkoin.keystore
+            jkoin_base64.txt

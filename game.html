@@ -143,6 +143,261 @@
   }
   .back-btn:hover { background: rgba(255, 255, 255, 0.15); }
 
+  /* ===== СТЕНА КОЛЛЕКЦИИ (новая) ===== */
+  .wall-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .wall-back-arrow {
+    position: absolute;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    color: #f9c74f;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: 0.2s;
+    user-select: none;
+    z-index: 2;
+  }
+  .wall-back-arrow:hover { background: rgba(255, 255, 255, 0.15); transform: scale(1.05); }
+  .wall-header h2 {
+    width: 100%;
+    margin: 0;
+  }
+
+  .wall-grid-new {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+  .wall-slot-new {
+    aspect-ratio: 1/1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 9px;
+    color: #888;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    word-break: break-word;
+    line-height: 1.1;
+  }
+  .wall-slot-new:hover { border-color: #f9c74f; transform: scale(1.05); }
+  .wall-slot-new.filled {
+    border: 2px solid;
+    color: #fff;
+  }
+  /* Грани свечения по редкости */
+  .wall-slot-new.filled.epic {
+    border-color: #9c27b0;
+    box-shadow: 0 0 8px #9c27b0, inset 0 0 8px rgba(156, 39, 176, 0.3);
+    background: linear-gradient(180deg, rgba(74, 27, 110, 0.5), rgba(156, 39, 176, 0.2));
+  }
+  .wall-slot-new.filled.elite {
+    border-color: #4caf50;
+    box-shadow: 0 0 8px #4caf50, inset 0 0 8px rgba(76, 175, 80, 0.3);
+    background: linear-gradient(180deg, rgba(27, 94, 32, 0.5), rgba(76, 175, 80, 0.2));
+  }
+  .wall-slot-new.filled.chrom {
+    border-color: #ff9800;
+    box-shadow: 0 0 8px #ff9800, inset 0 0 8px rgba(255, 152, 0, 0.3);
+    background: linear-gradient(180deg, rgba(110, 59, 27, 0.5), rgba(255, 152, 0, 0.2));
+  }
+  .wall-slot-new.filled.legend {
+    border-color: #f44336;
+    box-shadow: 0 0 8px #f44336, inset 0 0 8px rgba(244, 67, 54, 0.3);
+    background: linear-gradient(180deg, rgba(110, 27, 27, 0.5), rgba(244, 67, 54, 0.2));
+  }
+  .wall-slot-new .wall-edit-icon {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 10px;
+    opacity: 0.7;
+  }
+
+  .wall-collection-price {
+    text-align: center;
+    font-size: 13px;
+    color: #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  }
+  .wall-collection-price span { color: #f9c74f; font-weight: bold; }
+
+  /* ===== БАНК ===== */
+  .bank-balance {
+    text-align: center;
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  }
+  .bank-balance span { color: #f9c74f; font-weight: bold; }
+  .bank-info {
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    color: #ddd;
+  }
+  .bank-info span { color: #4ade80; font-weight: bold; }
+  .bank-info.warning span { color: #f87171; }
+
+  .bank-btn {
+    display: block; width: 100%;
+    color: #fff; border: none;
+    padding: 16px; border-radius: 10px;
+    font-size: 15px; cursor: pointer;
+    margin-bottom: 10px; text-align: center;
+    font-weight: bold;
+    transition: 0.2s;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  }
+  .bank-btn:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-2px); }
+  .bank-btn.credit {
+    background: linear-gradient(135deg, rgba(244, 67, 54, 0.3), rgba(233, 30, 99, 0.3));
+    border: 1px solid rgba(244, 67, 54, 0.6);
+  }
+  .bank-btn.deposit {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(139, 195, 74, 0.3));
+    border: 1px solid rgba(76, 175, 80, 0.6);
+  }
+  .bank-btn.withdraw {
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.3), rgba(255, 193, 7, 0.3));
+    border: 1px solid rgba(255, 152, 0, 0.6);
+  }
+
+  /* ===== МОДАЛКА ВВОДА СУММЫ ===== */
+  .input-modal-box {
+    background: rgba(22, 33, 62, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(249, 199, 79, 0.4);
+    border-top: 2px solid rgba(249, 199, 79, 0.7);
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 340px;
+    width: 100%;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+  }
+  .input-modal-box h3 {
+    color: #f9c74f;
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 18px;
+  }
+  .input-modal-box input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 14px;
+    outline: none;
+  }
+  .input-modal-box input:focus { border-color: #f9c74f; }
+  .input-modal-box .modal-actions {
+    display: flex; gap: 8px;
+  }
+  .input-modal-box .modal-actions button {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #fff;
+  }
+  .input-modal-box .modal-actions .confirm {
+    background: linear-gradient(135deg, #16a34a, #4ade80);
+  }
+  .input-modal-box .modal-actions .cancel {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .input-modal-box .modal-actions button:hover { transform: translateY(-2px); }
+
+  /* ===== ЗАГЛУШКА ===== */
+  .stub-box {
+    border: 2px solid rgba(249, 199, 79, 0.5);
+    border-radius: 12px;
+    padding: 30px 20px;
+    max-width: 320px;
+    width: 100%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 2px solid rgba(249, 199, 79, 0.8);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  }
+  .stub-box .stub-emoji {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+  .stub-box .stub-title {
+    color: #f9c74f;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  .stub-box .stub-text {
+    color: #ddd;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  /* ===== ОСТАЛЬНОЕ (ящики, колесо, коллекция, история, донат) ===== */
   .chest {
     color: #fff; padding: 14px; border-radius: 10px; font-size: 15px;
     cursor: pointer; display: flex; justify-content: space-between;
@@ -296,24 +551,37 @@
   .truck-wheel.w3 { right: 15px; }
   @keyframes truckBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
 
+  /* ===== КАРТЫ 1:1 с гранями ===== */
   .card-reveal {
-    width: 160px; height: 240px;
+    width: 160px; height: 160px;
     background: linear-gradient(180deg, #1a1a2e, #2d1b4e);
     border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
     color: #fff; font-size: 13px; text-align: center;
     padding: 10px;
     position: relative; margin-bottom: 10px;
-    animation: glowPulse 1.5s ease infinite;
+    word-break: break-word;
   }
-  @keyframes glowPulse {
-    0%, 100% { box-shadow: 0 0 20px #f9c74f, 0 0 40px #ff00ff; }
-    50% { box-shadow: 0 0 35px #f9c74f, 0 0 70px #00ffff; }
+  .card-reveal.epic {
+    border: 3px solid #9c27b0;
+    box-shadow: 0 0 20px #9c27b0, 0 0 40px rgba(156, 39, 176, 0.5), inset 0 0 20px rgba(156, 39, 176, 0.3);
+    background: linear-gradient(180deg, #1a1a2e, #4a1b6e);
   }
-  .card-reveal.epic { background: linear-gradient(180deg, #1a1a2e, #4a1b6e); }
-  .card-reveal.elite { background: linear-gradient(180deg, #1a1a2e, #1b3e6e); }
-  .card-reveal.chrom { background: linear-gradient(180deg, #2d1b00, #6e3b1b); }
-  .card-reveal.legend { background: linear-gradient(180deg, #2d0000, #6e1b1b); }
+  .card-reveal.elite {
+    border: 3px solid #4caf50;
+    box-shadow: 0 0 20px #4caf50, 0 0 40px rgba(76, 175, 80, 0.5), inset 0 0 20px rgba(76, 175, 80, 0.3);
+    background: linear-gradient(180deg, #1a1a2e, #1b5e20);
+  }
+  .card-reveal.chrom {
+    border: 3px solid #ff9800;
+    box-shadow: 0 0 20px #ff9800, 0 0 40px rgba(255, 152, 0, 0.5), inset 0 0 20px rgba(255, 152, 0, 0.3);
+    background: linear-gradient(180deg, #2d1b00, #6e3b1b);
+  }
+  .card-reveal.legend {
+    border: 3px solid #f44336;
+    box-shadow: 0 0 20px #f44336, 0 0 40px rgba(244, 67, 54, 0.5), inset 0 0 20px rgba(244, 67, 54, 0.3);
+    background: linear-gradient(180deg, #2d0000, #6e1b1b);
+  }
 
   .confetti-full {
     position: fixed; top: 0; left: 0;
@@ -346,7 +614,7 @@
   }
   .rarity-btns button:hover { opacity: 1; transform: translateY(-2px); }
   .r-epic { background: rgba(156, 39, 176, 0.4); }
-  .r-elite { background: rgba(33, 150, 243, 0.4); }
+  .r-elite { background: rgba(76, 175, 80, 0.4); }
   .r-chrom { background: rgba(255, 152, 0, 0.4); }
   .r-legend { background: rgba(244, 67, 54, 0.4); }
   .rarity-btns button.active { outline: 2px solid #f9c74f; opacity: 1; background: rgba(255, 255, 255, 0.15); }
@@ -362,7 +630,7 @@
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   }
   .card.owned { color: #fff; }
   .card.owned:hover { background: rgba(255, 255, 255, 0.15); }
@@ -378,7 +646,7 @@
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   }
   .hist-item .time { color: #aaa; font-size: 11px; }
 
@@ -412,40 +680,13 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-top: 2px solid rgba(249, 199, 79, 0.8);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
   }
   .ad-label { color: #f9c74f; font-size: 12px; letter-spacing: 2px; margin-bottom: 16px; }
   .ad-title { color: #fff; font-size: 20px; font-weight: bold; margin-bottom: 20px; }
   .ad-timer { color: #4ade80; font-size: 32px; font-weight: bold; margin-bottom: 20px; }
   .ad-progress { width: 100%; height: 6px; background: rgba(255,255,255,0.15); border-radius: 3px; overflow: hidden; }
   .ad-progress-bar { height: 100%; background: #4ade80; width: 0%; transition: width 0.1s linear; }
-
-  .wall-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr);
-    gap: 10px; margin-bottom: 12px;
-    flex: 1; align-content: start;
-  }
-  .wall-slot {
-    aspect-ratio: 3/4;
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px; text-align: center;
-    padding: 8px;
-    position: relative; cursor: pointer;
-    transition: 0.2s;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 2px dashed rgba(255, 255, 255, 0.25);
-    color: #888;
-  }
-  .wall-slot:hover { border-color: #f9c74f; }
-  .wall-slot.filled { border: 2px solid rgba(249, 199, 79, 0.6); color: #fff; }
-  .wall-slot.filled.epic { background: linear-gradient(180deg, rgba(74, 27, 110, 0.6), rgba(156, 39, 176, 0.3)); }
-  .wall-slot.filled.elite { background: linear-gradient(180deg, rgba(27, 62, 110, 0.6), rgba(33, 150, 243, 0.3)); }
-  .wall-slot.filled.chrom { background: linear-gradient(180deg, rgba(110, 59, 27, 0.6), rgba(255, 152, 0, 0.3)); }
-  .wall-slot.filled.legend { background: linear-gradient(180deg, rgba(110, 27, 27, 0.6), rgba(244, 67, 54, 0.3)); }
-  .wall-edit-icon { position: absolute; top: 6px; right: 6px; font-size: 14px; opacity: 0.7; }
 
   .path-container { position: relative; margin-bottom: 14px; padding: 4px 0; }
   .path-reward-display {
@@ -458,7 +699,7 @@
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(249, 199, 79, 0.4);
     border-top: 1px solid rgba(249, 199, 79, 0.6);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     color: #fff;
   }
   .path-reward-display .lvl-label { color: #f9c74f; font-size: 12px; margin-bottom: 4px; }
@@ -513,7 +754,7 @@
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   }
   .quest-item .q-title { color: #fff; margin-bottom: 4px; }
   .quest-item .q-reward { color: #4ade80; font-size: 11px; }
@@ -562,7 +803,7 @@
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   }
   .fireworks {
     position: absolute; top: 50%; left: 50%;
@@ -589,7 +830,7 @@
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   }
   .wheel-side-history::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0;
@@ -684,13 +925,12 @@
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(249, 199, 79, 0.4);
     border-top: 1px solid rgba(249, 199, 79, 0.6);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     font-weight: bold;
   }
   .wheel-spin-btn:hover:not(:disabled) {
     background: rgba(255, 255, 255, 0.15);
     transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35), 0 0 20px rgba(249, 199, 79, 0.4);
   }
   .wheel-spin-btn:disabled { opacity: 0.4; cursor: not-allowed; }
   .wheel-win-modal {
@@ -723,12 +963,12 @@
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 2px solid rgba(249, 199, 79, 0.6);
-    box-shadow: 0 0 40px rgba(249, 199, 79, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 40px rgba(249, 199, 79, 0.6);
     animation: prizeGlow 1.5s ease infinite;
   }
   @keyframes prizeGlow {
-    0%, 100% { box-shadow: 0 0 30px rgba(249, 199, 79, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3); }
-    50% { box-shadow: 0 0 60px rgba(249, 199, 79, 1), 0 0 100px rgba(255, 0, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.5); }
+    0%, 100% { box-shadow: 0 0 30px rgba(249, 199, 79, 0.5); }
+    50% { box-shadow: 0 0 60px rgba(249, 199, 79, 1), 0 0 100px rgba(255, 0, 255, 0.5); }
   }
   .wheel-win-text { font-size: 18px; color: #4ade80; margin-top: 10px; }
 
@@ -740,7 +980,7 @@
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     cursor: pointer; transition: 0.2s;
     display: flex; justify-content: space-between;
     align-items: center; text-align: left;
@@ -758,7 +998,7 @@
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     cursor: pointer; transition: 0.2s;
   }
   .bank-item:hover { background: rgba(255, 255, 255, 0.15); transform: translateX(4px); }
@@ -778,7 +1018,7 @@
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     margin-bottom: 12px;
   }
   .pay-info .pay-label { color: #aaa; font-size: 12px; margin-bottom: 6px; }
@@ -797,7 +1037,7 @@
     box-shadow: 0 4px 20px rgba(74, 222, 128, 0.5);
     transition: 0.2s; margin-bottom: 10px;
   }
-  .pay-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(74, 222, 128, 0.7); }
+  .pay-btn:hover { transform: translateY(-2px); }
   .pay-btn-cancel {
     width: 100%; padding: 12px; border-radius: 10px;
     font-size: 14px; color: #fff; border: none;
@@ -827,6 +1067,8 @@
       <button class="menu-btn" id="btnHistory" onclick="goTo('historyScreen', 'right', 'right')">История лута</button>
       <button class="menu-btn" id="btnMedia" onclick="goToMedia()">Наши медиа</button>
       <button class="menu-btn" id="btnGetAttempts" onclick="tryGetAttempts()">Получить 2 попытки</button>
+      <button class="menu-btn" id="btnBank" onclick="goTo('bankScreen', 'left', 'left')">БАНК</button>
+      <button class="menu-btn" id="btnProfile" onclick="showProfileStub()">ПРОФИЛЬ</button>
       <button class="menu-btn menu-btn-full" id="btnDonate" onclick="goTo('donateScreen', 'down', 'left')">ДОНАТ</button>
     </div>
   </div>
@@ -879,8 +1121,12 @@
   </div>
 
   <div id="wallScreen" class="screen hidden">
-    <h2>Стена коллекции</h2>
-    <div class="wall-grid" id="wallGrid"></div>
+    <div class="wall-header">
+      <div class="wall-back-arrow" onclick="showScreen('menuScreen')">←</div>
+      <h2>Стена коллекции</h2>
+    </div>
+    <div class="wall-grid-new" id="wallGridNew"></div>
+    <div class="wall-collection-price">Стоимость коллекции: <span id="wallPrice">0</span> JKOIN</div>
     <button class="back-btn" onclick="showScreen('menuScreen')">В меню</button>
   </div>
 
@@ -916,6 +1162,17 @@
   <div id="donateScreen" class="screen hidden">
     <h2>Донат-магазин</h2>
     <div class="donate-list" id="donateList"></div>
+    <button class="back-btn" onclick="showScreen('menuScreen')">В меню</button>
+  </div>
+
+  <div id="bankScreen" class="screen hidden">
+    <h2>Банк</h2>
+    <div class="bank-balance">Баланс: <span id="bankBalance">200</span> JKOIN</div>
+    <div class="bank-info" id="bankCreditInfo">Кредит: <span id="bankCredit">0</span> JKOIN</div>
+    <div class="bank-info" id="bankDepositInfo">Депозит: <span id="bankDeposit">0</span> JKOIN</div>
+    <button class="bank-btn credit" onclick="openCreditModal()">💳 Взять кредит (макс. 20 000)</button>
+    <button class="bank-btn deposit" onclick="openDepositModal()">💰 Положить в депозит</button>
+    <button class="bank-btn withdraw" onclick="withdrawDeposit()">💸 Снять депозит</button>
     <button class="back-btn" onclick="showScreen('menuScreen')">В меню</button>
   </div>
 
@@ -978,6 +1235,26 @@
   </div>
 </div>
 
+<div id="inputModal" class="modal hidden">
+  <div class="input-modal-box">
+    <h3 id="inputModalTitle">Введите сумму</h3>
+    <input type="number" id="inputModalField" placeholder="0" />
+    <div class="modal-actions">
+      <button class="cancel" onclick="closeInputModal()">Отмена</button>
+      <button class="confirm" onclick="confirmInputModal()">OK</button>
+    </div>
+  </div>
+</div>
+
+<div id="stubModal" class="modal hidden">
+  <div class="stub-box">
+    <div class="stub-emoji">🚧</div>
+    <div class="stub-title">В разработке</div>
+    <div class="stub-text">Профиль появится в следующем обновлении!</div>
+    <button class="close-btn" onclick="closeStubModal()">Понятно</button>
+  </div>
+</div>
+
 <div id="levelUpModal" class="levelup-overlay hidden">
   <div class="levelup-content" id="levelUpContent">
     <div class="levelup-close" onclick="closeLevelUp()">✕</div>
@@ -1011,14 +1288,14 @@ const CHROM = ["Хромовый рыцарь","Призматический о�
 
 const LEGEND = ["Багровый рыцарь","Галактический страж","Хранитель небес","Монарх снов","Сердце льда","Драконий пик","Король тьмы","Песнь благоговенных снов","Желание бабочки","Астрикс","Архангел судьбы","Игрок №1","Проводник души","Мерцающий клинок","Марс","SHUT","SjLORDIK","Relax I'm Qwell","Sartex","Denim Tears"];
 
-// ===== ЯЩИКИ (с новыми шансами и монетами) =====
+const CARD_PRICES = { epic: 500, elite: 1000, chrom: 2500, legend: 5000 };
+
 const CHESTS = {
   common: { name: "Обычный", price: 50, coins: [5, 70], xp: 10, rates: { coins: 95.3, epic: 3, elite: 1.5, chrom: 0.2, legend: 0 } },
   medium: { name: "Средний", price: 150, coins: [30, 300], xp: 30, rates: { coins: 92.5, epic: 5, elite: 2, chrom: 0.5, legend: 0 } },
   big:    { name: "Большой", price: 500, coins: [100, 900], xp: 100, rates: { coins: 88.3, epic: 7, elite: 3, chrom: 1, legend: 0.7 } }
 };
 
-// ===== ПОПЫТКИ (новые значения) =====
 const MAX_ATTEMPTS = 5;
 const MAX_ATTEMPTS_VIP = 7;
 const ATTEMPTS_RESET = 3 * 60 * 60 * 1000;
@@ -1029,6 +1306,14 @@ const AD_COOLDOWN = 5 * 60 * 1000;
 const MEDIA_URL = "https://t.me/JK_SHOP_r";
 const MAX_LEVEL = 100;
 const SHUT_CARD = "SHUT";
+
+// ===== БАНК =====
+const CREDIT_MAX = 20000;
+const CREDIT_DAILY_PAY = 500;
+const DEPOSIT_DAILY_PERCENT = 0.10;
+const DEPOSIT_LOCK_TIME = 24 * 60 * 60 * 1000;
+const MONTHLY_TAX_PERCENT = 0.20;
+const MONTHLY_TAX_INTERVAL = 30 * 24 * 60 * 60 * 1000;
 
 // ===== КОЛЕСО =====
 const WHEEL_PRICE = 1000;
@@ -1058,7 +1343,7 @@ const DONATE_ITEMS = [
   { id: "d8", name: "VIP пропуск на год", price: 1000, type: "vip", days: 365 }
 ];
 
-const BANKS = [
+const BANKS_LIST = [
   { name: "Сбербанк", icon: "С", color: "#00A650" },
   { name: "Т-Банк", icon: "Т", color: "#FFDD2D" },
   { name: "Альфа-Банк", icon: "А", color: "#EF3124" },
@@ -1075,8 +1360,8 @@ const BANKS = [
 
 let currentDonateItem = null;
 let currentBank = null;
+let inputModalMode = null;
 
-// ===== XP И УРОВНИ =====
 function xpForLevel(n) { return 1000 + (n - 1) * 250; }
 function totalXPForLevel(n) {
   let sum = 0;
@@ -1104,7 +1389,6 @@ function getRewardForLevel(level) {
   return { type: "coins", coins, text: coins.toLocaleString("ru-RU") + " JKOIN" };
 }
 
-// ===== СОСТОЯНИЕ =====
 let state = loadState();
 
 function loadState() {
@@ -1129,8 +1413,18 @@ function loadState() {
     if (!s.wheelPrizes) s.wheelPrizes = WHEEL_SECTORS.map(x => ({...x}));
     if (!s.vipUntil) s.vipUntil = 0;
     if (!s.lastVipXP) s.lastVipXP = null;
+    // Банк
+    if (s.credit === undefined) s.credit = 0;
+    if (s.deposit === undefined) s.deposit = 0;
+    if (!s.depositStart) s.depositStart = 0;
+    if (!s.lastMonthlyTax) s.lastMonthlyTax = Date.now();
+    if (!s.lastCreditPay) s.lastCreditPay = Date.now();
+    if (!s.lastDepositUpdate) s.lastDepositUpdate = Date.now();
     checkAttemptsReset(s);
     checkVipDailyXP(s);
+    checkCredit(s);
+    checkDeposit(s);
+    checkMonthlyTax(s);
     return s;
   }
   return {
@@ -1141,7 +1435,9 @@ function loadState() {
     claimedLevels: {}, pendingLevelUps: [],
     wheelAttempts: 0,
     wheelHistory: [], wheelPrizes: WHEEL_SECTORS.map(x => ({...x})),
-    vipUntil: 0, lastVipXP: null
+    vipUntil: 0, lastVipXP: null,
+    credit: 0, deposit: 0, depositStart: 0,
+    lastMonthlyTax: Date.now(), lastCreditPay: Date.now(), lastDepositUpdate: Date.now()
   };
 }
 
@@ -1159,6 +1455,47 @@ function checkVipDailyXP(s) {
     while (s.level < MAX_LEVEL && s.xp >= totalXPForLevel(s.level + 1)) {
       s.level += 1;
       s.pendingLevelUps.push(s.level);
+    }
+  }
+}
+
+function checkCredit(s) {
+  if (s.credit <= 0) return;
+  const now = Date.now();
+  const day = 24 * 60 * 60 * 1000;
+  const daysPassed = Math.floor((now - s.lastCreditPay) / day);
+  if (daysPassed > 0) {
+    for (let i = 0; i < daysPassed; i++) {
+      if (s.credit <= 0) break;
+      const pay = Math.min(s.balance, CREDIT_DAILY_PAY, s.credit);
+      s.balance -= pay;
+      s.credit -= pay;
+    }
+    s.lastCreditPay = now;
+  }
+}
+
+function checkDeposit(s) {
+  if (s.deposit <= 0) return;
+  const now = Date.now();
+  const day = 24 * 60 * 60 * 1000;
+  const daysPassed = Math.floor((now - s.lastDepositUpdate) / day);
+  if (daysPassed > 0) {
+    for (let i = 0; i < daysPassed; i++) {
+      s.deposit = Math.floor(s.deposit * (1 + DEPOSIT_DAILY_PERCENT));
+    }
+    s.lastDepositUpdate = now;
+  }
+}
+
+function checkMonthlyTax(s) {
+  const now = Date.now();
+  if (now - s.lastMonthlyTax >= MONTHLY_TAX_INTERVAL) {
+    const tax = Math.floor(s.balance * MONTHLY_TAX_PERCENT);
+    if (tax > 0) {
+      s.balance -= tax;
+      s.deposit += tax;
+      s.lastMonthlyTax = now;
     }
   }
 }
@@ -1300,7 +1637,7 @@ function showScreen(id) {
   if (id === "historyScreen") renderHistory();
   if (id === "wheelScreen") renderWheel();
   if (id === "donateScreen") renderDonate();
-  if (id === "bankScreen") renderBanks();
+  if (id === "bankScreen") renderBankScreen();
 }
 
 function goTo(targetId, direction, side) {
@@ -1308,7 +1645,7 @@ function goTo(targetId, direction, side) {
     chestScreen: "btnChests", wheelScreen: "btnWheel",
     collectionScreen: "btnCollection", wallScreen: "btnWall",
     progressScreen: "btnProgress", historyScreen: "btnHistory",
-    donateScreen: "btnDonate"
+    donateScreen: "btnDonate", bankScreen: "btnBank"
   };
   const btn = document.getElementById(btnMap[targetId]);
   if (btn) {
@@ -1332,6 +1669,10 @@ function goToMedia() {
 
 function renderMenu() {
   checkQuests();
+  checkCredit(state);
+  checkDeposit(state);
+  checkMonthlyTax(state);
+  saveState();
   document.getElementById("menuBalance").textContent = state.balance;
   document.getElementById("menuLevel").textContent = state.level;
   document.getElementById("menuXP").textContent = state.xp;
@@ -1617,23 +1958,26 @@ function openCardModal(name, rarity) {
 }
 function closeModal() { document.getElementById("cardModal").classList.add("hidden"); }
 
-// ===== СТЕНА =====
+// ===== СТЕНА КОЛЛЕКЦИИ (новая: 5×2, грани, сумма) =====
 function renderWall() {
-  const grid = document.getElementById("wallGrid");
+  const grid = document.getElementById("wallGridNew");
   grid.innerHTML = "";
+  let totalPrice = 0;
   for (let i = 0; i < 10; i++) {
     const slot = document.createElement("div");
     const card = state.wall[i];
     if (card) {
-      slot.className = "wall-slot filled " + card.rarity;
+      slot.className = "wall-slot-new filled " + card.rarity;
       slot.innerHTML = `<div>${card.name}</div><div class="wall-edit-icon">✎</div>`;
+      totalPrice += CARD_PRICES[card.rarity] || 0;
     } else {
-      slot.className = "wall-slot";
+      slot.className = "wall-slot-new";
       slot.innerHTML = `<div>Пусто</div><div class="wall-edit-icon">✎</div>`;
     }
     slot.onclick = () => openWallSlot(i);
     grid.appendChild(slot);
   }
+  document.getElementById("wallPrice").textContent = totalPrice.toLocaleString("ru-RU");
 }
 let editingWallIndex = null;
 let wallRarity = "epic";
@@ -1751,7 +2095,7 @@ function renderHistory() {
   });
 }
 
-// ===== КОЛЕСО ФОРТУНЫ (без таймера + фикс баланса) =====
+// ===== КОЛЕСО ФОРТУНЫ =====
 function renderWheel() {
   renderWheelDisc();
   renderWheelHistory();
@@ -1924,7 +2268,7 @@ function applyWheelPrize(prize) {
   if (state.wheelHistory.length > 30) state.wheelHistory.pop();
 
   saveState();
-  renderWheel();          // ← ФИКС: обновляем баланс сразу
+  renderWheel();
   renderWheelHistory();
   showWheelWin(rewardText);
 }
@@ -1970,6 +2314,85 @@ function renderWheelHistory() {
   });
 }
 
+// ===== БАНК =====
+function renderBankScreen() {
+  checkCredit(state);
+  checkDeposit(state);
+  checkMonthlyTax(state);
+  saveState();
+  document.getElementById("bankBalance").textContent = state.balance.toLocaleString("ru-RU");
+  document.getElementById("bankCredit").textContent = state.credit.toLocaleString("ru-RU");
+  document.getElementById("bankDeposit").textContent = state.deposit.toLocaleString("ru-RU");
+}
+
+function openCreditModal() {
+  inputModalMode = "credit";
+  document.getElementById("inputModalTitle").textContent = "Взять кредит (макс. 20 000)";
+  document.getElementById("inputModalField").value = "";
+  document.getElementById("inputModal").classList.remove("hidden");
+}
+
+function openDepositModal() {
+  inputModalMode = "deposit";
+  document.getElementById("inputModalTitle").textContent = "Положить в депозит";
+  document.getElementById("inputModalField").value = "";
+  document.getElementById("inputModal").classList.remove("hidden");
+}
+
+function closeInputModal() {
+  document.getElementById("inputModal").classList.add("hidden");
+  inputModalMode = null;
+}
+
+function confirmInputModal() {
+  const val = parseInt(document.getElementById("inputModalField").value);
+  if (isNaN(val) || val <= 0) { alert("Введи корректную сумму!"); return; }
+  if (inputModalMode === "credit") {
+    if (val > CREDIT_MAX) { alert("Максимум 20 000 JKOIN за раз!"); return; }
+    state.balance += val;
+    state.credit += val;
+    state.lastCreditPay = Date.now();
+    saveState();
+    alert("Кредит " + val + " JKOIN получен!");
+  } else if (inputModalMode === "deposit") {
+    if (val > state.balance) { alert("Недостаточно средств!"); return; }
+    state.balance -= val;
+    state.deposit += val;
+    if (state.depositStart === 0) state.depositStart = Date.now();
+    state.lastDepositUpdate = Date.now();
+    saveState();
+    alert("Депозит " + val + " JKOIN открыт!");
+  }
+  closeInputModal();
+  renderBankScreen();
+}
+
+function withdrawDeposit() {
+  if (state.deposit <= 0) { alert("Депозит пуст!"); return; }
+  const now = Date.now();
+  if (now - state.depositStart < DEPOSIT_LOCK_TIME) {
+    const diff = DEPOSIT_LOCK_TIME - (now - state.depositStart);
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    alert("Снять можно через " + h + "ч " + m + "мин (после 24 часов)");
+    return;
+  }
+  state.balance += state.deposit;
+  alert("Снято " + state.deposit.toLocaleString("ru-RU") + " JKOIN!");
+  state.deposit = 0;
+  state.depositStart = 0;
+  saveState();
+  renderBankScreen();
+}
+
+function showProfileStub() {
+  document.getElementById("stubModal").classList.remove("hidden");
+}
+
+function closeStubModal() {
+  document.getElementById("stubModal").classList.add("hidden");
+}
+
 // ===== ДОНАТ =====
 function renderDonate() {
   const container = document.getElementById("donateList");
@@ -1990,10 +2413,12 @@ function selectDonateItem(item) {
   showScreen("bankScreen");
 }
 
+// ===== БАНКИ (для доната) =====
 function renderBanks() {
   const container = document.getElementById("bankList");
+  if (!container) return;
   container.innerHTML = "";
-  BANKS.forEach(bank => {
+  BANKS_LIST.forEach(bank => {
     const div = document.createElement("div");
     div.className = "bank-item";
     div.innerHTML = `

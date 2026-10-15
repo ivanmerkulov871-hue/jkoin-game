@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>JKOIN Ящики</title>
+<title>JKOIN</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { height: 100%; width: 100%; }
@@ -69,7 +69,7 @@
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     color: #ddd;
   }
   .attempts-info span { color: #f9c74f; font-weight: bold; }
@@ -104,8 +104,8 @@
   .menu-btn {
     display: flex; align-items: center; justify-content: center;
     text-align: center; color: #fff; border: none;
-    padding: 14px 8px; border-radius: 10px;
-    font-size: 13px; cursor: pointer;
+    padding: 12px 6px; border-radius: 10px;
+    font-size: 12px; cursor: pointer;
     transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     background: rgba(255, 255, 255, 0.08);
@@ -113,8 +113,8 @@
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    min-height: 60px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    min-height: 55px;
   }
   .menu-btn:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-2px); }
   .menu-btn.fly-left { transform: translateX(-120vw) rotate(-15deg); opacity: 0; }
@@ -139,11 +139,11 @@
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   }
   .back-btn:hover { background: rgba(255, 255, 255, 0.15); }
 
-  /* ===== СТЕНА КОЛЛЕКЦИИ (новая) ===== */
+  /* ===== СТЕНА КОЛЛЕКЦИИ ===== */
   .wall-header {
     position: relative;
     display: flex;
@@ -204,11 +204,7 @@
     line-height: 1.1;
   }
   .wall-slot-new:hover { border-color: #f9c74f; transform: scale(1.05); }
-  .wall-slot-new.filled {
-    border: 2px solid;
-    color: #fff;
-  }
-  /* Грани свечения по редкости */
+  .wall-slot-new.filled { border: 2px solid; color: #fff; }
   .wall-slot-new.filled.epic {
     border-color: #9c27b0;
     box-shadow: 0 0 8px #9c27b0, inset 0 0 8px rgba(156, 39, 176, 0.3);
@@ -231,18 +227,14 @@
   }
   .wall-slot-new .wall-edit-icon {
     position: absolute;
-    top: 2px;
-    right: 2px;
+    top: 2px; right: 2px;
     font-size: 10px;
     opacity: 0.7;
   }
 
   .wall-collection-price {
-    text-align: center;
-    font-size: 13px;
-    color: #ddd;
-    padding: 10px;
-    border-radius: 10px;
+    text-align: center; font-size: 13px; color: #ddd;
+    padding: 10px; border-radius: 10px;
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -254,11 +246,8 @@
 
   /* ===== БАНК ===== */
   .bank-balance {
-    text-align: center;
-    padding: 14px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    font-size: 15px;
+    text-align: center; padding: 14px;
+    border-radius: 10px; margin-bottom: 10px; font-size: 15px;
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -268,11 +257,8 @@
   }
   .bank-balance span { color: #f9c74f; font-weight: bold; }
   .bank-info {
-    text-align: center;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    font-size: 13px;
+    text-align: center; padding: 10px;
+    border-radius: 10px; margin-bottom: 10px; font-size: 13px;
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -281,7 +267,6 @@
     color: #ddd;
   }
   .bank-info span { color: #4ade80; font-weight: bold; }
-  .bank-info.warning span { color: #f87171; }
 
   .bank-btn {
     display: block; width: 100%;
@@ -289,8 +274,7 @@
     padding: 16px; border-radius: 10px;
     font-size: 15px; cursor: pointer;
     margin-bottom: 10px; text-align: center;
-    font-weight: bold;
-    transition: 0.2s;
+    font-weight: bold; transition: 0.2s;
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -312,8 +296,150 @@
     border: 1px solid rgba(255, 152, 0, 0.6);
   }
 
-  /* ===== МОДАЛКА ВВОДА СУММЫ ===== */
-  .input-modal-box {
+  /* ===== СОБЫТИЯ ===== */
+  .events-layout {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+    margin-bottom: 10px;
+  }
+  .events-sidebar {
+    flex: 0 0 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+    padding-right: 2px;
+  }
+  .event-banner {
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.2s;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    text-align: center;
+    padding: 6px;
+    color: #fff;
+    word-break: break-word;
+    line-height: 1.1;
+  }
+  .event-banner.legend {
+    background: linear-gradient(135deg, #f44336, #ff9800, #f9c74f);
+    border: 2px solid #f9c74f;
+  }
+  .event-banner.epic {
+    background: linear-gradient(135deg, #9c27b0, #673ab7);
+    border: 2px solid #9c27b0;
+  }
+  .event-banner:hover { transform: scale(1.05); }
+  .event-banner.active {
+    outline: 3px solid #f9c74f;
+    box-shadow: 0 0 15px #f9c74f;
+  }
+  .event-banner .event-timer {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    font-size: 9px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2px 5px;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+  .event-banner .event-title {
+    font-size: 10px;
+    font-weight: bold;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.9);
+  }
+
+  .event-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+  }
+  .event-main-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .event-main-content .event-name {
+    color: #f9c74f;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  }
+  .event-main-content .event-timer-big {
+    color: #f87171;
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+  .event-main-content .event-desc {
+    color: #ddd;
+    font-size: 13px;
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+  .event-prize {
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #2d0000, #6e1b1b);
+    border: 3px solid #f44336;
+    box-shadow: 0 0 20px #f44336, inset 0 0 15px rgba(244, 67, 54, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 16px;
+    word-break: break-word;
+  }
+  .event-spin-btns {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+  }
+  .event-spin-btns button {
+    flex: 1;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.2s;
+    background: linear-gradient(135deg, rgba(249, 199, 79, 0.3), rgba(255, 152, 0, 0.3));
+    border: 1px solid rgba(249, 199, 79, 0.6);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  }
+  .event-spin-btns button:hover { transform: translateY(-2px); background: linear-gradient(135deg, rgba(249, 199, 79, 0.5), rgba(255, 152, 0, 0.5)); }
+
+  /* Модалка выпадения события */
+  .event-reward-box {
     background: rgba(22, 33, 62, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -321,33 +447,74 @@
     border-top: 2px solid rgba(249, 199, 79, 0.7);
     border-radius: 16px;
     padding: 24px;
-    max-width: 340px;
+    max-width: 360px;
     width: 100%;
+    text-align: center;
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
   }
-  .input-modal-box h3 {
+  .event-reward-box .reward-title {
     color: #f9c74f;
-    text-align: center;
-    margin-bottom: 16px;
     font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 16px;
   }
-  .input-modal-box input {
-    width: 100%;
-    padding: 14px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.08);
+  .event-reward-grid {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .event-reward-grid.single {
+    grid-template-columns: 1fr;
+  }
+  .event-reward-grid.multi {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .event-reward-item {
+    aspect-ratio: 1/1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
     color: #fff;
-    font-size: 16px;
+    padding: 4px;
     text-align: center;
-    margin-bottom: 14px;
-    outline: none;
+    word-break: break-word;
+    line-height: 1.1;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid;
   }
-  .input-modal-box input:focus { border-color: #f9c74f; }
-  .input-modal-box .modal-actions {
-    display: flex; gap: 8px;
+  .event-reward-item.epic {
+    border-color: #9c27b0;
+    background: linear-gradient(180deg, rgba(74, 27, 110, 0.7), rgba(156, 39, 176, 0.4));
+    box-shadow: 0 0 8px #9c27b0;
   }
-  .input-modal-box .modal-actions button {
+  .event-reward-item.elite {
+    border-color: #4caf50;
+    background: linear-gradient(180deg, rgba(27, 94, 32, 0.7), rgba(76, 175, 80, 0.4));
+    box-shadow: 0 0 8px #4caf50;
+  }
+  .event-reward-item.chrom {
+    border-color: #ff9800;
+    background: linear-gradient(180deg, rgba(110, 59, 27, 0.7), rgba(255, 152, 0, 0.4));
+    box-shadow: 0 0 8px #ff9800;
+  }
+  .event-reward-item.legend {
+    border-color: #f44336;
+    background: linear-gradient(180deg, rgba(110, 27, 27, 0.7), rgba(244, 67, 54, 0.4));
+    box-shadow: 0 0 8px #f44336;
+  }
+  .event-reward-item.coins {
+    border-color: #f9c74f;
+    background: linear-gradient(180deg, rgba(74, 59, 27, 0.7), rgba(249, 199, 79, 0.4));
+    box-shadow: 0 0 8px #f9c74f;
+  }
+  .event-reward-box .reward-actions {
+    display: flex;
+    gap: 8px;
+  }
+  .event-reward-box .reward-actions button {
     flex: 1;
     padding: 12px;
     border-radius: 10px;
@@ -355,49 +522,19 @@
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.2s;
     color: #fff;
+    transition: 0.2s;
   }
-  .input-modal-box .modal-actions .confirm {
+  .event-reward-box .reward-actions .ok-btn {
     background: linear-gradient(135deg, #16a34a, #4ade80);
   }
-  .input-modal-box .modal-actions .cancel {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+  .event-reward-box .reward-actions .again-btn {
+    background: linear-gradient(135deg, rgba(249, 199, 79, 0.3), rgba(255, 152, 0, 0.3));
+    border: 1px solid rgba(249, 199, 79, 0.6);
   }
-  .input-modal-box .modal-actions button:hover { transform: translateY(-2px); }
+  .event-reward-box .reward-actions button:hover { transform: translateY(-2px); }
 
-  /* ===== ЗАГЛУШКА ===== */
-  .stub-box {
-    border: 2px solid rgba(249, 199, 79, 0.5);
-    border-radius: 12px;
-    padding: 30px 20px;
-    max-width: 320px;
-    width: 100%;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-top: 2px solid rgba(249, 199, 79, 0.8);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
-  }
-  .stub-box .stub-emoji {
-    font-size: 48px;
-    margin-bottom: 12px;
-  }
-  .stub-box .stub-title {
-    color: #f9c74f;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 8px;
-  }
-  .stub-box .stub-text {
-    color: #ddd;
-    font-size: 14px;
-    margin-bottom: 16px;
-  }
-
-  /* ===== ОСТАЛЬНОЕ (ящики, колесо, коллекция, история, донат) ===== */
+  /* ===== ОСТАЛЬНОЕ ===== */
   .chest {
     color: #fff; padding: 14px; border-radius: 10px; font-size: 15px;
     cursor: pointer; display: flex; justify-content: space-between;
@@ -408,7 +545,7 @@
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   }
   .chest:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-2px); }
   .chest:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
@@ -425,7 +562,7 @@
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   }
   .result-box.win { color: #4ade80; }
   .result-box.lose { color: #f87171; }
@@ -551,7 +688,6 @@
   .truck-wheel.w3 { right: 15px; }
   @keyframes truckBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
 
-  /* ===== КАРТЫ 1:1 с гранями ===== */
   .card-reveal {
     width: 160px; height: 160px;
     background: linear-gradient(180deg, #1a1a2e, #2d1b4e);
@@ -564,22 +700,22 @@
   }
   .card-reveal.epic {
     border: 3px solid #9c27b0;
-    box-shadow: 0 0 20px #9c27b0, 0 0 40px rgba(156, 39, 176, 0.5), inset 0 0 20px rgba(156, 39, 176, 0.3);
+    box-shadow: 0 0 20px #9c27b0, 0 0 40px rgba(156, 39, 176, 0.5);
     background: linear-gradient(180deg, #1a1a2e, #4a1b6e);
   }
   .card-reveal.elite {
     border: 3px solid #4caf50;
-    box-shadow: 0 0 20px #4caf50, 0 0 40px rgba(76, 175, 80, 0.5), inset 0 0 20px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 0 20px #4caf50, 0 0 40px rgba(76, 175, 80, 0.5);
     background: linear-gradient(180deg, #1a1a2e, #1b5e20);
   }
   .card-reveal.chrom {
     border: 3px solid #ff9800;
-    box-shadow: 0 0 20px #ff9800, 0 0 40px rgba(255, 152, 0, 0.5), inset 0 0 20px rgba(255, 152, 0, 0.3);
+    box-shadow: 0 0 20px #ff9800, 0 0 40px rgba(255, 152, 0, 0.5);
     background: linear-gradient(180deg, #2d1b00, #6e3b1b);
   }
   .card-reveal.legend {
     border: 3px solid #f44336;
-    box-shadow: 0 0 20px #f44336, 0 0 40px rgba(244, 67, 54, 0.5), inset 0 0 20px rgba(244, 67, 54, 0.3);
+    box-shadow: 0 0 20px #f44336, 0 0 40px rgba(244, 67, 54, 0.5);
     background: linear-gradient(180deg, #2d0000, #6e1b1b);
   }
 
@@ -671,6 +807,64 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   }
 
+  .input-modal-box {
+    background: rgba(22, 33, 62, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(249, 199, 79, 0.4);
+    border-top: 2px solid rgba(249, 199, 79, 0.7);
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 340px;
+    width: 100%;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+  }
+  .input-modal-box h3 {
+    color: #f9c74f; text-align: center;
+    margin-bottom: 16px; font-size: 18px;
+  }
+  .input-modal-box input {
+    width: 100%; padding: 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff; font-size: 16px;
+    text-align: center; margin-bottom: 14px;
+    outline: none;
+  }
+  .input-modal-box input:focus { border-color: #f9c74f; }
+  .input-modal-box .modal-actions { display: flex; gap: 8px; }
+  .input-modal-box .modal-actions button {
+    flex: 1; padding: 12px;
+    border-radius: 10px; border: none;
+    font-size: 14px; font-weight: bold;
+    cursor: pointer; transition: 0.2s;
+    color: #fff;
+  }
+  .input-modal-box .modal-actions .confirm {
+    background: linear-gradient(135deg, #16a34a, #4ade80);
+  }
+  .input-modal-box .modal-actions .cancel {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .input-modal-box .modal-actions button:hover { transform: translateY(-2px); }
+
+  .stub-box {
+    border: 2px solid rgba(249, 199, 79, 0.5);
+    border-radius: 12px; padding: 30px 20px;
+    max-width: 320px; width: 100%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 2px solid rgba(249, 199, 79, 0.8);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  }
+  .stub-box .stub-emoji { font-size: 48px; margin-bottom: 12px; }
+  .stub-box .stub-title { color: #f9c74f; font-size: 18px; font-weight: bold; margin-bottom: 8px; }
+  .stub-box .stub-text { color: #ddd; font-size: 14px; margin-bottom: 16px; }
+
   .ad-box {
     border: 2px solid rgba(249, 199, 79, 0.5);
     border-radius: 12px; padding: 30px 20px;
@@ -738,13 +932,11 @@
   .progress-text-center {
     text-align: center; font-size: 11px;
     color: #ccc; margin-top: 6px;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.8);
   }
 
   .quests-title {
     text-align: center; color: #f9c74f;
     font-size: 14px; margin-bottom: 8px;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.8);
   }
   .quest-item {
     padding: 10px 12px; border-radius: 10px;
@@ -854,7 +1046,6 @@
   .wheel-history-line {
     font-size: 10px; color: #ddd;
     margin-bottom: 6px; line-height: 1.3;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
     word-wrap: break-word;
     animation: historySlideIn 0.6s ease;
   }
@@ -928,10 +1119,7 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     font-weight: bold;
   }
-  .wheel-spin-btn:hover:not(:disabled) {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-  }
+  .wheel-spin-btn:hover:not(:disabled) { background: rgba(255, 255, 255, 0.15); transform: translateY(-2px); }
   .wheel-spin-btn:disabled { opacity: 0.4; cursor: not-allowed; }
   .wheel-win-modal {
     position: fixed; top: 0; left: 0; right: 0; bottom: 0;
@@ -1023,7 +1211,7 @@
   }
   .pay-info .pay-label { color: #aaa; font-size: 12px; margin-bottom: 6px; }
   .pay-info .pay-value { color: #f9c74f; font-size: 22px; font-weight: bold; margin-bottom: 12px; }
-  .pay-info .pay-sum { color: #4ade80; font-size: 28px; font-weight: bold; text-shadow: 0 0 15px #4ade80; }
+  .pay-info .pay-sum { color: #4ade80; font-size: 28px; font-weight: bold; }
   .pay-redirect {
     text-align: center; color: #fff; font-size: 14px;
     margin-bottom: 12px; padding: 12px; border-radius: 10px;
@@ -1055,7 +1243,7 @@
 <div class="app">
 
   <div id="menuScreen" class="screen">
-    <h1>JKOIN Ящики</h1>
+    <h1>JKOIN</h1>
     <div class="balance">Баланс: <span id="menuBalance">200</span> JKOIN <span id="vipIndicator"></span></div>
     <div class="balance">Уровень: <span id="menuLevel">1</span> · XP: <span id="menuXP">0</span></div>
     <div class="menu-grid">
@@ -1069,6 +1257,8 @@
       <button class="menu-btn" id="btnGetAttempts" onclick="tryGetAttempts()">Получить 2 попытки</button>
       <button class="menu-btn" id="btnBank" onclick="goTo('bankScreen', 'left', 'left')">БАНК</button>
       <button class="menu-btn" id="btnProfile" onclick="showProfileStub()">ПРОФИЛЬ</button>
+      <button class="menu-btn" id="btnEvents" onclick="goTo('eventsScreen', 'right', 'right')">СОБЫТИЯ</button>
+      <button class="menu-btn" id="btnCollab" onclick="showCollabStub()">КОЛЛАБОРАЦИИ</button>
       <button class="menu-btn menu-btn-full" id="btnDonate" onclick="goTo('donateScreen', 'down', 'left')">ДОНАТ</button>
     </div>
   </div>
@@ -1127,7 +1317,6 @@
     </div>
     <div class="wall-grid-new" id="wallGridNew"></div>
     <div class="wall-collection-price">Стоимость коллекции: <span id="wallPrice">0</span> JKOIN</div>
-    <button class="back-btn" onclick="showScreen('menuScreen')">В меню</button>
   </div>
 
   <div id="progressScreen" class="screen hidden">
@@ -1203,6 +1392,19 @@
     <button class="pay-btn-cancel" onclick="showScreen('bankScreen')">Отмена</button>
   </div>
 
+  <div id="eventsScreen" class="screen hidden">
+    <div class="wall-header">
+      <div class="wall-back-arrow" onclick="showScreen('menuScreen')">←</div>
+      <h2>СОБЫТИЯ</h2>
+    </div>
+    <div class="events-layout">
+      <div class="events-sidebar" id="eventsSidebar"></div>
+      <div class="event-main" id="eventMain">
+        ВЫБЕРИ СОБЫТИЕ СЛЕВА
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <div id="cardModal" class="modal hidden">
@@ -1250,8 +1452,19 @@
   <div class="stub-box">
     <div class="stub-emoji">🚧</div>
     <div class="stub-title">В разработке</div>
-    <div class="stub-text">Профиль появится в следующем обновлении!</div>
+    <div class="stub-text" id="stubText">Появится в следующем обновлении!</div>
     <button class="close-btn" onclick="closeStubModal()">Понятно</button>
+  </div>
+</div>
+
+<div id="eventRewardModal" class="modal hidden">
+  <div class="event-reward-box">
+    <div class="reward-title" id="eventRewardTitle">Вы получили:</div>
+    <div class="event-reward-grid single" id="eventRewardGrid"></div>
+    <div class="reward-actions">
+      <button class="ok-btn" onclick="closeEventReward()">ОК</button>
+      <button class="again-btn" onclick="spinEventAgain()" id="eventAgainBtn">Крутить ещё</button>
+    </div>
   </div>
 </div>
 
@@ -1358,6 +1571,36 @@ const BANKS_LIST = [
   { name: "Банк Санкт-Петербург", icon: "БСП", color: "#0087C9" }
 ];
 
+// ===== СОБЫТИЯ =====
+const EVENTS = [
+  {
+    id: "sartex_hunt",
+    name: "Охота за Sartex",
+    description: "Эксклюзивное событие! Разыгрываем легендарную карту Sartex. Шанс выпадения — 1%. Крути и получи легендарку!",
+    bannerClass: "legend",
+    bannerText: "Sartex",
+    endDate: Date.now() + 30 * 24 * 60 * 60 * 1000,
+    price1: 100,
+    price10: 1000,
+    mainPrize: { type: "legend", name: "Sartex" },
+    mainPrizeChance: 1,
+    mainPrizeLimit: 1,
+    rates: {
+      coinsSmall: 79,
+      coinsBig: 1,
+      epic: 10,
+      elite: 6,
+      chrom: 3,
+      main: 1
+    }
+  }
+];
+
+let currentEvent = null;
+let lastEventRewards = [];
+let lastEventSpinCount = 1;
+let lastEventCost = 0;
+
 let currentDonateItem = null;
 let currentBank = null;
 let inputModalMode = null;
@@ -1413,13 +1656,13 @@ function loadState() {
     if (!s.wheelPrizes) s.wheelPrizes = WHEEL_SECTORS.map(x => ({...x}));
     if (!s.vipUntil) s.vipUntil = 0;
     if (!s.lastVipXP) s.lastVipXP = null;
-    // Банк
     if (s.credit === undefined) s.credit = 0;
     if (s.deposit === undefined) s.deposit = 0;
     if (!s.depositStart) s.depositStart = 0;
     if (!s.lastMonthlyTax) s.lastMonthlyTax = Date.now();
     if (!s.lastCreditPay) s.lastCreditPay = Date.now();
     if (!s.lastDepositUpdate) s.lastDepositUpdate = Date.now();
+    if (!s.eventSartexDone) s.eventSartexDone = false;
     checkAttemptsReset(s);
     checkVipDailyXP(s);
     checkCredit(s);
@@ -1437,7 +1680,8 @@ function loadState() {
     wheelHistory: [], wheelPrizes: WHEEL_SECTORS.map(x => ({...x})),
     vipUntil: 0, lastVipXP: null,
     credit: 0, deposit: 0, depositStart: 0,
-    lastMonthlyTax: Date.now(), lastCreditPay: Date.now(), lastDepositUpdate: Date.now()
+    lastMonthlyTax: Date.now(), lastCreditPay: Date.now(), lastDepositUpdate: Date.now(),
+    eventSartexDone: false
   };
 }
 
@@ -1638,6 +1882,7 @@ function showScreen(id) {
   if (id === "wheelScreen") renderWheel();
   if (id === "donateScreen") renderDonate();
   if (id === "bankScreen") renderBankScreen();
+  if (id === "eventsScreen") renderEventsScreen();
 }
 
 function goTo(targetId, direction, side) {
@@ -1645,7 +1890,8 @@ function goTo(targetId, direction, side) {
     chestScreen: "btnChests", wheelScreen: "btnWheel",
     collectionScreen: "btnCollection", wallScreen: "btnWall",
     progressScreen: "btnProgress", historyScreen: "btnHistory",
-    donateScreen: "btnDonate", bankScreen: "btnBank"
+    donateScreen: "btnDonate", bankScreen: "btnBank",
+    eventsScreen: "btnEvents"
   };
   const btn = document.getElementById(btnMap[targetId]);
   if (btn) {
@@ -1958,7 +2204,7 @@ function openCardModal(name, rarity) {
 }
 function closeModal() { document.getElementById("cardModal").classList.add("hidden"); }
 
-// ===== СТЕНА КОЛЛЕКЦИИ (новая: 5×2, грани, сумма) =====
+// ===== СТЕНА =====
 function renderWall() {
   const grid = document.getElementById("wallGridNew");
   grid.innerHTML = "";
@@ -2095,7 +2341,7 @@ function renderHistory() {
   });
 }
 
-// ===== КОЛЕСО ФОРТУНЫ =====
+// ===== КОЛЕСО =====
 function renderWheel() {
   renderWheelDisc();
   renderWheelHistory();
@@ -2119,11 +2365,9 @@ function renderWheelDisc() {
   const radius = 50;
   const centerX = 50;
   const centerY = 50;
-
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.setAttribute("viewBox", "0 0 100 100");
   svg.setAttribute("class", "wheel-sector-svg");
-
   sectors.forEach((sector, i) => {
     const startAngle = i * anglePer - 90;
     const endAngle = (i + 1) * anglePer - 90;
@@ -2134,20 +2378,17 @@ function renderWheelDisc() {
     const x2 = centerX + radius * Math.cos(endRad);
     const y2 = centerY + radius * Math.sin(endRad);
     const largeArc = anglePer > 180 ? 1 : 0;
-
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute("d", `M ${centerX} ${centerY} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArc} 1 ${x2} ${y2} Z`);
     path.setAttribute("fill", sector.color);
     path.setAttribute("stroke", "rgba(0,0,0,0.3)");
     path.setAttribute("stroke-width", "0.3");
     svg.appendChild(path);
-
     const midAngle = (startAngle + endAngle) / 2;
     const midRad = midAngle * Math.PI / 180;
     const textRadius = 32;
     const tx = centerX + textRadius * Math.cos(midRad);
     const ty = centerY + textRadius * Math.sin(midRad);
-
     const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
     text.setAttribute("x", tx);
     text.setAttribute("y", ty);
@@ -2160,9 +2401,7 @@ function renderWheelDisc() {
     text.textContent = sector.label || sector.amount || '';
     svg.appendChild(text);
   });
-
   disc.appendChild(svg);
-
   const lampCount = 16;
   for (let i = 0; i < lampCount; i++) {
     const lamp = document.createElement("div");
@@ -2175,7 +2414,6 @@ function renderWheelDisc() {
     lamp.style.animationDelay = (i * 0.05) + "s";
     disc.appendChild(lamp);
   }
-
   disc.style.transform = `rotate(${currentWheelRotation}deg)`;
 }
 
@@ -2185,23 +2423,19 @@ let spinning = false;
 function spinWheel() {
   if (spinning) return;
   if (state.balance < WHEEL_PRICE) { alert("Не хватает JKOIN!"); return; }
-
   spinning = true;
   state.balance -= WHEEL_PRICE;
   saveState();
   renderWheel();
-
   const result = rollWheelPrize();
   const prizeIndex = result.index;
   const anglePer = 360 / state.wheelPrizes.length;
   const baseSpins = 5 * 360;
   const targetAngle = baseSpins + (360 - prizeIndex * anglePer - anglePer / 2) - (currentWheelRotation % 360);
   currentWheelRotation += targetAngle;
-
   const disc = document.getElementById("wheelDisc");
   disc.style.transition = "transform 5s cubic-bezier(0.15, 0.9, 0.2, 1)";
   disc.style.transform = `rotate(${currentWheelRotation}deg)`;
-
   setTimeout(() => {
     spinning = false;
     applyWheelPrize(result.prize);
@@ -2231,7 +2465,6 @@ function rollWheelPrize() {
 function applyWheelPrize(prize) {
   let rewardText = "";
   let historyText = "";
-
   if (prize.type === "coins") {
     state.balance += prize.amount;
     rewardText = prize.amount + " JKOIN";
@@ -2263,10 +2496,8 @@ function applyWheelPrize(prize) {
     historyText = "Вы получили: ЛЕГЕНДАРНАЯ карта — " + name;
     replaceWheelPrize("legend");
   }
-
   state.wheelHistory.unshift({ text: historyText, time: Date.now() });
   if (state.wheelHistory.length > 30) state.wheelHistory.pop();
-
   saveState();
   renderWheel();
   renderWheelHistory();
@@ -2324,26 +2555,22 @@ function renderBankScreen() {
   document.getElementById("bankCredit").textContent = state.credit.toLocaleString("ru-RU");
   document.getElementById("bankDeposit").textContent = state.deposit.toLocaleString("ru-RU");
 }
-
 function openCreditModal() {
   inputModalMode = "credit";
   document.getElementById("inputModalTitle").textContent = "Взять кредит (макс. 20 000)";
   document.getElementById("inputModalField").value = "";
   document.getElementById("inputModal").classList.remove("hidden");
 }
-
 function openDepositModal() {
   inputModalMode = "deposit";
   document.getElementById("inputModalTitle").textContent = "Положить в депозит";
   document.getElementById("inputModalField").value = "";
   document.getElementById("inputModal").classList.remove("hidden");
 }
-
 function closeInputModal() {
   document.getElementById("inputModal").classList.add("hidden");
   inputModalMode = null;
 }
-
 function confirmInputModal() {
   const val = parseInt(document.getElementById("inputModalField").value);
   if (isNaN(val) || val <= 0) { alert("Введи корректную сумму!"); return; }
@@ -2366,7 +2593,6 @@ function confirmInputModal() {
   closeInputModal();
   renderBankScreen();
 }
-
 function withdrawDeposit() {
   if (state.deposit <= 0) { alert("Депозит пуст!"); return; }
   const now = Date.now();
@@ -2385,10 +2611,156 @@ function withdrawDeposit() {
   renderBankScreen();
 }
 
-function showProfileStub() {
-  document.getElementById("stubModal").classList.remove("hidden");
+// ===== СОБЫТИЯ =====
+function renderEventsScreen() {
+  const sidebar = document.getElementById("eventsSidebar");
+  sidebar.innerHTML = "";
+  EVENTS.forEach(ev => {
+    const banner = document.createElement("div");
+    banner.className = "event-banner " + ev.bannerClass;
+    const timeLeft = ev.endDate - Date.now();
+    let timerText = "";
+    if (timeLeft <= 0) {
+      timerText = "Завершено";
+    } else {
+      const days = Math.floor(timeLeft / 86400000);
+      const hours = Math.floor((timeLeft % 86400000) / 3600000);
+      timerText = days > 0 ? days + "д " + hours + "ч" : hours + "ч";
+    }
+    banner.innerHTML = `<div class="event-title">${ev.bannerText || ev.name}</div><div class="event-timer">${timerText}</div>`;
+    banner.onclick = () => selectEvent(ev, banner);
+    sidebar.appendChild(banner);
+  });
 }
 
+function selectEvent(ev, bannerEl) {
+  currentEvent = ev;
+  document.querySelectorAll(".event-banner").forEach(b => b.classList.remove("active"));
+  if (bannerEl) bannerEl.classList.add("active");
+  const main = document.getElementById("eventMain");
+  const timeLeft = ev.endDate - Date.now();
+  let timerText = "";
+  if (timeLeft <= 0) {
+    timerText = "Завершено";
+  } else {
+    const days = Math.floor(timeLeft / 86400000);
+    const hours = Math.floor((timeLeft % 86400000) / 3600000);
+    const mins = Math.floor((timeLeft % 3600000) / 60000);
+    timerText = days + "д " + hours + "ч " + mins + "м";
+  }
+  main.innerHTML = `
+    <div class="event-main-content">
+      <div class="event-name">${ev.name}</div>
+      <div class="event-timer-big">⏰ До конца: ${timerText}</div>
+      <div class="event-prize">${ev.mainPrize.name}</div>
+      <div class="event-desc">${ev.description}</div>
+      <div class="event-spin-btns">
+        <button onclick="spinEvent(1)">×1 (${ev.price1})</button>
+        <button onclick="spinEvent(10)">×10 (${ev.price10})</button>
+      </div>
+    </div>
+  `;
+}
+
+function spinEvent(count) {
+  if (!currentEvent) return;
+  const cost = count === 1 ? currentEvent.price1 : currentEvent.price10;
+  if (state.balance < cost) { alert("Не хватает " + (cost - state.balance) + " JKOIN!"); return; }
+  state.balance -= cost;
+  lastEventSpinCount = count;
+  lastEventCost = cost;
+  lastEventRewards = [];
+  for (let i = 0; i < count; i++) {
+    lastEventRewards.push(rollEventReward());
+  }
+  saveState();
+  showEventRewards();
+}
+
+function rollEventReward() {
+  const ev = currentEvent;
+  const r = Math.random() * 100;
+  let acc = 0;
+  acc += ev.rates.coinsSmall;
+  if (r < acc) return { type: "coins", amount: Math.floor(Math.random() * (2999 - 100 + 1)) + 100 };
+  acc += ev.rates.coinsBig;
+  if (r < acc) return { type: "coins", amount: Math.floor(Math.random() * (5000 - 3000 + 1)) + 3000 };
+  acc += ev.rates.epic; if (r < acc) return { type: "epic", name: pickRandom(EPIC) };
+  acc += ev.rates.elite; if (r < acc) return { type: "elite", name: pickRandom(ELITE) };
+  acc += ev.rates.chrom; if (r < acc) return { type: "chrom", name: pickRandom(CHROM) };
+  if (r < acc + ev.rates.main) {
+    if (!state.eventSartexDone && ev.mainPrizeLimit === 1) {
+      state.eventSartexDone = true;
+      return { type: "legend", name: ev.mainPrize.name };
+    } else {
+      return { type: "coins", amount: Math.floor(Math.random() * (5000 - 3000 + 1)) + 3000 };
+    }
+  }
+  return { type: "coins", amount: 100 };
+}
+
+function showEventRewards() {
+  const modal = document.getElementById("eventRewardModal");
+  const grid = document.getElementById("eventRewardGrid");
+  const title = document.getElementById("eventRewardTitle");
+  title.textContent = lastEventSpinCount === 1 ? "Вы получили:" : "Вы получили 10 наград:";
+  grid.className = "event-reward-grid " + (lastEventSpinCount === 1 ? "single" : "multi");
+  grid.innerHTML = "";
+  lastEventRewards.forEach(reward => {
+    const div = document.createElement("div");
+    if (reward.type === "coins") {
+      div.className = "event-reward-item coins";
+      div.innerHTML = `<div>🪙<br>+${reward.amount}</div>`;
+    } else {
+      div.className = "event-reward-item " + reward.type;
+      div.innerHTML = `<div>${reward.name}</div>`;
+    }
+    grid.appendChild(div);
+  });
+  const againBtn = document.getElementById("eventAgainBtn");
+  const nextCost = lastEventSpinCount === 1 ? currentEvent.price1 : currentEvent.price10;
+  if (state.balance < nextCost) {
+    againBtn.disabled = true;
+    againBtn.textContent = "Не хватает";
+  } else {
+    againBtn.disabled = false;
+    againBtn.textContent = "Крутить ещё";
+  }
+  modal.classList.remove("hidden");
+}
+
+function closeEventReward() {
+  // Применяем награды
+  lastEventRewards.forEach(reward => {
+    if (reward.type === "coins") {
+      state.balance += reward.amount;
+      state.history.unshift({ text: "СОБЫТИЕ: +" + reward.amount + " JKOIN", rarity: "coins", time: Date.now() });
+    } else {
+      const key = reward.type + ":" + reward.name;
+      state.collection[key] = (state.collection[key] || 0) + 1;
+      state.history.unshift({ text: "СОБЫТИЕ: " + reward.name + " (" + reward.type + ")", rarity: reward.type, time: Date.now() });
+    }
+  });
+  if (state.history.length > 50) state.history = state.history.slice(0, 50);
+  saveState();
+  document.getElementById("eventRewardModal").classList.add("hidden");
+  renderEventsScreen();
+  if (currentEvent) selectEvent(currentEvent, document.querySelector(".event-banner.active"));
+}
+
+function spinEventAgain() {
+  document.getElementById("eventRewardModal").classList.add("hidden");
+  spinEvent(lastEventSpinCount);
+}
+
+function showProfileStub() {
+  document.getElementById("stubText").textContent = "Профиль появится в следующем обновлении!";
+  document.getElementById("stubModal").classList.remove("hidden");
+}
+function showCollabStub() {
+  document.getElementById("stubText").textContent = "Коллаборации появятся в следующем обновлении!";
+  document.getElementById("stubModal").classList.remove("hidden");
+}
 function closeStubModal() {
   document.getElementById("stubModal").classList.add("hidden");
 }
@@ -2410,10 +2782,10 @@ function selectDonateItem(item) {
   currentDonateItem = item;
   document.getElementById("bankPayItem").textContent = item.name;
   document.getElementById("bankPaySum").textContent = item.price + " ₽";
+  // БАГ ОСТАВЛЕН СПЕЦИАЛЬНО (фича беты): ведёт в банк игры
   showScreen("bankScreen");
 }
 
-// ===== БАНКИ (для доната) =====
 function renderBanks() {
   const container = document.getElementById("bankList");
   if (!container) return;
@@ -2443,7 +2815,6 @@ function selectBank(bank) {
 function confirmPayment() {
   if (!currentDonateItem) return;
   const item = currentDonateItem;
-
   if (item.type === "wheel") {
     state.wheelAttempts += item.amount;
     alert("Оплата получена! +" + item.amount + " попыток колеса");
@@ -2465,7 +2836,6 @@ function confirmPayment() {
     state.vipUntil = baseTime + item.days * 24 * 60 * 60 * 1000;
     alert("Оплата получена! VIP на " + item.days + " дней");
   }
-
   saveState();
   currentDonateItem = null;
   currentBank = null;

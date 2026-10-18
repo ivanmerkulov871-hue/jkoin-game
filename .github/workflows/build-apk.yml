@@ -1,84 +1,76 @@
-name: Build APK
+name: Сборка APK
 
 on:
-  workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: cimg/android:2024.01-node
-      options: --user root
+
     steps:
-      - uses: actions/checkout@v4
+    - name: Checkout Source
+      uses: actions/checkout@v4
 
-      - name: Prepare www
-        run: |
-          mkdir -p www
-          cp game.html www/index.html
-          cp background.png www/
-          cp chest.png www/
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
 
-      - name: Install Node 22
-        run: |
-          cd /tmp
-          wget -q https://nodejs.org/dist/v22.11.0/node-v22.11.0-linux-x64.tar.xz
-          tar -xf node-v22.11.0-linux-x64.tar.xz
-          rm -f /usr/local/bin/node /usr/local/bin/npm /usr/local/bin/npx
-          ln -sf /tmp/node-v22.11.0-linux-x64/bin/node /usr/local/bin/node
-          ln -sf /tmp/node-v22.11.0-linux-x64/bin/npm /usr/local/bin/npm
-          ln -sf /tmp/node-v22.11.0-linux-x64/bin/npx /usr/local/bin/npx
-          hash -r
+    - name: Setup Java JDK
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'zulu'
+        java-version: '21'
 
-      - name: Install Java 21
-        run: |
-          cd /tmp
-          wget -q https://download.java.net/java/GA/jdk21.0.2/f2283984656d49d69e91c558476027ac/13/GPL/openjdk-21.0.2_linux-x64_bin.tar.gz
-          tar -xzf openjdk-21.0.2_linux-x64_bin.tar.gz
-          mv jdk-21.0.2 /opt/java21
-          echo "JAVA_HOME=/opt/java21" >> $GITHUB_ENV
-          echo "/opt/java21/bin" >> $GITHUB_PATH
+    - name: Install Capacitor CLI & Core
+      run: |
+        npm install -g @capacitor/cli
+        npm install @capacitor/core @capacitor/android
 
-      - name: Install Capacitor
-        run: |
-          npm install -g @capacitor/cli
-          npm install @capacitor/core @capacitor/cli @capacitor/android
+    - name: Init Capacitor and Prepare WWW
+      run: |
+        # Создаем конфиг Capacitor
+        cat <<EOF > capacitor.config.json
+        {
+          "appId": "com.jkoin.game",
+          "appName": "JKOIN",
+          "webDir": "www"
+        }
+        EOF
+        
+        # Создаем папку www и копируем туда ВСЁ
+        mkdir -p www
+        cp game.html www/index.html
+        cp background.png www/ || true
+        cp chest.png www/ || true
+        cp icon.png www/ || true
+        cp сумка.png www/ || true
+        cp -r legendary www/ || true
+        
+        # Добавляем платформу Android
+        npx cap add android
+        npx cap sync android
 
-      - name: Init Capacitor
-        run: |
-          npx cap init "JKOIN" "com.jkartie.game" --web-dir=www
-          npx cap add android
-          npx cap sync
+    - name: Restore Keystore
+      env:
+        KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+      run: |
+        echo "$KEYSTORE_BASE64" | base64 -d > android/app/jkoin.keystore
 
-      - name: Generate icons
-        run: |
-          npm install -g @capacitor/assets
-          mkdir -p resources
-          cp icon.png resources/icon.png
-          npx capacitor-assets generate --android || true
+    - name: Build Android APK
+      working-directory: android
+      run: |
+        chmod +x gradlew
+        ./gradlew assembleRelease \
+          -Pandroid.injected.signing.store.file=$(pwd)/app/jkoin.keystore \
+          -Pandroid.injected.signing.store.password=${{ secrets.KEYSTORE_PASSWORD }} \
+          -Pandroid.injected.signing.key.alias=${{ secrets.KEY_ALIAS }} \
+          -Pandroid.injected.signing.key.password=${{ secrets.KEY_PASSWORD }}
 
-      - name: Decode Keystore
-        run: |
-          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/jkoin.keystore
-          ls -la android/jkoin.keystore
-
-      - name: Build APK
-        working-directory: android
-        env:
-          JAVA_HOME: /opt/java21
-        run: |
-          export JAVA_HOME=/opt/java21
-          export PATH=/opt/java21/bin:$PATH
-          chmod +x gradlew
-          ./gradlew assembleRelease \
-            -Pandroid.injected.signing.store.file=$PWD/jkoin.keystore \
-            -Pandroid.injected.signing.store.password=${{ secrets.KEYSTORE_PASSWORD }} \
-            -Pandroid.injected.signing.key.alias=${{ secrets.KEY_ALIAS }} \
-            -Pandroid.injected.signing.key.password=${{ secrets.KEY_PASSWORD }}
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: jkoin-game-apk
-          path: android/app/build/outputs/apk/release/app-release.apk
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: JKOIN-APK
+        path: android/app/build/outputs/apk/release/app-release.apk

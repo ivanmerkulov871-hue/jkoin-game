@@ -73,7 +73,6 @@
     color: #ddd;
   }
   .attempts-info span { color: #f9c74f; font-weight: bold; }
-
   .attempts-timer {
     text-align: center; margin-bottom: 10px;
     font-size: 12px; color: #f87171;
@@ -143,101 +142,50 @@
   }
   .back-btn:hover { background: rgba(255, 255, 255, 0.15); }
 
-  /* ===== СТЕНА КОЛЛЕКЦИИ ===== */
-  .wall-header {
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
+  /* ===== СТЕНА КОЛЛЕКЦИИ (4x2) ===== */
+  .wall-header { position: relative; display: flex; align-items: center; margin-bottom: 10px; }
   .wall-back-arrow {
-    position: absolute;
-    left: 0;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    cursor: pointer;
-    color: #f9c74f;
+    position: absolute; left: 0; width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; cursor: pointer; color: #f9c74f;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 50%;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-    transition: 0.2s;
-    user-select: none;
-    z-index: 2;
+    transition: 0.2s; user-select: none; z-index: 2;
   }
   .wall-back-arrow:hover { background: rgba(255, 255, 255, 0.15); transform: scale(1.05); }
-  .wall-header h2 {
-    width: 100%;
-    margin: 0;
-  }
+  .wall-header h2 { width: 100%; margin: 0; }
 
   .wall-grid-new {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 6px;
-    margin-bottom: 12px;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 10px; margin-bottom: 12px;
   }
   .wall-slot-new {
-    aspect-ratio: 1/1;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 4px;
-    position: relative;
-    cursor: pointer;
-    transition: 0.2s;
-    font-size: 9px;
-    color: #888;
+    aspect-ratio: 1/1; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 4px; position: relative;
+    cursor: pointer; transition: 0.2s; font-size: 10px; color: #888;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.05);
     border: 2px dashed rgba(255, 255, 255, 0.2);
-    word-break: break-word;
-    line-height: 1.1;
+    word-break: break-word; line-height: 1.1;
   }
   .wall-slot-new:hover { border-color: #f9c74f; transform: scale(1.05); }
   .wall-slot-new.filled { border: 2px solid; color: #fff; }
-  .wall-slot-new.filled.epic {
-    border-color: #9c27b0;
-    box-shadow: 0 0 8px #9c27b0, inset 0 0 8px rgba(156, 39, 176, 0.3);
-    background: linear-gradient(180deg, rgba(74, 27, 110, 0.5), rgba(156, 39, 176, 0.2));
-  }
-  .wall-slot-new.filled.elite {
-    border-color: #4caf50;
-    box-shadow: 0 0 8px #4caf50, inset 0 0 8px rgba(76, 175, 80, 0.3);
-    background: linear-gradient(180deg, rgba(27, 94, 32, 0.5), rgba(76, 175, 80, 0.2));
-  }
-  .wall-slot-new.filled.chrom {
-    border-color: #ff9800;
-    box-shadow: 0 0 8px #ff9800, inset 0 0 8px rgba(255, 152, 0, 0.3);
-    background: linear-gradient(180deg, rgba(110, 59, 27, 0.5), rgba(255, 152, 0, 0.2));
-  }
-  .wall-slot-new.filled.legend {
-    border-color: #f44336;
-    box-shadow: 0 0 8px #f44336, inset 0 0 8px rgba(244, 67, 54, 0.3);
-    background: linear-gradient(180deg, rgba(110, 27, 27, 0.5), rgba(244, 67, 54, 0.2));
-  }
-  .wall-slot-new .wall-edit-icon {
-    position: absolute;
-    top: 2px; right: 2px;
-    font-size: 10px;
-    opacity: 0.7;
-  }
+  .wall-slot-new.filled.epic { border-color: #9c27b0; box-shadow: 0 0 10px #9c27b0, inset 0 0 10px rgba(156, 39, 176, 0.3); background: linear-gradient(180deg, rgba(74, 27, 110, 0.5), rgba(156, 39, 176, 0.2)); }
+  .wall-slot-new.filled.elite { border-color: #4caf50; box-shadow: 0 0 10px #4caf50, inset 0 0 10px rgba(76, 175, 80, 0.3); background: linear-gradient(180deg, rgba(27, 94, 32, 0.5), rgba(76, 175, 80, 0.2)); }
+  .wall-slot-new.filled.chrom { border-color: #ff9800; box-shadow: 0 0 10px #ff9800, inset 0 0 10px rgba(255, 152, 0, 0.3); background: linear-gradient(180deg, rgba(110, 59, 27, 0.5), rgba(255, 152, 0, 0.2)); }
+  .wall-slot-new.filled.legend { border-color: #f44336; box-shadow: 0 0 10px #f44336, inset 0 0 10px rgba(244, 67, 54, 0.3); background: linear-gradient(180deg, rgba(110, 27, 27, 0.5), rgba(244, 67, 54, 0.2)); }
+  .wall-slot-new .wall-edit-icon { position: absolute; top: 4px; right: 4px; font-size: 12px; opacity: 0.7; }
 
   .wall-collection-price {
     text-align: center; font-size: 13px; color: #ddd;
     padding: 10px; border-radius: 10px;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
@@ -246,22 +194,20 @@
 
   /* ===== БАНК ===== */
   .bank-balance {
-    text-align: center; padding: 14px;
-    border-radius: 10px; margin-bottom: 10px; font-size: 15px;
+    text-align: center; padding: 14px; border-radius: 10px;
+    margin-bottom: 10px; font-size: 15px;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   }
   .bank-balance span { color: #f9c74f; font-weight: bold; }
   .bank-info {
-    text-align: center; padding: 10px;
-    border-radius: 10px; margin-bottom: 10px; font-size: 13px;
+    text-align: center; padding: 10px; border-radius: 10px;
+    margin-bottom: 10px; font-size: 13px;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
     color: #ddd;
@@ -269,168 +215,72 @@
   .bank-info span { color: #4ade80; font-weight: bold; }
 
   .bank-btn {
-    display: block; width: 100%;
-    color: #fff; border: none;
-    padding: 16px; border-radius: 10px;
-    font-size: 15px; cursor: pointer;
-    margin-bottom: 10px; text-align: center;
+    display: block; width: 100%; color: #fff; border: none;
+    padding: 16px; border-radius: 10px; font-size: 15px;
+    cursor: pointer; margin-bottom: 10px; text-align: center;
     font-weight: bold; transition: 0.2s;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   }
   .bank-btn:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-2px); }
-  .bank-btn.credit {
-    background: linear-gradient(135deg, rgba(244, 67, 54, 0.3), rgba(233, 30, 99, 0.3));
-    border: 1px solid rgba(244, 67, 54, 0.6);
-  }
-  .bank-btn.deposit {
-    background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(139, 195, 74, 0.3));
-    border: 1px solid rgba(76, 175, 80, 0.6);
-  }
-  .bank-btn.withdraw {
-    background: linear-gradient(135deg, rgba(255, 152, 0, 0.3), rgba(255, 193, 7, 0.3));
-    border: 1px solid rgba(255, 152, 0, 0.6);
-  }
+  .bank-btn.credit { background: linear-gradient(135deg, rgba(244, 67, 54, 0.3), rgba(233, 30, 99, 0.3)); border: 1px solid rgba(244, 67, 54, 0.6); }
+  .bank-btn.deposit { background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(139, 195, 74, 0.3)); border: 1px solid rgba(76, 175, 80, 0.6); }
+  .bank-btn.withdraw { background: linear-gradient(135deg, rgba(255, 152, 0, 0.3), rgba(255, 193, 7, 0.3)); border: 1px solid rgba(255, 152, 0, 0.6); }
 
   /* ===== СОБЫТИЯ ===== */
-  .events-layout {
-    display: flex;
-    gap: 8px;
-    flex: 1;
-    margin-bottom: 10px;
-  }
-  .events-sidebar {
-    flex: 0 0 90px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    overflow-y: auto;
-    padding-right: 2px;
-  }
+  .events-layout { display: flex; gap: 8px; flex: 1; margin-bottom: 10px; }
+  .events-sidebar { flex: 0 0 90px; display: flex; flex-direction: column; gap: 8px; overflow-y: auto; padding-right: 2px; }
   .event-banner {
-    aspect-ratio: 1/1;
-    border-radius: 10px;
-    position: relative;
-    cursor: pointer;
-    transition: 0.2s;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    text-align: center;
-    padding: 6px;
-    color: #fff;
-    word-break: break-word;
-    line-height: 1.1;
+    aspect-ratio: 1/1; border-radius: 10px; position: relative;
+    cursor: pointer; transition: 0.2s; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; text-align: center; padding: 6px; color: #fff;
+    word-break: break-word; line-height: 1.1;
   }
-  .event-banner.legend {
-    background: linear-gradient(135deg, #f44336, #ff9800, #f9c74f);
-    border: 2px solid #f9c74f;
-  }
-  .event-banner.epic {
-    background: linear-gradient(135deg, #9c27b0, #673ab7);
-    border: 2px solid #9c27b0;
-  }
+  .event-banner.legend { background: linear-gradient(135deg, #f44336, #ff9800, #f9c74f); border: 2px solid #f9c74f; }
+  .event-banner.epic { background: linear-gradient(135deg, #9c27b0, #673ab7); border: 2px solid #9c27b0; }
+  .event-banner.image { background-size: cover; background-position: center; }
   .event-banner:hover { transform: scale(1.05); }
-  .event-banner.active {
-    outline: 3px solid #f9c74f;
-    box-shadow: 0 0 15px #f9c74f;
-  }
+  .event-banner.active { outline: 3px solid #f9c74f; box-shadow: 0 0 15px #f9c74f; }
   .event-banner .event-timer {
-    position: absolute;
-    bottom: 4px;
-    right: 4px;
-    font-size: 9px;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 2px 5px;
-    border-radius: 6px;
-    font-weight: bold;
+    position: absolute; bottom: 4px; right: 4px;
+    font-size: 9px; color: #fff; background: rgba(0, 0, 0, 0.6);
+    padding: 2px 5px; border-radius: 6px; font-weight: bold;
   }
-  .event-banner .event-title {
-    font-size: 10px;
-    font-weight: bold;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.9);
-  }
+  .event-banner .event-title { font-size: 10px; font-weight: bold; text-shadow: 0 1px 4px rgba(0,0,0,0.9); }
 
   .event-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 10px;
-    padding: 16px;
-    text-align: center;
-    color: #888;
-    font-size: 14px;
+    border-radius: 10px; padding: 16px; text-align: center;
+    color: #888; font-size: 14px;
   }
-  .event-main-content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .event-main-content .event-name {
-    color: #f9c74f;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 6px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
-  }
-  .event-main-content .event-timer-big {
-    color: #f87171;
-    font-size: 13px;
-    margin-bottom: 12px;
-  }
-  .event-main-content .event-desc {
-    color: #ddd;
-    font-size: 13px;
-    margin-bottom: 16px;
-    line-height: 1.4;
-  }
+  .event-main-content { width: 100%; display: flex; flex-direction: column; align-items: center; }
+  .event-main-content .event-name { color: #f9c74f; font-size: 18px; font-weight: bold; margin-bottom: 6px; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
+  .event-main-content .event-timer-big { color: #f87171; font-size: 13px; margin-bottom: 12px; }
+  .event-main-content .event-desc { color: #ddd; font-size: 12px; margin-bottom: 16px; line-height: 1.4; }
   .event-prize {
-    width: 120px;
-    height: 120px;
-    border-radius: 12px;
+    width: 140px; height: 140px; border-radius: 12px;
     background: linear-gradient(180deg, #2d0000, #6e1b1b);
     border: 3px solid #f44336;
     box-shadow: 0 0 20px #f44336, inset 0 0 15px rgba(244, 67, 54, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 13px;
-    font-weight: bold;
-    text-align: center;
-    padding: 10px;
-    margin-bottom: 16px;
-    word-break: break-word;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 13px; font-weight: bold;
+    text-align: center; padding: 10px; margin-bottom: 16px;
+    word-break: break-word; overflow: hidden;
   }
-  .event-spin-btns {
-    display: flex;
-    gap: 8px;
-    width: 100%;
-  }
+  .event-prize img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+  .event-spin-btns { display: flex; gap: 8px; width: 100%; }
   .event-spin-btns button {
-    flex: 1;
-    padding: 14px;
-    border-radius: 10px;
-    border: none;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    color: #fff;
+    flex: 1; padding: 14px; border-radius: 10px; border: none;
+    font-size: 15px; font-weight: bold; cursor: pointer; color: #fff;
     transition: 0.2s;
     background: linear-gradient(135deg, rgba(249, 199, 79, 0.3), rgba(255, 152, 0, 0.3));
     border: 1px solid rgba(249, 199, 79, 0.6);
@@ -438,111 +288,91 @@
   }
   .event-spin-btns button:hover { transform: translateY(-2px); background: linear-gradient(135deg, rgba(249, 199, 79, 0.5), rgba(255, 152, 0, 0.5)); }
 
-  /* Модалка выпадения события */
   .event-reward-box {
     background: rgba(22, 33, 62, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(249, 199, 79, 0.4);
     border-top: 2px solid rgba(249, 199, 79, 0.7);
-    border-radius: 16px;
-    padding: 24px;
-    max-width: 360px;
-    width: 100%;
-    text-align: center;
+    border-radius: 16px; padding: 24px;
+    max-width: 360px; width: 100%; text-align: center;
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
   }
-  .event-reward-box .reward-title {
-    color: #f9c74f;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 16px;
-  }
-  .event-reward-grid {
-    display: grid;
-    gap: 6px;
-    margin-bottom: 16px;
-  }
-  .event-reward-grid.single {
-    grid-template-columns: 1fr;
-  }
-  .event-reward-grid.multi {
-    grid-template-columns: repeat(5, 1fr);
-  }
+  .event-reward-box .reward-title { color: #f9c74f; font-size: 18px; font-weight: bold; margin-bottom: 16px; }
+  .event-reward-grid { display: grid; gap: 6px; margin-bottom: 16px; }
+  .event-reward-grid.single { grid-template-columns: 1fr; }
+  .event-reward-grid.multi { grid-template-columns: repeat(5, 1fr); }
   .event-reward-item {
-    aspect-ratio: 1/1;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 9px;
-    color: #fff;
-    padding: 4px;
-    text-align: center;
-    word-break: break-word;
-    line-height: 1.1;
-    font-weight: bold;
+    aspect-ratio: 1/1; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; color: #fff; padding: 4px; text-align: center;
+    word-break: break-word; line-height: 1.1; font-weight: bold;
     background: rgba(255, 255, 255, 0.08);
-    border: 2px solid;
+    border: 2px solid; overflow: hidden; position: relative;
   }
-  .event-reward-item.epic {
-    border-color: #9c27b0;
-    background: linear-gradient(180deg, rgba(74, 27, 110, 0.7), rgba(156, 39, 176, 0.4));
-    box-shadow: 0 0 8px #9c27b0;
-  }
-  .event-reward-item.elite {
-    border-color: #4caf50;
-    background: linear-gradient(180deg, rgba(27, 94, 32, 0.7), rgba(76, 175, 80, 0.4));
-    box-shadow: 0 0 8px #4caf50;
-  }
-  .event-reward-item.chrom {
-    border-color: #ff9800;
-    background: linear-gradient(180deg, rgba(110, 59, 27, 0.7), rgba(255, 152, 0, 0.4));
-    box-shadow: 0 0 8px #ff9800;
-  }
-  .event-reward-item.legend {
-    border-color: #f44336;
-    background: linear-gradient(180deg, rgba(110, 27, 27, 0.7), rgba(244, 67, 54, 0.4));
-    box-shadow: 0 0 8px #f44336;
-  }
-  .event-reward-item.coins {
-    border-color: #f9c74f;
-    background: linear-gradient(180deg, rgba(74, 59, 27, 0.7), rgba(249, 199, 79, 0.4));
-    box-shadow: 0 0 8px #f9c74f;
-  }
-  .event-reward-box .reward-actions {
-    display: flex;
-    gap: 8px;
-  }
+  .event-reward-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; position: absolute; top: 0; left: 0; }
+  .event-reward-item .reward-text-overlay { position: relative; z-index: 2; background: rgba(0,0,0,0.5); padding: 2px 4px; border-radius: 4px; font-size: 8px; }
+  .event-reward-item.epic { border-color: #9c27b0; background: linear-gradient(180deg, rgba(74, 27, 110, 0.7), rgba(156, 39, 176, 0.4)); box-shadow: 0 0 8px #9c27b0; }
+  .event-reward-item.elite { border-color: #4caf50; background: linear-gradient(180deg, rgba(27, 94, 32, 0.7), rgba(76, 175, 80, 0.4)); box-shadow: 0 0 8px #4caf50; }
+  .event-reward-item.chrom { border-color: #ff9800; background: linear-gradient(180deg, rgba(110, 59, 27, 0.7), rgba(255, 152, 0, 0.4)); box-shadow: 0 0 8px #ff9800; }
+  .event-reward-item.legend { border-color: #f44336; background: linear-gradient(180deg, rgba(110, 27, 27, 0.7), rgba(244, 67, 54, 0.4)); box-shadow: 0 0 8px #f44336; }
+  .event-reward-item.coins { border-color: #f9c74f; background: linear-gradient(180deg, rgba(74, 59, 27, 0.7), rgba(249, 199, 79, 0.4)); box-shadow: 0 0 8px #f9c74f; }
+  .event-reward-box .reward-actions { display: flex; gap: 8px; }
   .event-reward-box .reward-actions button {
-    flex: 1;
-    padding: 12px;
-    border-radius: 10px;
-    border: none;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    color: #fff;
+    flex: 1; padding: 12px; border-radius: 10px; border: none;
+    font-size: 14px; font-weight: bold; cursor: pointer; color: #fff;
     transition: 0.2s;
   }
-  .event-reward-box .reward-actions .ok-btn {
-    background: linear-gradient(135deg, #16a34a, #4ade80);
-  }
-  .event-reward-box .reward-actions .again-btn {
-    background: linear-gradient(135deg, rgba(249, 199, 79, 0.3), rgba(255, 152, 0, 0.3));
-    border: 1px solid rgba(249, 199, 79, 0.6);
-  }
+  .event-reward-box .reward-actions .ok-btn { background: linear-gradient(135deg, #16a34a, #4ade80); }
+  .event-reward-box .reward-actions .again-btn { background: linear-gradient(135deg, rgba(249, 199, 79, 0.3), rgba(255, 152, 0, 0.3)); border: 1px solid rgba(249, 199, 79, 0.6); }
   .event-reward-box .reward-actions button:hover { transform: translateY(-2px); }
 
-  /* ===== ОСТАЛЬНОЕ ===== */
+  /* ===== КОЛЛАБОРАЦИИ ===== */
+  .collab-content {
+    padding: 20px; border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    margin-bottom: 12px; text-align: center;
+  }
+  .collab-content h3 { color: #f9c74f; font-size: 18px; margin-bottom: 12px; }
+  .collab-content p { color: #ddd; font-size: 14px; line-height: 1.5; margin-bottom: 16px; }
+  .collab-btn {
+    display: flex; align-items: center;
+    padding: 12px 16px; border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    margin-bottom: 10px; cursor: pointer; transition: 0.2s;
+    color: #fff; width: 100%; text-align: left;
+  }
+  .collab-btn:hover { background: rgba(255, 255, 255, 0.15); transform: translateX(4px); }
+  .collab-btn .collab-icon {
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-right: 12px; flex-shrink: 0; font-size: 18px;
+  }
+  .collab-btn .collab-icon.tg { background: #229ED9; }
+  .collab-btn .collab-icon.tt { background: #000; color: #fff; }
+  .collab-btn .collab-label { font-size: 14px; font-weight: bold; }
+
+  .shut-text-prize {
+    font-size: 18px; font-weight: bold; color: #f44336;
+    text-shadow: 0 0 20px #f44336, 0 0 40px #ff00ff;
+    padding: 20px; border-radius: 12px;
+    border: 2px solid #f44336;
+    box-shadow: 0 0 20px #f44336;
+  }
+
+  /* ===== ЯЩИКИ / ЛУТ ===== */
   .chest {
     color: #fff; padding: 14px; border-radius: 10px; font-size: 15px;
     cursor: pointer; display: flex; justify-content: space-between;
     align-items: center; transition: 0.2s;
     margin-bottom: 8px; width: 100%;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
@@ -558,8 +388,7 @@
     align-items: center; justify-content: center;
     position: relative; overflow: hidden;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
@@ -574,16 +403,11 @@
     z-index: 3000; animation: fadeIn 0.3s ease;
   }
   .chest-anim-overlay.hidden { display: none; }
-  .chest-anim-content {
-    position: relative; display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    width: 100%; height: 100%;
-  }
+  .chest-anim-content { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; }
   .chest-img {
     width: 240px; height: 240px;
     background-image: url('chest.png');
-    background-size: cover;
-    background-position: center;
+    background-size: cover; background-position: center;
     border-radius: 16px;
     filter: drop-shadow(0 0 30px rgba(249, 199, 79, 0.5));
   }
@@ -626,8 +450,7 @@
     text-shadow: 0 0 20px #f9c74f, 0 0 40px #ff00ff;
     padding: 12px 24px; border-radius: 12px;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 2px solid rgba(249, 199, 79, 0.6);
     box-shadow: 0 0 30px rgba(249, 199, 79, 0.6);
   }
@@ -643,7 +466,6 @@
     margin-bottom: 10px;
   }
   @keyframes coinSpin { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
-
   .safe {
     width: 100px; height: 90px;
     background: linear-gradient(180deg, #4a4a4a 0%, #2a2a2a 100%);
@@ -658,34 +480,11 @@
     box-shadow: 0 0 8px #f9c74f;
   }
   @keyframes safeShake { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
-
-  .truck {
-    width: 140px; height: 70px;
-    position: relative; margin-bottom: 10px;
-    animation: truckBounce 0.4s ease infinite;
-  }
-  .truck-body {
-    position: absolute; left: 0; top: 10px;
-    width: 90px; height: 45px;
-    background: linear-gradient(180deg, #ffcc00, #cc9900);
-    border: 2px solid #8b6508; border-radius: 4px;
-  }
-  .truck-cab {
-    position: absolute; right: 0; top: 20px;
-    width: 45px; height: 35px;
-    background: linear-gradient(180deg, #ffcc00, #cc9900);
-    border: 2px solid #8b6508;
-    border-radius: 4px 8px 4px 4px;
-  }
-  .truck-wheel {
-    position: absolute; bottom: 0;
-    width: 18px; height: 18px;
-    background: #222; border-radius: 50%;
-    border: 3px solid #555;
-  }
-  .truck-wheel.w1 { left: 15px; }
-  .truck-wheel.w2 { left: 45px; }
-  .truck-wheel.w3 { right: 15px; }
+  .truck { width: 140px; height: 70px; position: relative; margin-bottom: 10px; animation: truckBounce 0.4s ease infinite; }
+  .truck-body { position: absolute; left: 0; top: 10px; width: 90px; height: 45px; background: linear-gradient(180deg, #ffcc00, #cc9900); border: 2px solid #8b6508; border-radius: 4px; }
+  .truck-cab { position: absolute; right: 0; top: 20px; width: 45px; height: 35px; background: linear-gradient(180deg, #ffcc00, #cc9900); border: 2px solid #8b6508; border-radius: 4px 8px 4px 4px; }
+  .truck-wheel { position: absolute; bottom: 0; width: 18px; height: 18px; background: #222; border-radius: 50%; border: 3px solid #555; }
+  .truck-wheel.w1 { left: 15px; } .truck-wheel.w2 { left: 45px; } .truck-wheel.w3 { right: 15px; }
   @keyframes truckBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
 
   .card-reveal {
@@ -694,42 +493,18 @@
     border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
     color: #fff; font-size: 13px; text-align: center;
-    padding: 10px;
-    position: relative; margin-bottom: 10px;
-    word-break: break-word;
+    padding: 10px; position: relative; margin-bottom: 10px;
+    word-break: break-word; overflow: hidden;
   }
-  .card-reveal.epic {
-    border: 3px solid #9c27b0;
-    box-shadow: 0 0 20px #9c27b0, 0 0 40px rgba(156, 39, 176, 0.5);
-    background: linear-gradient(180deg, #1a1a2e, #4a1b6e);
-  }
-  .card-reveal.elite {
-    border: 3px solid #4caf50;
-    box-shadow: 0 0 20px #4caf50, 0 0 40px rgba(76, 175, 80, 0.5);
-    background: linear-gradient(180deg, #1a1a2e, #1b5e20);
-  }
-  .card-reveal.chrom {
-    border: 3px solid #ff9800;
-    box-shadow: 0 0 20px #ff9800, 0 0 40px rgba(255, 152, 0, 0.5);
-    background: linear-gradient(180deg, #2d1b00, #6e3b1b);
-  }
-  .card-reveal.legend {
-    border: 3px solid #f44336;
-    box-shadow: 0 0 20px #f44336, 0 0 40px rgba(244, 67, 54, 0.5);
-    background: linear-gradient(180deg, #2d0000, #6e1b1b);
-  }
+  .card-reveal img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; position: absolute; top: 0; left: 0; }
+  .card-reveal .card-text-overlay { position: relative; z-index: 2; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 6px; font-size: 11px; }
+  .card-reveal.epic { border: 3px solid #9c27b0; box-shadow: 0 0 20px #9c27b0, 0 0 40px rgba(156, 39, 176, 0.5); background: linear-gradient(180deg, #1a1a2e, #4a1b6e); }
+  .card-reveal.elite { border: 3px solid #4caf50; box-shadow: 0 0 20px #4caf50, 0 0 40px rgba(76, 175, 80, 0.5); background: linear-gradient(180deg, #1a1a2e, #1b5e20); }
+  .card-reveal.chrom { border: 3px solid #ff9800; box-shadow: 0 0 20px #ff9800, 0 0 40px rgba(255, 152, 0, 0.5); background: linear-gradient(180deg, #2d1b00, #6e3b1b); }
+  .card-reveal.legend { border: 3px solid #f44336; box-shadow: 0 0 20px #f44336, 0 0 40px rgba(244, 67, 54, 0.5); background: linear-gradient(180deg, #2d0000, #6e1b1b); }
 
-  .confetti-full {
-    position: fixed; top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 9999; overflow: hidden;
-  }
-  .confetti-full .confetti {
-    position: absolute; width: 8px; height: 14px;
-    top: -20px; opacity: 0;
-    animation: confettiFall 3s linear infinite;
-  }
+  .confetti-full { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; overflow: hidden; }
+  .confetti-full .confetti { position: absolute; width: 8px; height: 14px; top: -20px; opacity: 0; animation: confettiFall 3s linear infinite; }
   @keyframes confettiFall {
     0% { top: -20px; opacity: 1; transform: rotate(0deg); }
     100% { top: 105%; opacity: 0; transform: rotate(720deg); }
@@ -740,11 +515,9 @@
     flex: 1; min-width: 70px; padding: 8px 4px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 8px;
-    font-size: 12px; cursor: pointer; color: #fff;
+    border-radius: 8px; font-size: 12px; cursor: pointer; color: #fff;
     opacity: 0.85;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
     transition: 0.2s;
   }
@@ -762,15 +535,16 @@
     display: flex; justify-content: space-between; align-items: center;
     cursor: pointer; transition: 0.2s;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   }
   .card.owned { color: #fff; }
   .card.owned:hover { background: rgba(255, 255, 255, 0.15); }
-  .card.missing { background: rgba(20, 20, 20, 0.4); color: #666; cursor: default; }
+  /* ФИКС: невыбитые карты тоже кликабельны — cursor: pointer */
+  .card.missing { background: rgba(20, 20, 20, 0.4); color: #666; cursor: pointer; }
+  .card.missing:hover { background: rgba(40, 40, 40, 0.55); }
   .card .badge { font-size: 11px; opacity: 0.7; }
 
   .hist-item {
@@ -778,8 +552,7 @@
     margin-bottom: 6px; font-size: 13px;
     display: flex; justify-content: space-between;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
@@ -800,32 +573,81 @@
     color: #fff; border: none;
     border-radius: 10px; font-size: 15px; cursor: pointer;
     background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-top: 1px solid rgba(255, 255, 255, 0.4);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   }
 
+  /* ===== МОДАЛКА КАРТЫ (коллекция) ===== */
+  .card-modal-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-modal-img {
+    width: min(78vw, 320px);
+    aspect-ratio: 1/1;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #1a1a2e, #2d1b4e);
+  }
+  .card-modal-img.epic { border: 3px solid #9c27b0; box-shadow: 0 0 20px #9c27b0, 0 0 40px rgba(156, 39, 176, 0.5); background: linear-gradient(180deg, #1a1a2e, #4a1b6e); }
+  .card-modal-img.elite { border: 3px solid #4caf50; box-shadow: 0 0 20px #4caf50, 0 0 40px rgba(76, 175, 80, 0.5); background: linear-gradient(180deg, #1a1a2e, #1b5e20); }
+  .card-modal-img.chrom { border: 3px solid #ff9800; box-shadow: 0 0 20px #ff9800, 0 0 40px rgba(255, 152, 0, 0.5); background: linear-gradient(180deg, #2d1b00, #6e3b1b); }
+  .card-modal-img.legend { border: 3px solid #f44336; box-shadow: 0 0 20px #f44336, 0 0 40px rgba(244, 67, 54, 0.5); background: linear-gradient(180deg, #2d0000, #6e1b1b); }
+  .card-modal-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    position: absolute; top: 0; left: 0;
+  }
+  .card-modal-img .card-modal-noimg {
+    font-size: 20px; font-weight: bold; color: #fff;
+    text-align: center; padding: 16px; word-break: break-word;
+    line-height: 1.3;
+  }
+  .card-modal-caption {
+    margin-top: 10px;
+    font-size: 16px; font-weight: bold;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    max-width: 90vw;
+    word-break: break-word;
+  }
+  .card-modal-close {
+    position: absolute;
+    top: -14px; right: -14px;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; cursor: pointer; color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transition: 0.2s; user-select: none;
+    z-index: 5;
+  }
+  .card-modal-close:hover { background: rgba(255, 255, 255, 0.3); transform: scale(1.08); }
+
   .input-modal-box {
     background: rgba(22, 33, 62, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(249, 199, 79, 0.4);
     border-top: 2px solid rgba(249, 199, 79, 0.7);
-    border-radius: 16px;
-    padding: 24px;
-    max-width: 340px;
-    width: 100%;
+    border-radius: 16px; padding: 24px;
+    max-width: 340px; width: 100%;
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
   }
-  .input-modal-box h3 {
-    color: #f9c74f; text-align: center;
-    margin-bottom: 16px; font-size: 18px;
-  }
+  .input-modal-box h3 { color: #f9c74f; text-align: center; margin-bottom: 16px; font-size: 18px; }
   .input-modal-box input {
-    width: 100%; padding: 14px;
-    border-radius: 10px;
+    width: 100%; padding: 14px; border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     background: rgba(255, 255, 255, 0.08);
     color: #fff; font-size: 16px;
@@ -835,29 +657,20 @@
   .input-modal-box input:focus { border-color: #f9c74f; }
   .input-modal-box .modal-actions { display: flex; gap: 8px; }
   .input-modal-box .modal-actions button {
-    flex: 1; padding: 12px;
-    border-radius: 10px; border: none;
-    font-size: 14px; font-weight: bold;
-    cursor: pointer; transition: 0.2s;
-    color: #fff;
+    flex: 1; padding: 12px; border-radius: 10px; border: none;
+    font-size: 14px; font-weight: bold; cursor: pointer;
+    transition: 0.2s; color: #fff;
   }
-  .input-modal-box .modal-actions .confirm {
-    background: linear-gradient(135deg, #16a34a, #4ade80);
-  }
-  .input-modal-box .modal-actions .cancel {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
+  .input-modal-box .modal-actions .confirm { background: linear-gradient(135deg, #16a34a, #4ade80); }
+  .input-modal-box .modal-actions .cancel { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); }
   .input-modal-box .modal-actions button:hover { transform: translateY(-2px); }
 
   .stub-box {
     border: 2px solid rgba(249, 199, 79, 0.5);
     border-radius: 12px; padding: 30px 20px;
-    max-width: 320px; width: 100%;
-    text-align: center;
+    max-width: 320px; width: 100%; text-align: center;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
     border-top: 2px solid rgba(249, 199, 79, 0.8);
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
   }
@@ -868,11 +681,9 @@
   .ad-box {
     border: 2px solid rgba(249, 199, 79, 0.5);
     border-radius: 12px; padding: 30px 20px;
-    max-width: 320px; width: 100%;
-    text-align: center;
+    max-width: 320px; width: 100%; text-align: center;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
     border-top: 2px solid rgba(249, 199, 79, 0.8);
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
   }
@@ -885,12 +696,10 @@
   .path-container { position: relative; margin-bottom: 14px; padding: 4px 0; }
   .path-reward-display {
     text-align: center; padding: 10px; margin-bottom: 8px;
-    border-radius: 10px; font-size: 13px;
-    min-height: 55px;
+    border-radius: 10px; font-size: 13px; min-height: 55px;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(249, 199, 79, 0.4);
     border-top: 1px solid rgba(249, 199, 79, 0.6);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
@@ -904,12 +713,10 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 24px; cursor: pointer; border-radius: 50%;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
-    color: #f9c74f;
-    transition: 0.2s; user-select: none;
+    color: #f9c74f; transition: 0.2s; user-select: none;
   }
   .path-arrow:hover:not(.disabled) { background: rgba(255, 255, 255, 0.15); transform: scale(1.05); }
   .path-arrow.disabled { opacity: 0.2; cursor: not-allowed; }
@@ -920,30 +727,17 @@
     border-radius: 9px; overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.15);
     position: relative;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   }
-  .progress-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #16a34a, #4ade80);
-    border-radius: 9px;
-    transition: width 0.5s ease;
-  }
-  .progress-text-center {
-    text-align: center; font-size: 11px;
-    color: #ccc; margin-top: 6px;
-  }
+  .progress-bar-fill { height: 100%; background: linear-gradient(90deg, #16a34a, #4ade80); border-radius: 9px; transition: width 0.5s ease; }
+  .progress-text-center { text-align: center; font-size: 11px; color: #ccc; margin-top: 6px; }
 
-  .quests-title {
-    text-align: center; color: #f9c74f;
-    font-size: 14px; margin-bottom: 8px;
-  }
+  .quests-title { text-align: center; color: #f9c74f; font-size: 14px; margin-bottom: 8px; }
   .quest-item {
     padding: 10px 12px; border-radius: 10px;
     margin-bottom: 6px; font-size: 12px;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
@@ -964,13 +758,11 @@
   .levelup-content { text-align: center; position: relative; padding: 30px; }
   .levelup-close {
     position: absolute; top: 10px; right: 10px;
-    width: 40px; height: 40px;
-    border-radius: 50%;
+    width: 40px; height: 40px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     font-size: 22px; cursor: pointer; color: #fff;
     background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     transition: 0.2s; user-select: none;
   }
@@ -991,22 +783,13 @@
     margin-top: 20px; font-size: 16px; color: #4ade80;
     padding: 12px 20px; border-radius: 10px;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   }
-  .fireworks {
-    position: absolute; top: 50%; left: 50%;
-    width: 10px; height: 10px;
-    pointer-events: none;
-  }
-  .firework-particle {
-    position: absolute; width: 6px; height: 6px;
-    border-radius: 50%;
-    animation: fireworkOut 1.2s ease-out forwards;
-  }
+  .fireworks { position: absolute; top: 50%; left: 50%; width: 10px; height: 10px; pointer-events: none; }
+  .firework-particle { position: absolute; width: 6px; height: 6px; border-radius: 50%; animation: fireworkOut 1.2s ease-out forwards; }
   @keyframes fireworkOut {
     0% { transform: translate(0, 0) scale(1); opacity: 1; }
     100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
@@ -1015,105 +798,49 @@
   .wheel-screen-layout { display: flex; gap: 8px; margin-bottom: 10px; flex: 1; }
   .wheel-side-history {
     flex: 0 0 90px; height: auto; min-height: 280px;
-    border-radius: 12px; overflow: hidden;
-    position: relative;
+    border-radius: 12px; overflow: hidden; position: relative;
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   }
-  .wheel-side-history::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0;
-    height: 30px;
-    background: linear-gradient(180deg, rgba(22, 33, 62, 0.9), transparent);
-    z-index: 2; pointer-events: none;
-  }
-  .wheel-side-history::after {
-    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-    height: 30px;
-    background: linear-gradient(0deg, rgba(22, 33, 62, 0.9), transparent);
-    z-index: 2; pointer-events: none;
-  }
-  .wheel-history-list {
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
-    padding: 10px 6px;
-    display: flex;
-    flex-direction: column-reverse;
-  }
-  .wheel-history-line {
-    font-size: 10px; color: #ddd;
-    margin-bottom: 6px; line-height: 1.3;
-    word-wrap: break-word;
-    animation: historySlideIn 0.6s ease;
-  }
-  @keyframes historySlideIn {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
+  .wheel-side-history::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 30px; background: linear-gradient(180deg, rgba(22, 33, 62, 0.9), transparent); z-index: 2; pointer-events: none; }
+  .wheel-side-history::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 30px; background: linear-gradient(0deg, rgba(22, 33, 62, 0.9), transparent); z-index: 2; pointer-events: none; }
+  .wheel-history-list { position: absolute; left: 0; right: 0; bottom: 0; padding: 10px 6px; display: flex; flex-direction: column-reverse; }
+  .wheel-history-line { font-size: 10px; color: #ddd; margin-bottom: 6px; line-height: 1.3; word-wrap: break-word; animation: historySlideIn 0.6s ease; }
+  @keyframes historySlideIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
   .wheel-history-line.win { color: #4ade80; }
-  .wheel-history-empty {
-    position: absolute; top: 50%; left: 0; right: 0;
-    transform: translateY(-50%);
-    text-align: center; color: #666; font-size: 10px;
-  }
+  .wheel-history-empty { position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); text-align: center; color: #666; font-size: 10px; }
   .wheel-main { flex: 1; display: flex; flex-direction: column; align-items: center; }
   .wheel-wrapper { position: relative; width: 100%; max-width: 240px; aspect-ratio: 1/1; margin-bottom: 10px; }
-  .wheel-arrow {
-    position: absolute; top: -12px; left: 50%;
-    transform: translateX(-50%);
-    font-size: 32px; color: #f9c74f;
-    text-shadow: 0 0 10px #f9c74f;
-    z-index: 10;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
-  }
+  .wheel-arrow { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); font-size: 32px; color: #f9c74f; text-shadow: 0 0 10px #f9c74f; z-index: 10; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8)); }
   .wheel-disc {
-    width: 100%; height: 100%;
-    border-radius: 50%;
-    position: relative;
+    width: 100%; height: 100%; border-radius: 50%; position: relative;
     border: 6px solid #f9c74f;
     box-shadow: 0 0 30px rgba(249, 199, 79, 0.5), inset 0 0 20px rgba(0,0,0,0.5);
     transition: transform 5s cubic-bezier(0.15, 0.9, 0.2, 1);
-    overflow: hidden;
-    background: #1a1a2e;
+    overflow: hidden; background: #1a1a2e;
   }
   .wheel-center {
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50px; height: 50px;
-    border-radius: 50%;
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 50px; height: 50px; border-radius: 50%;
     background: radial-gradient(circle, #f9c74f, #b8860b);
     border: 3px solid #8b6508;
     display: flex; align-items: center; justify-content: center;
-    font-size: 18px; font-weight: bold;
-    color: #5c4000;
-    z-index: 5;
-    box-shadow: 0 0 15px rgba(249, 199, 79, 0.8);
+    font-size: 18px; font-weight: bold; color: #5c4000;
+    z-index: 5; box-shadow: 0 0 15px rgba(249, 199, 79, 0.8);
   }
-  .wheel-lamp {
-    position: absolute;
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: #f9c74f;
-    box-shadow: 0 0 8px #f9c74f;
-    animation: lampBlink 0.6s infinite alternate;
-  }
-  @keyframes lampBlink {
-    0% { opacity: 0.4; transform: scale(0.9); }
-    100% { opacity: 1; transform: scale(1.1); }
-  }
+  .wheel-lamp { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: #f9c74f; box-shadow: 0 0 8px #f9c74f; animation: lampBlink 0.6s infinite alternate; }
+  @keyframes lampBlink { 0% { opacity: 0.4; transform: scale(0.9); } 100% { opacity: 1; transform: scale(1.1); } }
   .wheel-sector-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
   .wheel-spin-btn {
-    width: 100%; padding: 14px;
-    border-radius: 10px; font-size: 14px;
-    cursor: pointer; color: #fff; border: none;
-    margin-bottom: 6px; transition: 0.2s;
+    width: 100%; padding: 14px; border-radius: 10px; font-size: 14px;
+    cursor: pointer; color: #fff; border: none; margin-bottom: 6px;
+    transition: 0.2s;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(249, 199, 79, 0.4);
     border-top: 1px solid rgba(249, 199, 79, 0.6);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
@@ -1121,35 +848,17 @@
   }
   .wheel-spin-btn:hover:not(:disabled) { background: rgba(255, 255, 255, 0.15); transform: translateY(-2px); }
   .wheel-spin-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-  .wheel-win-modal {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.92);
-    display: flex; align-items: center; justify-content: center;
-    z-index: 2500;
-  }
+  .wheel-win-modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.92); display: flex; align-items: center; justify-content: center; z-index: 2500; }
   .wheel-win-modal.hidden { display: none; }
   .wheel-win-content { text-align: center; padding: 30px; position: relative; animation: fadeIn 0.5s ease; z-index: 1; }
-  .wheel-win-close {
-    position: absolute; top: -10px; right: -10px;
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 22px; cursor: pointer; color: #fff;
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    animation: fadeIn 0.5s ease 1s both;
-  }
+  .wheel-win-close { position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; cursor: pointer; color: #fff; background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.3); animation: fadeIn 0.5s ease 1s both; }
   .wheel-win-close:hover { background: rgba(255, 255, 255, 0.25); }
   .wheel-win-prize {
     font-size: 28px; font-weight: bold; color: #f9c74f;
     text-shadow: 0 0 20px #f9c74f, 0 0 40px #ff00ff;
-    padding: 30px 20px;
-    border-radius: 16px; margin-bottom: 16px;
+    padding: 30px 20px; border-radius: 16px; margin-bottom: 16px;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 2px solid rgba(249, 199, 79, 0.6);
     box-shadow: 0 0 40px rgba(249, 199, 79, 0.6);
     animation: prizeGlow 1.5s ease infinite;
@@ -1164,14 +873,12 @@
   .donate-item {
     padding: 14px; border-radius: 10px;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     cursor: pointer; transition: 0.2s;
-    display: flex; justify-content: space-between;
-    align-items: center; text-align: left;
+    display: flex; justify-content: space-between; align-items: center; text-align: left;
   }
   .donate-item:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-2px); }
   .donate-item .donate-name { font-size: 13px; color: #fff; font-weight: bold; }
@@ -1179,31 +886,23 @@
 
   .bank-list { display: flex; flex-direction: column; gap: 8px; max-height: 450px; overflow-y: auto; padding-right: 4px; }
   .bank-item {
-    display: flex; align-items: center;
-    padding: 12px; border-radius: 10px;
+    display: flex; align-items: center; padding: 12px; border-radius: 10px;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     cursor: pointer; transition: 0.2s;
   }
   .bank-item:hover { background: rgba(255, 255, 255, 0.15); transform: translateX(4px); }
-  .bank-icon {
-    width: 40px; height: 40px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px; font-weight: bold;
-    color: #fff; margin-right: 12px; flex-shrink: 0;
-  }
+  .bank-icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: bold; color: #fff; margin-right: 12px; flex-shrink: 0; }
   .bank-name { color: #fff; font-size: 14px; }
   .bank-arrow { margin-left: auto; color: #f9c74f; font-size: 18px; }
 
   .pay-info {
     text-align: center; padding: 20px; border-radius: 12px;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: 1px solid rgba(255, 255, 255, 0.35);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
@@ -1212,27 +911,20 @@
   .pay-info .pay-label { color: #aaa; font-size: 12px; margin-bottom: 6px; }
   .pay-info .pay-value { color: #f9c74f; font-size: 22px; font-weight: bold; margin-bottom: 12px; }
   .pay-info .pay-sum { color: #4ade80; font-size: 28px; font-weight: bold; }
-  .pay-redirect {
-    text-align: center; color: #fff; font-size: 14px;
-    margin-bottom: 12px; padding: 12px; border-radius: 10px;
-    background: rgba(255, 255, 255, 0.08);
-  }
+  .pay-redirect { text-align: center; color: #fff; font-size: 14px; margin-bottom: 12px; padding: 12px; border-radius: 10px; background: rgba(255, 255, 255, 0.08); }
   .pay-btn {
-    width: 100%; padding: 16px; border-radius: 12px;
-    font-size: 16px; font-weight: bold; color: #fff; border: none;
-    cursor: pointer;
+    width: 100%; padding: 16px; border-radius: 12px; font-size: 16px;
+    font-weight: bold; color: #fff; border: none; cursor: pointer;
     background: linear-gradient(135deg, #16a34a, #4ade80);
     box-shadow: 0 4px 20px rgba(74, 222, 128, 0.5);
     transition: 0.2s; margin-bottom: 10px;
   }
   .pay-btn:hover { transform: translateY(-2px); }
   .pay-btn-cancel {
-    width: 100%; padding: 12px; border-radius: 10px;
-    font-size: 14px; color: #fff; border: none;
-    cursor: pointer;
+    width: 100%; padding: 12px; border-radius: 10px; font-size: 14px;
+    color: #fff; border: none; cursor: pointer;
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     transition: 0.2s;
   }
@@ -1258,7 +950,7 @@
       <button class="menu-btn" id="btnBank" onclick="goTo('bankScreen', 'left', 'left')">БАНК</button>
       <button class="menu-btn" id="btnProfile" onclick="showProfileStub()">ПРОФИЛЬ</button>
       <button class="menu-btn" id="btnEvents" onclick="goTo('eventsScreen', 'right', 'right')">СОБЫТИЯ</button>
-      <button class="menu-btn" id="btnCollab" onclick="showCollabStub()">КОЛЛАБОРАЦИИ</button>
+      <button class="menu-btn" id="btnCollab" onclick="goTo('collabScreen', 'right', 'right')">КОЛЛАБОРАЦИИ</button>
       <button class="menu-btn menu-btn-full" id="btnDonate" onclick="goTo('donateScreen', 'down', 'left')">ДОНАТ</button>
     </div>
   </div>
@@ -1299,12 +991,12 @@
 
   <div id="collectionScreen" class="screen hidden">
     <h2>Коллекция карт</h2>
-    <div class="balance">Собрано: <span id="collected">0</span> / 400</div>
+    <div class="balance">Собрано: <span id="collected">0</span> / 401</div>
     <div class="rarity-btns">
       <button class="r-epic" onclick="showRarity('epic', event)">Эпик (110)</button>
       <button class="r-elite" onclick="showRarity('elite', event)">Элит (200)</button>
       <button class="r-chrom" onclick="showRarity('chrom', event)">Хром (70)</button>
-      <button class="r-legend" onclick="showRarity('legend', event)">Легенд (20)</button>
+      <button class="r-legend" onclick="showRarity('legend', event)">Легенд (21)</button>
     </div>
     <div class="card-list" id="cardList"></div>
     <button class="back-btn" onclick="showScreen('menuScreen')">В меню</button>
@@ -1365,7 +1057,7 @@
     <button class="back-btn" onclick="showScreen('menuScreen')">В меню</button>
   </div>
 
-  <div id="bankScreen" class="screen hidden">
+  <div id="payBankScreen" class="screen hidden">
     <h2>Выберите банк</h2>
     <div class="pay-info">
       <div class="pay-label">Товар</div>
@@ -1389,7 +1081,7 @@
     </div>
     <div class="pay-redirect" id="payRedirect">Перенаправление в Сбербанк...</div>
     <button class="pay-btn" onclick="confirmPayment()">Я оплатил</button>
-    <button class="pay-btn-cancel" onclick="showScreen('bankScreen')">Отмена</button>
+    <button class="pay-btn-cancel" onclick="showScreen('payBankScreen')">Отмена</button>
   </div>
 
   <div id="eventsScreen" class="screen hidden">
@@ -1405,12 +1097,40 @@
     </div>
   </div>
 
+  <div id="collabScreen" class="screen hidden">
+    <div class="wall-header">
+      <div class="wall-back-arrow" onclick="showScreen('menuScreen')">←</div>
+      <h2>КОЛЛАБОРАЦИИ</h2>
+    </div>
+    <div class="collab-content">
+      <h3>SEA ABYSS</h3>
+      <p>Здравствуйте! JKOIN совместно с SEA ABYSS сделали коллаборацию с 18.10 до 20.11 2026!</p>
+      <button class="collab-btn" onclick="window.open('https://t.me/seaabyssinf0', '_blank')">
+        <div class="collab-icon tg">✈️</div>
+        <div class="collab-label">Инфо канал</div>
+      </button>
+      <button class="collab-btn" onclick="window.open('https://t.me/seaabysslife', '_blank')">
+        <div class="collab-icon tg">✈️</div>
+        <div class="collab-label">Лайф канал</div>
+      </button>
+      <button class="collab-btn" onclick="window.open('https://www.tiktok.com/@sea.abyss2?_r=1&_t=ZS-9Aeesa5yEQI', '_blank')">
+        <div class="collab-icon tt">♪</div>
+        <div class="collab-label">TikTok</div>
+      </button>
+    </div>
+    <button class="back-btn" onclick="showScreen('menuScreen')">В меню</button>
+  </div>
+
 </div>
 
+<!-- ===== МОДАЛКА КАРТЫ (коллекция): карта + подпись ПОД картой + крестик сбоку ===== -->
 <div id="cardModal" class="modal hidden">
   <div class="modal-content">
-    <div class="card-reveal" id="modalCard"><div id="modalCardText">Карта</div></div>
-    <button class="close-btn" onclick="closeModal()">Закрыть</button>
+    <div class="card-modal-wrap">
+      <div class="card-modal-close" onclick="closeModal()">✕</div>
+      <div class="card-modal-img" id="modalCardImg"></div>
+      <div class="card-modal-caption" id="modalCardCaption"></div>
+    </div>
   </div>
 </div>
 
@@ -1499,7 +1219,7 @@ const ELITE = ["Кентавр-лучник","Минотавр","Гарпия","
 
 const CHROM = ["Хромовый рыцарь","Призматический охотник","Спектральный маг","Радужный фантом","Кристальный волк","Ирисовый убийца","Неоновый воин","Кварцевый голем","Оптический клинок","Лавандовый скиталец","Кристальный кентавр","Призматический минотавр","Радужная гарпия","Спектральная сирена","Ирисовый грифон","Хромовая гидра","Мозаичный цербер","Оптический пегас","Кварцевый единорог","Лавандовая дриада","Мятный сатир","Бирюзовый циклоп","Пурпурный огр","Хамелеон-тролль","Пиксельный гоблин","Лазерный орк","Голографический эльф","Изумрудный тёмный эльф","Алмазный гном","Рубиновый дварф","Радужный оборотень","Аметистовый вампир","Призматический лич","Неоновый некромант","Хрустальный скелет","Оптический призрак","Голографическая банши","Бирюзовый джинн","Фуксиевый ифрит","Радужный демон","Спектральный суккуб","Призматический архидемон","Хрустальный ангел","Алмазный архангел","Золотой серафим","Серебряная валькирия","Кристальный берсерк","Неоновый викинг","Ледяной хроматический гигант","Огненный спектральный гигант","Мозаичный кракен","Оптический левиафан","Радужный морской змей","Призматический русал","Спектральная русалка","Неоновый тритон","Кристальный дракон","Радужный дракон","Оптический дракон","Алмазный феникс","Призматический феникс","Хрустальный волк","Неоновый тигр","Голографический орёл","Радужный хранитель","Лавандовый страж","Бирюзовый элементаль","Ирисовый дух леса","Кварцевый дух воды","Радужный вестник"];
 
-const LEGEND = ["Багровый рыцарь","Галактический страж","Хранитель небес","Монарх снов","Сердце льда","Драконий пик","Король тьмы","Песнь благоговенных снов","Желание бабочки","Астрикс","Архангел судьбы","Игрок №1","Проводник души","Мерцающий клинок","Марс","SHUT","SjLORDIK","Relax I'm Qwell","Sartex","Denim Tears"];
+const LEGEND = ["Багровый рыцарь","Галактический страж","Хранитель небес","Монарх снов","Сердце льда","Драконий пик","Король тьмы","Песнь благоговенных снов","Желание бабочки","Астрикс","Архангел судьбы","Игрок №1","Проводник души","Мерцающий клинок","Марс","SHUT","SjLORDIK","Relax I'm Qwell","Sartex","Denim Tears","SEVI"];
 
 const CARD_PRICES = { epic: 500, elite: 1000, chrom: 2500, legend: 5000 };
 
@@ -1579,20 +1299,28 @@ const EVENTS = [
     description: "Эксклюзивное событие! Разыгрываем легендарную карту Sartex. Шанс выпадения — 1%. Крути и получи легендарку!",
     bannerClass: "legend",
     bannerText: "Sartex",
-    endDate: Date.now() + 30 * 24 * 60 * 60 * 1000,
+    endDate: new Date("2026-11-15T23:59:59").getTime(),
     price1: 100,
     price10: 1000,
     mainPrize: { type: "legend", name: "Sartex" },
     mainPrizeChance: 1,
     mainPrizeLimit: 1,
-    rates: {
-      coinsSmall: 79,
-      coinsBig: 1,
-      epic: 10,
-      elite: 6,
-      chrom: 3,
-      main: 1
-    }
+    rates: { coinsSmall: 79, coinsBig: 1, epic: 10, elite: 6, chrom: 3, main: 1 }
+  },
+  {
+    id: "sevi_abyss",
+    name: "Бездна зовёт тебя",
+    description: "В честь коллаборации с SEA ABYSS мы выпускаем 21 легендарку SEVI !! Шанс выпадения = 0,7%. Карточку можно будет выбить только в течении события что пройдет с 18 октября до 20 ноября!",
+    bannerClass: "legend image",
+    bannerImage: "legendary/banner_sevi.png",
+    bannerText: "SEVI",
+    endDate: new Date("2026-11-20T23:59:59").getTime(),
+    price1: 100,
+    price10: 1000,
+    mainPrize: { type: "legend", name: "SEVI" },
+    mainPrizeChance: 0.7,
+    mainPrizeLimit: 1,
+    rates: { coinsSmall: 79.3, coinsBig: 1, epic: 10, elite: 6, chrom: 3, main: 0.7 }
   }
 ];
 
@@ -1646,7 +1374,8 @@ function loadState() {
     if (!s.lastAd) s.lastAd = 0;
     if (s.xp === undefined) s.xp = 0;
     if (s.level === undefined) s.level = 1;
-    if (!s.wall) s.wall = Array(10).fill(null);
+    if (!s.wall) s.wall = Array(8).fill(null);
+    if (s.wall.length > 8) s.wall = s.wall.slice(0, 8);
     if (!s.quests) s.quests = null;
     if (!s.lastQuestDate) s.lastQuestDate = null;
     if (!s.claimedLevels) s.claimedLevels = {};
@@ -1663,6 +1392,7 @@ function loadState() {
     if (!s.lastCreditPay) s.lastCreditPay = Date.now();
     if (!s.lastDepositUpdate) s.lastDepositUpdate = Date.now();
     if (!s.eventSartexDone) s.eventSartexDone = false;
+    if (!s.eventSeviDone) s.eventSeviDone = false;
     checkAttemptsReset(s);
     checkVipDailyXP(s);
     checkCredit(s);
@@ -1673,7 +1403,7 @@ function loadState() {
   return {
     balance: 200, attempts: MAX_ATTEMPTS, history: [], collection: {},
     lastFree: 0, lastAttemptsReset: Date.now(), lastAd: 0,
-    xp: 0, level: 1, wall: Array(10).fill(null),
+    xp: 0, level: 1, wall: Array(8).fill(null),
     quests: null, lastQuestDate: null,
     claimedLevels: {}, pendingLevelUps: [],
     wheelAttempts: 0,
@@ -1681,7 +1411,8 @@ function loadState() {
     vipUntil: 0, lastVipXP: null,
     credit: 0, deposit: 0, depositStart: 0,
     lastMonthlyTax: Date.now(), lastCreditPay: Date.now(), lastDepositUpdate: Date.now(),
-    eventSartexDone: false
+    eventSartexDone: false,
+    eventSeviDone: false
   };
 }
 
@@ -1869,7 +1600,6 @@ function spawnFireworks(parent) {
     setTimeout(() => p.remove(), 1500);
   }
 }
-
 function showScreen(id) {
   document.querySelectorAll(".screen").forEach(el => el.classList.add("hidden"));
   document.getElementById(id).classList.remove("hidden");
@@ -1882,6 +1612,7 @@ function showScreen(id) {
   if (id === "wheelScreen") renderWheel();
   if (id === "donateScreen") renderDonate();
   if (id === "bankScreen") renderBankScreen();
+  if (id === "payBankScreen") renderBanks();
   if (id === "eventsScreen") renderEventsScreen();
 }
 
@@ -1891,7 +1622,7 @@ function goTo(targetId, direction, side) {
     collectionScreen: "btnCollection", wallScreen: "btnWall",
     progressScreen: "btnProgress", historyScreen: "btnHistory",
     donateScreen: "btnDonate", bankScreen: "btnBank",
-    eventsScreen: "btnEvents"
+    eventsScreen: "btnEvents", collabScreen: "btnCollab"
   };
   const btn = document.getElementById(btnMap[targetId]);
   if (btn) {
@@ -2120,6 +1851,7 @@ function playChestAnimation(reward) {
   }, 4000);
 }
 
+// ===== ИСПРАВЛЕННЫЙ getLootHTML: картинка ТОЛЬКО для легендарок =====
 function getLootHTML(reward) {
   if (reward.type === "coins") {
     if (reward.amount < 100) {
@@ -2129,10 +1861,14 @@ function getLootHTML(reward) {
     } else {
       return '<div class="truck"><div class="truck-body"></div><div class="truck-cab"></div><div class="truck-wheel w1"></div><div class="truck-wheel w2"></div><div class="truck-wheel w3"></div></div><div class="chest-loot-text">+' + reward.amount + ' JKOIN</div>';
     }
-  } else {
-    const rarityNames = { epic: "ЭПИЧЕСКАЯ", elite: "ЭЛИТНАЯ", chrom: "ХРОМАТИЧЕСКАЯ", legend: "ЛЕГЕНДАРНАЯ" };
-    return '<div class="card-reveal ' + reward.type + '">' + reward.name + '</div><div class="chest-loot-text">' + rarityNames[reward.type] + ' КАРТА!</div>';
   }
+  const rarityNames = { epic: "ЭПИЧЕСКАЯ", elite: "ЭЛИТНАЯ", chrom: "ХРОМАТИЧЕСКАЯ", legend: "ЛЕГЕНДАРНАЯ" };
+  const idx = reward.type === "legend" ? LEGEND.indexOf(reward.name) : -1;
+  if (idx >= 0) {
+    const imgPath = `legendary/legend_${idx + 1}.png`;
+    return `<div class="card-reveal ${reward.type}"><img src="${imgPath}" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><div class="card-text-overlay" style="display:none;">${reward.name}</div></div><div class="chest-loot-text">${rarityNames[reward.type]} КАРТА!</div>`;
+  }
+  return `<div class="card-reveal ${reward.type}"><div class="card-text-overlay" style="display:block;">${reward.name}</div></div><div class="chest-loot-text">${rarityNames[reward.type]} КАРТА!</div>`;
 }
 
 function animateRewardInBox(reward, text) {
@@ -2185,7 +1921,8 @@ function renderCollection() {
     const div = document.createElement("div");
     div.className = "card " + (has ? "owned" : "missing");
     div.innerHTML = `<span>${i+1}. ${name}</span><span class="badge">${has ? "x" + state.collection[key] : "—"}</span>`;
-    if (has) div.onclick = () => openCardModal(name, currentRarity);
+    // ФИКС: клик работает для ВСЕХ карт — и выбитых, и нет
+    div.onclick = () => openCardModal(name, currentRarity);
     container.appendChild(div);
   });
 }
@@ -2195,21 +1932,44 @@ function showRarity(r, ev) {
   if (ev) ev.target.classList.add("active");
   renderCollection();
 }
+
+// ===== НОВАЯ openCardModal: карта + подпись ПОД картой + крестик сбоку =====
 function openCardModal(name, rarity) {
   const modal = document.getElementById("cardModal");
-  const card = document.getElementById("modalCard");
-  card.className = "card-reveal " + rarity;
-  document.getElementById("modalCardText").textContent = name;
+  const imgWrap = document.getElementById("modalCardImg");
+  const caption = document.getElementById("modalCardCaption");
+
+  imgWrap.className = "card-modal-img " + rarity;
+  imgWrap.innerHTML = "";
+
+  let imgPath = "";
+  if (rarity === "legend") {
+    const idx = LEGEND.indexOf(name);
+    if (idx >= 0) imgPath = `legendary/legend_${idx + 1}.png`;
+  }
+
+  if (imgPath) {
+    const img = document.createElement("img");
+    img.src = imgPath;
+    img.onerror = function () {
+      imgWrap.innerHTML = `<div class="card-modal-noimg">${name}</div>`;
+    };
+    imgWrap.appendChild(img);
+  } else {
+    imgWrap.innerHTML = `<div class="card-modal-noimg">${name}</div>`;
+  }
+
+  caption.textContent = name;
   modal.classList.remove("hidden");
 }
 function closeModal() { document.getElementById("cardModal").classList.add("hidden"); }
 
-// ===== СТЕНА =====
+// ===== СТЕНА (4x2) =====
 function renderWall() {
   const grid = document.getElementById("wallGridNew");
   grid.innerHTML = "";
   let totalPrice = 0;
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 8; i++) {
     const slot = document.createElement("div");
     const card = state.wall[i];
     if (card) {
@@ -2291,7 +2051,11 @@ function updatePathView() {
   const lvl = viewingLevel;
   const reward = getRewardForLevel(lvl);
   document.getElementById("viewLevelLabel").textContent = lvl;
-  document.getElementById("viewRewardText").textContent = reward.text;
+  if (lvl === 100) {
+    document.getElementById("viewRewardText").innerHTML = '<span class="shut-text-prize">SHUT</span>';
+  } else {
+    document.getElementById("viewRewardText").textContent = reward.text;
+  }
   let percent = 0;
   let xpText = "";
   if (lvl < state.level) { percent = 100; xpText = "Получено"; }
@@ -2504,6 +2268,7 @@ function applyWheelPrize(prize) {
   showWheelWin(rewardText);
 }
 
+// ===== ФИКС: label у новых секторов колеса =====
 function replaceWheelPrize(fromType) {
   const idx = state.wheelPrizes.findIndex(p => p.type === fromType);
   if (idx < 0) return;
@@ -2618,6 +2383,9 @@ function renderEventsScreen() {
   EVENTS.forEach(ev => {
     const banner = document.createElement("div");
     banner.className = "event-banner " + ev.bannerClass;
+    if (ev.bannerImage) {
+      banner.style.backgroundImage = `url('${ev.bannerImage}')`;
+    }
     const timeLeft = ev.endDate - Date.now();
     let timerText = "";
     if (timeLeft <= 0) {
@@ -2648,11 +2416,16 @@ function selectEvent(ev, bannerEl) {
     const mins = Math.floor((timeLeft % 3600000) / 60000);
     timerText = days + "д " + hours + "ч " + mins + "м";
   }
+  const prizeIndex = LEGEND.indexOf(ev.mainPrize.name);
+  const prizeImg = prizeIndex >= 0 ? `legendary/legend_${prizeIndex + 1}.png` : "";
+  const prizeHTML = prizeImg
+    ? `<div class="event-prize"><img src="${prizeImg}" onerror="this.style.display='none';this.parentElement.innerHTML='<div>${ev.mainPrize.name}</div>';"></div>`
+    : `<div class="event-prize"><div>${ev.mainPrize.name}</div></div>`;
   main.innerHTML = `
     <div class="event-main-content">
       <div class="event-name">${ev.name}</div>
       <div class="event-timer-big">⏰ До конца: ${timerText}</div>
-      <div class="event-prize">${ev.mainPrize.name}</div>
+      ${prizeHTML}
       <div class="event-desc">${ev.description}</div>
       <div class="event-spin-btns">
         <button onclick="spinEvent(1)">×1 (${ev.price1})</button>
@@ -2689,8 +2462,12 @@ function rollEventReward() {
   acc += ev.rates.elite; if (r < acc) return { type: "elite", name: pickRandom(ELITE) };
   acc += ev.rates.chrom; if (r < acc) return { type: "chrom", name: pickRandom(CHROM) };
   if (r < acc + ev.rates.main) {
-    if (!state.eventSartexDone && ev.mainPrizeLimit === 1) {
-      state.eventSartexDone = true;
+    let isDone = false;
+    if (ev.id === "sartex_hunt") isDone = state.eventSartexDone;
+    else if (ev.id === "sevi_abyss") isDone = state.eventSeviDone;
+    if (!isDone && ev.mainPrizeLimit === 1) {
+      if (ev.id === "sartex_hunt") state.eventSartexDone = true;
+      else if (ev.id === "sevi_abyss") state.eventSeviDone = true;
       return { type: "legend", name: ev.mainPrize.name };
     } else {
       return { type: "coins", amount: Math.floor(Math.random() * (5000 - 3000 + 1)) + 3000 };
@@ -2703,17 +2480,23 @@ function showEventRewards() {
   const modal = document.getElementById("eventRewardModal");
   const grid = document.getElementById("eventRewardGrid");
   const title = document.getElementById("eventRewardTitle");
-  title.textContent = lastEventSpinCount === 1 ? "Вы получили:" : "Вы получили 10 наград:";
+  title.textContent = lastEventSpinCount === 1 ? "Вы получили:" : "Вы получили " + lastEventSpinCount + " наград:";
   grid.className = "event-reward-grid " + (lastEventSpinCount === 1 ? "single" : "multi");
   grid.innerHTML = "";
   lastEventRewards.forEach(reward => {
     const div = document.createElement("div");
     if (reward.type === "coins") {
       div.className = "event-reward-item coins";
-      div.innerHTML = `<div>🪙<br>+${reward.amount}</div>`;
+      div.innerHTML = `<div class="reward-text-overlay">🪙 +${reward.amount}</div>`;
     } else {
       div.className = "event-reward-item " + reward.type;
-      div.innerHTML = `<div>${reward.name}</div>`;
+      const idx = LEGEND.indexOf(reward.name);
+      if (reward.type === "legend" && idx >= 0) {
+        const imgPath = `legendary/legend_${idx + 1}.png`;
+        div.innerHTML = `<img src="${imgPath}" onerror="this.style.display='none';this.nextElementSibling.style.display='block';"><div class="reward-text-overlay" style="display:none;">${reward.name}</div>`;
+      } else {
+        div.innerHTML = `<div class="reward-text-overlay">${reward.name}</div>`;
+      }
     }
     grid.appendChild(div);
   });
@@ -2730,7 +2513,6 @@ function showEventRewards() {
 }
 
 function closeEventReward() {
-  // Применяем награды
   lastEventRewards.forEach(reward => {
     if (reward.type === "coins") {
       state.balance += reward.amount;
@@ -2757,10 +2539,6 @@ function showProfileStub() {
   document.getElementById("stubText").textContent = "Профиль появится в следующем обновлении!";
   document.getElementById("stubModal").classList.remove("hidden");
 }
-function showCollabStub() {
-  document.getElementById("stubText").textContent = "Коллаборации появятся в следующем обновлении!";
-  document.getElementById("stubModal").classList.remove("hidden");
-}
 function closeStubModal() {
   document.getElementById("stubModal").classList.add("hidden");
 }
@@ -2782,8 +2560,7 @@ function selectDonateItem(item) {
   currentDonateItem = item;
   document.getElementById("bankPayItem").textContent = item.name;
   document.getElementById("bankPaySum").textContent = item.price + " ₽";
-  // БАГ ОСТАВЛЕН СПЕЦИАЛЬНО (фича беты): ведёт в банк игры
-  showScreen("bankScreen");
+  showScreen("payBankScreen");
 }
 
 function renderBanks() {
